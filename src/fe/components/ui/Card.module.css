@@ -1,0 +1,105 @@
+.card {
+  background: var(--color-bg-alt);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl) var(--space-lg);
+  transition: all var(--transition-base);
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 768px) {
+  .card {
+    padding: var(--space-lg) var(--space-md);
+  }
+}
+
+@media (max-width: 480px) {
+  .card {
+    padding: var(--space-md) var(--space-sm);
+  }
+}
+
+.card:hover {
+  box-shadow: var(--shadow-md);
+  border-color: var(--color-border);
+}
+
+/* ──── Variants ──── */
+.elevated {
+  box-shadow: var(--shadow-sm);
+  border-color: transparent;
+}
+
+.elevated:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-4px);
+}
+
+.outlined {
+  box-shadow: none;
+}
+
+.featured {
+  border: 2px solid var(--color-primary);
+  box-shadow: var(--shadow-glow);
+  position: relative;
+}
+
+.featured::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+}
+
+/* ──── Padding Sizes ──── */
+.compact {
+  padding: var(--space-sm);
+}
+
+.spacious {
+  padding: var(--space-xl);
+}
+
+/* ──── Card Header ──── */
+.cardHeader {
+  margin-bottom: var(--space-md);
+}
+
+.cardIcon {
+  font-size: 2rem;
+  margin-bottom: var(--space-sm);
+  display: block;
+}
+
+.cardTitle {
+  font-family: var(--font-heading);
+  font-size: var(--fs-h3);
+  font-weight: var(--fw-bold);
+  color: var(--color-text);
+  margin-bottom: var(--space-xs);
+}
+
+.cardDescription {
+  font-size: var(--fs-body);
+  color: var(--color-text-secondary);
+  line-height: var(--lh-body);
+}
+
+/* ──── Card Badge ──── */
+.cardBadge {
+  display: inline-block;
+  padding: var(--space-2xs) var(--space-sm);
+  background-color: var(--color-primary-50);
+  color: var(--color-primary);
+  font-size: var(--fs-caption);
+  font-weight: var(--fw-semibold);
+  border-radius: var(--radius-full);
+  margin-bottom: var(--space-sm);
+}

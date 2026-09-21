@@ -4,12 +4,15 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "ai": "node -e \"const cp = require('child_process'); const py = (process.env.LOCALAPPDATA || '') + '/Python/bin/python.exe'; cp.spawn(py, ['server.py'], { cwd: 'src/BE/python-ai', stdio: 'inherit' });\"",
     "build": "next build",
     "start": "next start",
     "lint": "eslint"
   },
   "dependencies": {
+    "@types/nodemailer": "^8.0.1",
     "next": "16.3.2",
+    "nodemailer": "^9.0.5",
     "react": "19.2.8",
     "react-dom": "19.2.8"
   },

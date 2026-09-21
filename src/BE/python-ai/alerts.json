@@ -1,0 +1,416 @@
+[
+  {
+    "id": "alert_1789934603142",
+    "type": "LEAD_PHONE",
+    "priority": "urgent",
+    "message": "Khách hàng Cô Lan (Test Next.js Proxy) (0905654321) đăng ký tư vấn [Chính sách 0Đ]. Nhu cầu: Đau nhức xương khớp",
+    "phone": "0905654321",
+    "metadata": {
+      "name": "Cô Lan (Test Next.js Proxy)",
+      "concern": "Đau nhức xương khớp",
+      "session_id": "test_auth_sess_next",
+      "captcha": "8H2M"
+    },
+    "timestamp": "2026-09-21 03:03:23",
+    "status": "pending"
+  },
+  {
+    "id": "alert_1789934603045",
+    "type": "LEAD_PHONE",
+    "priority": "urgent",
+    "message": "Khách hàng Bác Minh (Test Captcha) (0905123456) đăng ký tư vấn [Chính sách 0Đ]. Nhu cầu: Thải độc suy thận & vi tuần hoàn",
+    "phone": "0905123456",
+    "metadata": {
+      "name": "Bác Minh (Test Captcha)",
+      "concern": "Thải độc suy thận & vi tuần hoàn",
+      "session_id": "test_auth_sess_py",
+      "captcha": "7K9P"
+    },
+    "timestamp": "2026-09-21 03:03:23",
+    "status": "pending"
+  },
+  {
+    "id": "alert_1789878954334",
+    "type": "LEAD_PHONE",
+    "priority": "urgent",
+    "message": "Khách hàng Cô Lan (Test Next.js Proxy) (0905654321) đăng ký tư vấn [Chính sách 0Đ]. Nhu cầu: Đau nhức xương khớp",
+    "phone": "0905654321",
+    "metadata": {
+      "name": "Cô Lan (Test Next.js Proxy)",
+      "concern": "Đau nhức xương khớp",
+      "session_id": "test_auth_sess_next",
+      "captcha": "8H2M"
+    },
+    "timestamp": "2026-09-20 11:35:54",
+    "status": "pending"
+  },
+  {
+    "id": "alert_1789878954209",
+    "type": "LEAD_PHONE",
+    "priority": "urgent",
+    "message": "Khách hàng Bác Minh (Test Captcha) (0905123456) đăng ký tư vấn [Chính sách 0Đ]. Nhu cầu: Thải độc suy thận & vi tuần hoàn",
+    "phone": "0905123456",
+    "metadata": {
+      "name": "Bác Minh (Test Captcha)",
+      "concern": "Thải độc suy thận & vi tuần hoàn",
+      "session_id": "test_auth_sess_py",
+      "captcha": "7K9P"
+    },
+    "timestamp": "2026-09-20 11:35:54",
+    "status": "pending"
+  },
+  {
+    "id": "alert_1789784863854",
+    "type": "LEAD_PHONE",
+    "priority": "urgent",
+    "message": "Khách hàng Bác Hoàng (0905123456) đăng ký tư vấn [Chính sách 0Đ]. Nhu cầu: Thải độc suy thận",
+    "phone": "0905123456",
+    "metadata": {
+      "name": "Bác Hoàng",
+      "concern": "Thải độc suy thận",
+      "session_id": "nextjs_proxy_test"
+    },
+    "timestamp": "2026-09-19 09:27:43",
+    "status": "pending"
+  },
+  {
+    "id": "alert_1789784716730",
+    "type": "LEAD_PHONE",
+    "priority": "urgent",
+    "message": "Khách hàng Bác Minh (0905123456) đăng ký tư vấn [Chính sách 0Đ]. Nhu cầu: Thải độc suy thận",
+    "phone": "0905123456",
+    "metadata": {
+      "name": "Bác Minh",
+      "concern": "Thải độc suy thận",
+      "session_id": "test_auth_sess"
+    },
+    "timestamp": "2026-09-19 09:25:16",
+    "status": "pending"
+  },
+  {
+    "id": "alert_1789784697012",
+    "type": "LEAD_PHONE",
+    "priority": "urgent",
+    "message": "Khách hàng Bác Minh (0905123456) đăng ký tư vấn [Chính sách 0Đ]. Nhu cầu: Thải độc suy thận",
+    "phone": "0905123456",
+    "metadata": {
+      "name": "Bác Minh",
+      "concern": "Thải độc suy thận",
+      "session_id": "cust_1789784697006"
+    },
+    "timestamp": "2026-09-19 09:24:57",
+    "status": "pending"
+  },
+  {
+    "id": "alert_1789652145789",
+    "type": "UNRESOLVED_QUERY",
+    "priority": "medium",
+    "message": "tôi muốn mua hàng, ai tư vấn cho tôi",
+    "phone": null,
+    "metadata": {
+      "confidence": 0.0
+    },
+    "timestamp": "2026-09-17 20:35:45",
+    "status": "pending"
+  },
+  {
+    "id": "alert_1789652049295",
+    "type": "UNRESOLVED_QUERY",
+    "priority": "medium",
+    "message": "ai sẽ tư vấn cho tôi",
+    "phone": null,
+    "metadata": {
+      "confidence": 0.0
+    },
+    "timestamp": "2026-09-17 20:34:09",
+    "status": "pending"
+  },
+  {
+    "id": "alert_1789619173858",
+    "type": "UNRESOLVED_QUERY",
+    "priority": "medium",
+    "message": "ho tôi gặp trực tiếp nhân viên tư vấn chứ không nói chuyện với bot",
+    "phone": null,
+    "metadata": {
+      "confidence": 0.0
+    },
+    "timestamp": "2026-09-17 11:26:13",
+    "status": "pending"
+  },
+  {
+    "id": "alert_1789618655878",
+    "type": "UNRESOLVED_QUERY",
+    "priority": "medium",
+    "message": "ho tôi gặp trực tiếp nhân viên tư vấn chứ không nói chuyện với bot",
+    "phone": null,
+    "metadata": {
+      "confidence": 0.0
+    },
+    "timestamp": "2026-09-17 11:17:35",
+    "status": "pending"
+  },
+  {
+    "id": "alert_1789618461039",
+    "type": "UNRESOLVED_QUERY",
+    "priority": "medium",
+    "message": "ho tôi gặp trực tiếp nhân viên tư vấn chứ không nói chuyện với bot",
+    "phone": null,
+    "metadata": {
+      "confidence": 0.0
+    },
+    "timestamp": "2026-09-17 11:14:21",
+    "status": "pending"
+  },
+  {
+    "id": "alert_1789618406393",
+    "type": "UNRESOLVED_QUERY",
+    "priority": "medium",
+    "message": "ho tôi gặp trực tiếp nhân viên tư vấn chứ không nói chuyện với bot",
+    "phone": null,
+    "metadata": {
+      "confidence": 0.0
+    },
+    "timestamp": "2026-09-17 11:13:26",
+    "status": "pending"
+  },
+  {
+    "id": "alert_1789618309032",
+    "type": "UNRESOLVED_QUERY",
+    "priority": "medium",
+    "message": "Shop có bán kèm máy lọc nước và xe đạp tập thể dục không?",
+    "phone": null,
+    "metadata": {
+      "confidence": 0.0
+    },
+    "timestamp": "2026-09-17 11:11:49",
+    "status": "pending"
+  },
+  {
+    "id": "alert_1789618309030",
+    "type": "MEDICAL_ALERT",
+    "priority": "high",
+    "message": "Bố tôi vừa bị tai biến đột quỵ cách đây 2 tuần thì có xông hơi được không?",
+    "phone": null,
+    "metadata": {
+      "intent": "medical_caution"
+    },
+    "timestamp": "2026-09-17 11:11:49",
+    "status": "pending"
+  },
+  {
+    "id": "alert_1789618309028",
+    "type": "HUMAN_REQUEST",
+    "priority": "high",
+    "message": "Cho tôi gặp người thật để nói chuyện trực tiếp chứ không nhắn với bot",
+    "phone": null,
+    "metadata": {
+      "intent": "human_handover"
+    },
+    "timestamp": "2026-09-17 11:11:49",
+    "status": "pending"
+  },
+  {
+    "id": "alert_1789618309025",
+    "type": "URGENT_PURCHASE",
+    "priority": "urgent",
+    "message": "Cho mình xin số tài khoản để mình đặt cọc thuê máy 6 tháng luôn nhé",
+    "phone": null,
+    "metadata": {
+      "intent": "purchase_order"
+    },
+    "timestamp": "2026-09-17 11:11:49",
+    "status": "pending"
+  },
+  {
+    "id": "alert_1789618309022",
+    "type": "LEAD_PHONE",
+    "priority": "urgent",
+    "message": "Tôi ở Vỹ Dạ - Huế, hãy gọi lại số 0905.123.456 để tư vấn nhé",
+    "phone": "0905123456",
+    "metadata": {
+      "action": "lead_captured"
+    },
+    "timestamp": "2026-09-17 11:11:49",
+    "status": "pending"
+  },
+  {
+    "id": "alert_1789618215463",
+    "type": "UNRESOLVED_QUERY",
+    "priority": "medium",
+    "message": "ho tôi gặp trực tiếp nhân viên tư vấn chứ không nói chuyện với bot",
+    "phone": null,
+    "metadata": {
+      "confidence": 0.0
+    },
+    "timestamp": "2026-09-17 11:10:15",
+    "status": "pending"
+  },
+  {
+    "id": "alert_1789618205884",
+    "type": "UNRESOLVED_QUERY",
+    "priority": "medium",
+    "message": "ho tôi gặp trực tiếp nhân viên tư vấn chứ không nói chuyện với bot",
+    "phone": null,
+    "metadata": {
+      "confidence": 0.0
+    },
+    "timestamp": "2026-09-17 11:10:05",
+    "status": "pending"
+  },
+  {
+    "id": "alert_1789583350673",
+    "type": "UNRESOLVED_QUERY",
+    "priority": "medium",
+    "message": "hi, cậu hoàn chỉnh chưa",
+    "phone": null,
+    "metadata": {
+      "confidence": 0.0
+    },
+    "timestamp": "2026-09-17 01:29:10",
+    "status": "pending"
+  },
+  {
+    "id": "alert_1789583229619",
+    "type": "URGENT_PURCHASE",
+    "priority": "urgent",
+    "message": "Cho minh xin so tai khoan de coc thue may 6 thang nhe",
+    "phone": null,
+    "metadata": {
+      "intent": "purchase_order"
+    },
+    "timestamp": "2026-09-17 01:27:09",
+    "status": "pending"
+  },
+  {
+    "id": "alert_1789582447353",
+    "type": "URGENT_PURCHASE",
+    "priority": "urgent",
+    "message": "Cho minh xin so tai khoan de coc thue may 6 thang nhe",
+    "phone": null,
+    "metadata": {
+      "intent": "purchase_order"
+    },
+    "timestamp": "2026-09-17 01:14:07",
+    "status": "pending"
+  },
+  {
+    "id": "alert_1789582399568",
+    "type": "URGENT_PURCHASE",
+    "priority": "urgent",
+    "message": "Cho minh xin so tai khoan de coc thue may 6 thang nhe",
+    "phone": null,
+    "metadata": {
+      "intent": "purchase_order"
+    },
+    "timestamp": "2026-09-17 01:13:19",
+    "status": "pending"
+  },
+  {
+    "id": "alert_1789582100403",
+    "type": "UNRESOLVED_QUERY",
+    "priority": "medium",
+    "message": "Shop có bán kèm máy lọc nước và xe đạp tập thể dục không?",
+    "phone": null,
+    "metadata": {
+      "confidence": 0.0
+    },
+    "timestamp": "2026-09-17 01:08:20",
+    "status": "pending"
+  },
+  {
+    "id": "alert_1789582100400",
+    "type": "MEDICAL_ALERT",
+    "priority": "high",
+    "message": "Bố tôi vừa bị tai biến đột quỵ cách đây 2 tuần thì có xông hơi được không?",
+    "phone": null,
+    "metadata": {
+      "intent": "medical_caution"
+    },
+    "timestamp": "2026-09-17 01:08:20",
+    "status": "pending"
+  },
+  {
+    "id": "alert_1789582100398",
+    "type": "HUMAN_REQUEST",
+    "priority": "high",
+    "message": "Cho tôi gặp người thật để nói chuyện trực tiếp chứ không nhắn với bot",
+    "phone": null,
+    "metadata": {
+      "intent": "human_handover"
+    },
+    "timestamp": "2026-09-17 01:08:20",
+    "status": "pending"
+  },
+  {
+    "id": "alert_1789582100394",
+    "type": "URGENT_PURCHASE",
+    "priority": "urgent",
+    "message": "Cho mình xin số tài khoản để mình đặt cọc thuê máy 6 tháng luôn nhé",
+    "phone": null,
+    "metadata": {
+      "intent": "purchase_order"
+    },
+    "timestamp": "2026-09-17 01:08:20",
+    "status": "pending"
+  },
+  {
+    "id": "alert_1789582100390",
+    "type": "LEAD_PHONE",
+    "priority": "urgent",
+    "message": "Tôi ở Vỹ Dạ - Huế, hãy gọi lại số 0905.123.456 để tư vấn nhé",
+    "phone": "0905123456",
+    "metadata": {
+      "action": "lead_captured"
+    },
+    "timestamp": "2026-09-17 01:08:20",
+    "status": "pending"
+  },
+  {
+    "id": "alert_1789581998383",
+    "type": "MEDICAL_ALERT",
+    "priority": "high",
+    "message": "Bố tôi vừa bị tai biến đột quỵ cách đây 2 tuần thì có xông hơi được không?",
+    "phone": null,
+    "metadata": {
+      "intent": "medical_caution"
+    },
+    "timestamp": "2026-09-17 01:06:38",
+    "status": "pending"
+  },
+  {
+    "id": "alert_1789581998381",
+    "type": "HUMAN_REQUEST",
+    "priority": "high",
+    "message": "Cho tôi gặp người thật để nói chuyện trực tiếp chứ không nhắn với bot",
+    "phone": null,
+    "metadata": {
+      "intent": "human_handover"
+    },
+    "timestamp": "2026-09-17 01:06:38",
+    "status": "pending"
+  },
+  {
+    "id": "alert_1789581998314",
+    "type": "URGENT_PURCHASE",
+    "priority": "urgent",
+    "message": "Cho mình xin số tài khoản để mình đặt cọc thuê máy 6 tháng luôn nhé",
+    "phone": null,
+    "metadata": {
+      "intent": "purchase_order"
+    },
+    "timestamp": "2026-09-17 01:06:38",
+    "status": "pending"
+  },
+  {
+    "id": "alert_1789581998311",
+    "type": "LEAD_PHONE",
+    "priority": "urgent",
+    "message": "Tôi ở Vỹ Dạ - Huế, hãy gọi lại số 0905.123.456 để tư vấn nhé",
+    "phone": "0905123456",
+    "metadata": {
+      "action": "lead_captured"
+    },
+    "timestamp": "2026-09-17 01:06:38",
+    "status": "pending"
+  }
+]

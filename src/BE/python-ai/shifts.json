@@ -1,0 +1,72 @@
+[
+  {
+    "shift_id": "shift_1789928609_staff_01",
+    "staff_id": "staff_01",
+    "staff_name": "Bác sĩ Đức",
+    "staff_role": "Bác sĩ Hoàng Minh Đức — Chuyên viên YHCT",
+    "staff_avatar": "👨‍⚕️",
+    "check_in_time": "2026-09-21 01:23:29",
+    "check_out_time": null,
+    "duration_text": "Đang trực ca...",
+    "duration_minutes": 0,
+    "status": "active",
+    "replies_count": 0,
+    "date": "2026-09-21"
+  },
+  {
+    "shift_id": "shift_1789889304_staff_01",
+    "staff_id": "staff_01",
+    "staff_name": "Bác sĩ Đức",
+    "staff_role": "Bác sĩ Hoàng Minh Đức — Chuyên viên YHCT",
+    "staff_avatar": "👨‍⚕️",
+    "check_in_time": "2026-09-20 14:28:24",
+    "check_out_time": "2026-09-20 14:28:24",
+    "duration_text": "1 phút",
+    "duration_minutes": 0,
+    "status": "completed",
+    "replies_count": 1,
+    "date": "2026-09-20"
+  },
+  {
+    "shift_id": "shift_1789889236_staff_01",
+    "staff_id": "staff_01",
+    "staff_name": "Bác sĩ Đức",
+    "staff_role": "Bác sĩ Hoàng Minh Đức — Chuyên viên YHCT",
+    "staff_avatar": "👨‍⚕️",
+    "check_in_time": "2026-09-20 14:27:16",
+    "check_out_time": "2026-09-20 14:27:16",
+    "duration_text": "1 phút",
+    "duration_minutes": 0,
+    "status": "completed",
+    "replies_count": 1,
+    "date": "2026-09-20"
+  },
+  {
+    "shift_id": "shift_1789889219_staff_01",
+    "staff_id": "staff_01",
+    "staff_name": "Bác sĩ Đức",
+    "staff_role": "Bác sĩ Hoàng Minh Đức — Chuyên viên YHCT",
+    "staff_avatar": "👨‍⚕️",
+    "check_in_time": "2026-09-20 14:26:59",
+    "check_out_time": "2026-09-20 14:26:59",
+    "duration_text": "1 phút",
+    "duration_minutes": 0,
+    "status": "completed",
+    "replies_count": 1,
+    "date": "2026-09-20"
+  },
+  {
+    "shift_id": "shift_1789888812_staff_01",
+    "staff_id": "staff_01",
+    "staff_name": "Bác sĩ Đức",
+    "staff_role": "Bác sĩ Hoàng Minh Đức — Chuyên viên YHCT",
+    "staff_avatar": "👨‍⚕️",
+    "check_in_time": "2026-09-20 14:20:12",
+    "check_out_time": "2026-09-20 14:20:12",
+    "duration_text": "1 phút",
+    "duration_minutes": 0,
+    "status": "completed",
+    "replies_count": 1,
+    "date": "2026-09-20"
+  }
+]

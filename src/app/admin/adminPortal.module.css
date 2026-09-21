@@ -1,0 +1,1324 @@
+/* ==========================================================================
+   ADMIN SPECIALIST PORTAL STYLES (CỔNG CHUYÊN VIÊN SAUNA ALPACA)
+   Thiết kế cao cấp, chuyên nghiệp, tối ưu điều phối đơn & tư vấn khách hàng
+   ========================================================================== */
+
+.portalContainer {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: #0b1713;
+  color: #f3f4f6;
+  font-family: var(--font-body, system-ui, -apple-system, sans-serif);
+}
+
+/* ──── TOP NAVIGATION BAR ──── */
+.topNav {
+  height: 68px;
+  background: rgba(15, 36, 29, 0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(212, 135, 44, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--space-xl, 24px);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.brandIcon {
+  font-size: 1.75rem;
+  line-height: 1;
+  filter: drop-shadow(0 2px 8px rgba(45, 106, 79, 0.6));
+}
+
+.brandInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.brandName {
+  font-family: var(--font-heading, serif);
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #fef3c7;
+  letter-spacing: 0.5px;
+}
+
+.brandRole {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #10b981;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Tabs switcher in header */
+.navTabs {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(0, 0, 0, 0.35);
+  padding: 4px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.navTabBtn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: transparent;
+  color: #9ca3af;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.navTabBtn:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.navTabBtnActive {
+  background: linear-gradient(135deg, #1b4332, #2d6a4f);
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(212, 135, 44, 0.4);
+}
+
+.tabBadge {
+  background: #ef4444;
+  color: white;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: 10px;
+  animation: pulse 1.5s infinite;
+}
+
+/* Nav Actions (Alarm + Home) */
+.navActions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.alarmBtn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 14px;
+  background: rgba(239, 68, 68, 0.15);
+  border: 1px solid rgba(239, 68, 68, 0.4);
+  color: #fca5a5;
+  border-radius: 8px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.alarmBtnRinging {
+  background: #ef4444;
+  color: white;
+  animation: pulse 1s infinite;
+  box-shadow: 0 0 15px rgba(239, 68, 68, 0.8);
+}
+
+.btnWebsite {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 14px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #d1d5db;
+  border-radius: 8px;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.btnWebsite:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: white;
+}
+
+/* Staff and Owner badges in Header */
+.userBadge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  padding: 5px 12px;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  color: #ffffff;
+}
+
+.userBadgeOwner {
+  background: rgba(212, 135, 44, 0.2);
+  border-color: rgba(212, 135, 44, 0.5);
+  color: #ffd8a8;
+}
+
+.userAvatar {
+  font-size: 1.1rem;
+}
+
+.userName {
+  font-weight: 700;
+}
+
+.userShiftTime {
+  font-size: 0.75rem;
+  color: #86efac;
+  background: rgba(22, 101, 52, 0.4);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.btnLogout {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 12px;
+  background: rgba(239, 68, 68, 0.15);
+  border: 1px solid rgba(239, 68, 68, 0.35);
+  color: #fca5a5;
+  border-radius: 8px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btnLogout:hover {
+  background: #ef4444;
+  color: #ffffff;
+}
+
+.btnSwitchShift {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 12px;
+  background: rgba(212, 135, 44, 0.15);
+  border: 1px solid rgba(212, 135, 44, 0.35);
+  color: #fbd38d;
+  border-radius: 8px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btnSwitchShift:hover {
+  background: #d4872c;
+  color: #ffffff;
+}
+
+/* ──── VIEW 0: MÀN HÌNH LỰA CHỌN CHỨC NĂNG (PORTAL SELECTION HUB) ──── */
+.selectionHub {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 32px 24px 120px 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.hubHeader {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.hubBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  background: rgba(45, 106, 79, 0.3);
+  border: 1px solid rgba(45, 106, 79, 0.6);
+  color: #6ee7b7;
+  border-radius: 20px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.hubTitle {
+  font-family: var(--font-heading, serif);
+  font-size: 2rem;
+  font-weight: 800;
+  color: #fef3c7;
+  margin-bottom: 8px;
+  letter-spacing: -0.5px;
+}
+
+.hubSubtitle {
+  font-size: 1rem;
+  color: #9ca3af;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* 2 Function Selection Cards */
+.cardsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+  width: 100%;
+  margin-bottom: 40px;
+}
+
+.featureCard {
+  background: linear-gradient(145deg, rgba(27, 67, 50, 0.4), rgba(15, 36, 29, 0.8));
+  border: 1px solid rgba(45, 106, 79, 0.4);
+  border-radius: 20px;
+  padding: 28px 26px 32px 26px;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.featureCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, var(--color-accent, #d4872c), transparent);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.featureCard:hover {
+  transform: translateY(-4px);
+  border-color: rgba(212, 135, 44, 0.6);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5), 0 0 25px rgba(212, 135, 44, 0.15);
+}
+
+.featureCard:hover::before {
+  opacity: 1;
+}
+
+.cardHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.cardIconBox {
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+  background: rgba(212, 135, 44, 0.15);
+  border: 1px solid rgba(212, 135, 44, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.cardTag {
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.cardTagChat {
+  background: rgba(16, 185, 129, 0.15);
+  color: #34d399;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.cardTagOrder {
+  background: rgba(212, 135, 44, 0.15);
+  color: #fbbf24;
+  border: 1px solid rgba(212, 135, 44, 0.3);
+}
+
+.cardTitle {
+  font-family: var(--font-heading, serif);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 10px;
+}
+
+.cardDesc {
+  color: #9ca3af;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  margin-bottom: 24px;
+  flex: 1;
+}
+
+.cardStats {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 16px;
+  background: rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  margin-bottom: 24px;
+  font-size: 0.8125rem;
+  color: #d1d5db;
+}
+
+.statItem {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.statDotActive {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 6px #10b981;
+}
+
+.cardBtnPrimary {
+  width: 100%;
+  padding: 14px 20px;
+  background: linear-gradient(135deg, #1b4332, #2d6a4f);
+  color: #ffffff;
+  border: 1px solid rgba(212, 135, 44, 0.5);
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.2s;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+}
+
+.cardBtnPrimary:hover {
+  background: linear-gradient(135deg, #2d6a4f, #40916c);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(45, 106, 79, 0.4);
+}
+
+/* Card 2 Sub Actions (Tạo đơn mới + Cập nhật tiến độ) */
+.cardSubActions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  width: 100%;
+}
+
+.cardBtnCreateNew {
+  padding: 14px 16px;
+  background: linear-gradient(135deg, #d4872c, #b36f1e);
+  color: #ffffff;
+  border: none;
+  border-radius: 12px;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: all 0.2s;
+  box-shadow: 0 4px 12px rgba(212, 135, 44, 0.3);
+}
+
+.cardBtnCreateNew:hover {
+  background: linear-gradient(135deg, #e5983d, #c47e2a);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(212, 135, 44, 0.45);
+}
+
+.cardBtnProgress {
+  padding: 14px 16px;
+  background: rgba(45, 106, 79, 0.35);
+  color: #6ee7b7;
+  border: 1px solid rgba(45, 106, 79, 0.7);
+  border-radius: 12px;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: all 0.2s;
+}
+
+.cardBtnProgress:hover {
+  background: rgba(45, 106, 79, 0.55);
+  border-color: #6ee7b7;
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+/* ──── VIEW 2: MỤC TẠO ĐƠN HÀNG (DEDICATED ORDERS WORKSPACE) ──── */
+.ordersWorkspace {
+  flex: 1;
+  padding: 24px;
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Sub-nav Buttons: [ Tạo đơn mới ] & [ Cập nhật tiến độ đơn hàng ] */
+.orderActionsBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(15, 36, 29, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 16px 20px;
+  margin-bottom: 24px;
+  backdrop-filter: blur(10px);
+}
+
+.subButtonsGroup {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.btnSubAction {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: 1px solid transparent;
+}
+
+.btnSubActionNormal {
+  background: rgba(255, 255, 255, 0.06);
+  color: #9ca3af;
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.btnSubActionNormal:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+}
+
+.btnSubActionActive {
+  background: linear-gradient(135deg, #d4872c, #b36f1e);
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 14px rgba(212, 135, 44, 0.4);
+}
+
+.btnSubActionProgressActive {
+  background: linear-gradient(135deg, #1b4332, #2d6a4f);
+  color: #ffffff;
+  border-color: rgba(110, 231, 183, 0.4);
+  box-shadow: 0 4px 14px rgba(45, 106, 79, 0.4);
+}
+
+.orderWorkspaceTitle {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #fef3c7;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ──── SUB-VIEW 2A: TẠO ĐƠN MỚI FORM ──── */
+.createOrderCard {
+  background: linear-gradient(145deg, rgba(27, 67, 50, 0.4), rgba(15, 36, 29, 0.8));
+  border: 1px solid rgba(45, 106, 79, 0.4);
+  border-radius: 20px;
+  padding: 32px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.formSectionHeader {
+  margin-bottom: 24px;
+}
+
+.formSectionTitle {
+  font-family: var(--font-heading, serif);
+  font-size: 1.375rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 6px;
+}
+
+.formSectionSubtitle {
+  color: #9ca3af;
+  font-size: 0.875rem;
+}
+
+.orderFormGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.formRow2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.formRow3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.formLabel {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #d1d5db;
+}
+
+.formInput,
+.formSelect,
+.formTextarea {
+  width: 100%;
+  padding: 12px 14px;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+  color: #ffffff;
+  font-size: 0.9375rem;
+  outline: none;
+  transition: all 0.2s;
+  font-family: inherit;
+}
+
+.formInput:focus,
+.formSelect:focus,
+.formTextarea:focus {
+  border-color: #d4872c;
+  box-shadow: 0 0 0 2px rgba(212, 135, 44, 0.25);
+}
+
+.formInput::placeholder,
+.formTextarea::placeholder {
+  color: #6b7280;
+}
+
+/* Package Options in Form */
+.packageSelectorGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.pkgOptionCard {
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  position: relative;
+}
+
+.pkgOptionCard:hover {
+  border-color: rgba(212, 135, 44, 0.5);
+  background: rgba(212, 135, 44, 0.08);
+}
+
+.pkgOptionCardActive {
+  border-color: #d4872c;
+  background: rgba(212, 135, 44, 0.15);
+  box-shadow: 0 0 12px rgba(212, 135, 44, 0.3);
+}
+
+.pkgOptionBadge {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #fbbf24;
+}
+
+.pkgOptionName {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.pkgOptionPrice {
+  font-size: 0.8125rem;
+  color: #6ee7b7;
+  font-weight: 600;
+}
+
+/* Form Action Buttons */
+.formActionsRow {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 14px;
+  margin-top: 12px;
+}
+
+.btnResetForm {
+  padding: 12px 20px;
+  background: rgba(255, 255, 255, 0.08);
+  color: #d1d5db;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btnResetForm:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+}
+
+.btnSubmitCreate {
+  padding: 12px 28px;
+  background: linear-gradient(135deg, #d4872c, #b36f1e);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 14px rgba(212, 135, 44, 0.4);
+}
+
+.btnSubmitCreate:hover:not(:disabled) {
+  background: linear-gradient(135deg, #e5983d, #c47e2a);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(212, 135, 44, 0.55);
+}
+
+.btnSubmitCreate:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Success notification banner after order creation */
+.successBanner {
+  background: rgba(16, 185, 129, 0.15);
+  border: 1px solid rgba(16, 185, 129, 0.4);
+  border-radius: 14px;
+  padding: 18px 22px;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.successBannerInfo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.successBannerIcon {
+  font-size: 1.5rem;
+}
+
+.successBannerText {
+  font-size: 0.9375rem;
+  color: #a7f3d0;
+}
+
+.orderIdHighlight {
+  font-weight: 700;
+  color: #ffffff;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 2px 8px;
+  border-radius: 6px;
+}
+
+.btnGoProgress {
+  padding: 8px 16px;
+  background: #10b981;
+  color: #064e3b;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.btnGoProgress:hover {
+  background: #34d399;
+  color: #022c22;
+}
+
+/* ──── SUB-VIEW 2B: CẬP NHẬT TIẾN ĐỘ ĐƠN HÀNG ──── */
+.progressWorkspace {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* KPI Metrics */
+.kpiGrid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 14px;
+}
+
+.kpiCard {
+  background: rgba(15, 36, 29, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  backdrop-filter: blur(8px);
+}
+
+.kpiLabel {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #9ca3af;
+  text-transform: uppercase;
+}
+
+.kpiValue {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+/* Filter & Search Bar */
+.filterBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  background: rgba(15, 36, 29, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  padding: 12px 18px;
+}
+
+.searchBox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+  padding: 8px 14px;
+  width: 320px;
+}
+
+.searchInput {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #ffffff;
+  font-size: 0.875rem;
+  width: 100%;
+}
+
+.stepFilterPills {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  overflow-x: auto;
+}
+
+.filterPill {
+  padding: 6px 14px;
+  background: rgba(255, 255, 255, 0.06);
+  color: #9ca3af;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.filterPill:hover {
+  color: white;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.filterPillActive {
+  background: #1b4332;
+  color: #6ee7b7;
+  border-color: #2d6a4f;
+}
+
+/* Orders Cards List */
+.ordersList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.orderItemCard {
+  background: linear-gradient(145deg, rgba(27, 67, 50, 0.35), rgba(15, 36, 29, 0.7));
+  border: 1px solid rgba(45, 106, 79, 0.35);
+  border-radius: 16px;
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transition: all 0.2s;
+}
+
+.orderItemCard:hover {
+  border-color: rgba(212, 135, 44, 0.4);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+}
+
+.orderCardTop {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.orderMainInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.orderIdRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.orderIdText {
+  font-family: var(--font-heading, serif);
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #fef3c7;
+}
+
+.orderTypeBadge {
+  padding: 3px 8px;
+  background: rgba(212, 135, 44, 0.2);
+  color: #fbbf24;
+  border: 1px solid rgba(212, 135, 44, 0.4);
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.orderCustomerName {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.orderMetaRow {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  font-size: 0.8125rem;
+  color: #9ca3af;
+}
+
+.orderMetaItem {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.orderPhoneLink {
+  color: #6ee7b7;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.orderPhoneLink:hover {
+  text-decoration: underline;
+}
+
+/* Stepper Progress Bar */
+.stepperContainer {
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.stepperSteps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  position: relative;
+}
+
+.stepNode {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.stepNodeHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.stepCircle {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+  background: #374151;
+  color: #9ca3af;
+}
+
+.stepCircleDone {
+  background: #10b981;
+  color: white;
+  box-shadow: 0 0 8px rgba(16, 185, 129, 0.5);
+}
+
+.stepCircleActive {
+  background: #d4872c;
+  color: white;
+  animation: pulse 1.5s infinite;
+  box-shadow: 0 0 10px rgba(212, 135, 44, 0.6);
+}
+
+.stepTitle {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: #9ca3af;
+}
+
+.stepTitleDone {
+  color: #a7f3d0;
+}
+
+.stepTitleActive {
+  color: #fef3c7;
+}
+
+.stepDesc {
+  font-size: 0.75rem;
+  color: #6b7280;
+  line-height: 1.4;
+}
+
+.stepTime {
+  font-size: 0.7rem;
+  color: #10b981;
+  font-weight: 600;
+}
+
+/* Order Card Actions */
+.orderCardActions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding-top: 14px;
+}
+
+.orderNotesText {
+  font-size: 0.8125rem;
+  color: #9ca3af;
+  font-style: italic;
+  max-width: 60%;
+}
+
+.orderButtonsCluster {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btnAdvanceStep {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background: linear-gradient(135deg, #1b4332, #2d6a4f);
+  color: #ffffff;
+  border: 1px solid rgba(110, 231, 183, 0.4);
+  border-radius: 8px;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btnAdvanceStep:hover:not(:disabled) {
+  background: linear-gradient(135deg, #2d6a4f, #40916c);
+  transform: translateY(-1px);
+}
+
+.btnAdvanceStep:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btnEditDetails {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background: rgba(255, 255, 255, 0.06);
+  color: #d1d5db;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btnEditDetails:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: white;
+}
+
+/* Empty State */
+.emptyState {
+  text-align: center;
+  padding: 48px 20px;
+  background: rgba(15, 36, 29, 0.3);
+  border: 1px dashed rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+}
+
+.emptyIcon {
+  font-size: 3rem;
+  margin-bottom: 12px;
+}
+
+.emptyTitle {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 6px;
+}
+
+.emptyDesc {
+  font-size: 0.875rem;
+  color: #9ca3af;
+}
+
+/* ──── EDIT ORDER MODAL ──── */
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(8px);
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.modalCard {
+  background: #0f241d;
+  border: 1px solid rgba(212, 135, 44, 0.4);
+  border-radius: 20px;
+  width: 100%;
+  max-width: 650px;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 28px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.modalHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding-bottom: 14px;
+}
+
+.modalTitle {
+  font-family: var(--font-heading, serif);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #fef3c7;
+}
+
+.modalCloseBtn {
+  background: transparent;
+  border: none;
+  color: #9ca3af;
+  font-size: 1.25rem;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.modalCloseBtn:hover {
+  color: white;
+}
+
+/* Animations */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.85;
+    transform: scale(1.05);
+  }
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .cardsGrid {
+    grid-template-columns: 1fr;
+  }
+  .packageSelectorGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .kpiGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .stepperSteps {
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .topNav {
+    padding: 0 16px;
+    height: auto;
+    min-height: 60px;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .navTabs {
+    order: 3;
+    width: 100%;
+    justify-content: center;
+    margin-bottom: 8px;
+  }
+  .formRow2,
+  .formRow3 {
+    grid-template-columns: 1fr;
+  }
+  .packageSelectorGrid {
+    grid-template-columns: 1fr;
+  }
+  .cardSubActions {
+    grid-template-columns: 1fr;
+  }
+  .kpiGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .filterBar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .searchBox {
+    width: 100%;
+  }
+  .orderCardTop {
+    flex-direction: column;
+  }
+  .orderCardActions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+  .orderNotesText {
+    max-width: 100%;
+  }
+}
+
+/* ──── ADMIN PORTAL FOOTER ──── */
+.portalFooter {
+  padding: 24px 20px 64px 20px;
+  text-align: center;
+  font-size: 0.8125rem;
+  color: #6b7280;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(11, 23, 19, 0.95);
+  margin-top: auto;
+}
+
+.portalFooterInner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.footerDivider {
+  color: rgba(255, 255, 255, 0.2);
+}
+

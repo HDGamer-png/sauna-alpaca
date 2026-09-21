@@ -1,0 +1,9 @@
+# Robots.txt — Sauna Alpaca
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://saunaalpaca.vercel.app/sitemap.xml
+
+# Block admin/api paths
+Disallow: /api/

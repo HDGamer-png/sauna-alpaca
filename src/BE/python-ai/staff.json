@@ -1,0 +1,50 @@
+[
+  {
+    "id": "owner_01",
+    "username": "admin_chu",
+    "password": "sauna@owner123",
+    "display_name": "Chủ Cửa Hàng (Admin Tổng)",
+    "full_title": "Chủ Quản Lý Hệ Thống Sauna Alpaca Huế",
+    "role": "owner",
+    "avatar": "👑",
+    "phone": "0905123456",
+    "status": "active",
+    "created_at": "2026-09-01 08:00:00"
+  },
+  {
+    "id": "staff_01",
+    "username": "admin_duc",
+    "password": "sauna@123",
+    "display_name": "Bác sĩ Đức",
+    "full_title": "Bác sĩ Hoàng Minh Đức — Chuyên viên YHCT",
+    "role": "staff",
+    "avatar": "👨‍⚕️",
+    "phone": "0905111222",
+    "status": "active",
+    "created_at": "2026-09-01 08:30:00"
+  },
+  {
+    "id": "staff_02",
+    "username": "admin_mai",
+    "password": "sauna@123",
+    "display_name": "Dược sĩ Mai",
+    "full_title": "Dược sĩ Nguyễn Thị Mai — Tư vấn thảo dược & phác đồ",
+    "role": "staff",
+    "avatar": "👩‍⚕️",
+    "phone": "0905333444",
+    "status": "active",
+    "created_at": "2026-09-01 09:00:00"
+  },
+  {
+    "id": "staff_03",
+    "username": "admin_hoang",
+    "password": "sauna@123",
+    "display_name": "KTV Hoàng",
+    "full_title": "Kỹ thuật viên Lê Văn Hoàng — Giao máy & Lắp đặt",
+    "role": "staff",
+    "avatar": "👨‍🔧",
+    "phone": "0905555666",
+    "status": "active",
+    "created_at": "2026-09-01 09:30:00"
+  }
+]

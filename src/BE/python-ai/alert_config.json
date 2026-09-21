@@ -1,0 +1,14 @@
+{
+  "sound_enabled": true,
+  "sound_type": "alarm_clock",
+  "sound_duration_sec": 15,
+  "alarm_frequency": 2200,
+  "console_banner": true,
+  "telegram": {
+    "enabled": false,
+    "bot_token": "",
+    "chat_id": "",
+    "note": "Để nhận thông báo rung chuông về điện thoại miễn phí: 1) Tạo bot qua @BotFather trên Telegram lấy bot_token. 2) Lấy chat_id của bạn qua bot @userinfobot. 3) Đổi enabled thành true."
+  },
+  "max_alerts_stored": 200
+}

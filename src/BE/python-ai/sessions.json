@@ -1,0 +1,269 @@
+{
+  "sess_1789619018401": {
+    "id": "sess_1789619018401",
+    "customer_name": "Khách hàng #8401",
+    "phone": "0905123456",
+    "status": "resolved",
+    "alert_type": "UNRESOLVED_QUERY",
+    "created_at": "2026-09-17 11:26:13",
+    "last_activity": "2026-09-19 07:29:01",
+    "unread_for_seller": false,
+    "messages": [
+      {
+        "id": "msg_welcome_1789619173",
+        "sender": "bot",
+        "text": "Xin chào! Tôi là Trợ lý Sức Khỏe AI của Sauna Alpaca 🌿. Tôi có thể hỗ trợ giải đáp gì cho bạn?",
+        "timestamp": "11:26"
+      },
+      {
+        "id": "msg_user_1789619173861",
+        "sender": "user",
+        "text": "ho tôi gặp trực tiếp nhân viên tư vấn chứ không nói chuyện với bot",
+        "timestamp": "11:26"
+      },
+      {
+        "id": "msg_bot_1789619173862",
+        "sender": "bot",
+        "text": "Cảm ơn câu hỏi của bạn về: \"ho tôi gặp trực tiếp nhân viên tư vấn chứ không nói chuyện với bot\". 🌿\n\nHiện tại câu hỏi này cần thêm thông tin chuyên môn cụ thể. Bạn có thể để lại **Số điện thoại** tại đây hoặc gọi trực tiếp Hotline **0385.927.274** (Hỗ trợ kỹ thuật & y tế 24/7 tại Huế) để đội ngũ chuyên viên giải đáp cặn kẽ nhất cho bạn nhé!",
+        "timestamp": "11:26",
+        "escalated": true,
+        "alert_type": "UNRESOLVED_QUERY"
+      },
+      {
+        "id": "msg_seller_1789619368231",
+        "sender": "seller",
+        "seller_name": "Đức (Chuyên viên Sauna Alpaca Huế)",
+        "text": "Chào anh/chị ạ. Không biết anh/chị quan tâm đến gói thuê nào hoặc mua ạ?",
+        "timestamp": "11:29"
+      },
+      {
+        "id": "msg_user_1789652039172",
+        "sender": "user",
+        "text": "tôi muốn thuê 6 tháng",
+        "timestamp": "20:33"
+      },
+      {
+        "id": "msg_bot_1789652039173",
+        "sender": "bot",
+        "text": "Sauna Alpaca đang triển khai chương trình thí điểm thuê theo tháng tại TP. Huế với 3 gói linh hoạt:\n• Gói 3 tháng: Trải nghiệm thực tế tại nhà cho gia đình.\n• Gói 6 tháng: Được lựa chọn nhiều nhất, tối ưu chi phí và hiệu quả trị liệu.\n• Gói 12 tháng: Tiết kiệm đến 25% kèm gói quà tặng thảo dược thiên nhiên.\n\n🎁 Đặc quyền trọn gói: Miễn phí 100% vận chuyển & lắp đặt tại nhà ở Huế, kỹ thuật viên bảo dưỡng định kỳ miễn phí và cam kết 1 đổi 1 ngay lập tức nếu máy có bất kỳ sự cố nào.",
+        "timestamp": "20:33",
+        "escalated": false,
+        "alert_type": null
+      },
+      {
+        "id": "msg_user_1789652049298",
+        "sender": "user",
+        "text": "ai sẽ tư vấn cho tôi",
+        "timestamp": "20:34"
+      },
+      {
+        "id": "msg_bot_1789652049299",
+        "sender": "bot",
+        "text": "Cảm ơn câu hỏi của bạn về: \"ai sẽ tư vấn cho tôi\". 🌿\n\nHiện tại câu hỏi này cần thêm thông tin chuyên môn cụ thể. Bạn có thể để lại **Số điện thoại** tại đây hoặc gọi trực tiếp Hotline **0385.927.274** (Hỗ trợ kỹ thuật & y tế 24/7 tại Huế) để đội ngũ chuyên viên giải đáp cặn kẽ nhất cho bạn nhé!",
+        "timestamp": "20:34",
+        "escalated": true,
+        "alert_type": "UNRESOLVED_QUERY"
+      },
+      {
+        "id": "msg_seller_1789652064592",
+        "sender": "seller",
+        "seller_name": "Đức (Chuyên viên Sauna Alpaca Huế)",
+        "text": "dạ em chào anh/chị ak",
+        "timestamp": "20:34"
+      },
+      {
+        "id": "msg_user_1789652145792",
+        "sender": "user",
+        "text": "tôi muốn mua hàng, ai tư vấn cho tôi",
+        "timestamp": "20:35"
+      },
+      {
+        "id": "msg_bot_1789652145792",
+        "sender": "bot",
+        "text": "Cảm ơn câu hỏi của bạn về: \"tôi muốn mua hàng, ai tư vấn cho tôi\". 🌿\n\nHiện tại câu hỏi này cần thêm thông tin chuyên môn cụ thể. Bạn có thể để lại **Số điện thoại** tại đây hoặc gọi trực tiếp Hotline **0385.927.274** (Hỗ trợ kỹ thuật & y tế 24/7 tại Huế) để đội ngũ chuyên viên giải đáp cặn kẽ nhất cho bạn nhé!",
+        "timestamp": "20:35",
+        "escalated": true,
+        "alert_type": "UNRESOLVED_QUERY"
+      },
+      {
+        "id": "msg_seller_1789652161628",
+        "sender": "seller",
+        "seller_name": "Đức (Chuyên viên Sauna Alpaca Huế)",
+        "text": "em chào anh chị ạ",
+        "timestamp": "20:36"
+      },
+      {
+        "id": "msg_seller_1789725127618",
+        "sender": "seller",
+        "seller_name": "Hệ Thống Đơn Hàng Sauna Alpaca",
+        "text": "📦 ĐÃ XÁC NHẬN ĐƠN HÀNG [ORD-260918-8401]\n\n• Gói: Gói thuê 6 tháng — Trị liệu & Tặng thảo dược\n• Chi phí: 950.000 đ/tháng (Tặng 5 hộp thảo dược)\n• Giao tận nơi: 64 Lê Thánh Tôn, P. Phú Xuân, TP. Huế\n• Dự kiến: Giao ngay trong ngày tại TP. Huế\n• Thanh toán: Chưa thanh toán (Thu khi giao)\n\n🌿 Đơn hàng đã được đưa vào lịch điều phối giao xe. Kỹ thuật viên sẽ liên hệ và giao lắp hoàn thiện tận nhà cho quý khách tại TP. Huế!",
+        "timestamp": "16:52"
+      },
+      {
+        "id": "msg_seller_1789725168238",
+        "sender": "seller",
+        "seller_name": "Hệ Thống Đơn Hàng Sauna Alpaca",
+        "text": "📦 ĐÃ XÁC NHẬN ĐƠN HÀNG [ORD-260918-8401]\n\n• Gói: Gói thuê 6 tháng — Trị liệu & Tặng thảo dược\n• Chi phí: 950.000 đ/tháng (Tặng 5 hộp thảo dược)\n• Giao tận nơi: 64 Lê Thánh Tôn, P. Phú Xuân, TP. Huế\n• Dự kiến: Giao ngay trong ngày tại TP. Huế\n• Thanh toán: Chưa thanh toán (Thu khi giao)\n\n🌿 Đơn hàng đã được đưa vào lịch điều phối giao xe. Kỹ thuật viên sẽ liên hệ và giao lắp hoàn thiện tận nhà cho quý khách tại TP. Huế!",
+        "timestamp": "16:52"
+      },
+      {
+        "id": "msg_seller_1789725204174",
+        "sender": "seller",
+        "seller_name": "Hệ Thống Đơn Hàng Sauna Alpaca",
+        "text": "📦 ĐÃ XÁC NHẬN ĐƠN HÀNG [ORD-260918-8401]\n\n• Gói: Gói thuê 6 tháng — Trị liệu & Tặng thảo dược\n• Chi phí: 950.000 đ/tháng (Tặng 5 hộp thảo dược)\n• Giao tận nơi: 64 Lê Thánh Tôn, P. Phú Xuân, TP. Huế\n• Dự kiến: Giao ngay trong ngày tại TP. Huế\n• Thanh toán: Chưa thanh toán (Thu khi giao)\n\n🌿 Đơn hàng đã được đưa vào lịch điều phối giao xe. Kỹ thuật viên sẽ liên hệ và giao lắp hoàn thiện tận nhà cho quý khách tại TP. Huế!",
+        "timestamp": "16:53"
+      },
+      {
+        "id": "msg_seller_1789725204177",
+        "sender": "seller",
+        "seller_name": "Điều Phối Giao Hàng Sauna Alpaca",
+        "text": "🚚 CẬP NHẬT TIẾN ĐỘ GIAO HÀNG [ORD-260918-8401]:\n➔ Bước 3/4: Kỹ thuật viên đang giao xe tận nhà tại TP. Huế\n(Ghi chú: Kỹ thuật viên Trọng đang chở máy trên xe bán tải)",
+        "timestamp": "16:53"
+      },
+      {
+        "id": "msg_seller_1789777741226",
+        "sender": "seller",
+        "seller_name": "Điều Phối Giao Hàng Sauna Alpaca",
+        "text": "🚚 CẬP NHẬT TIẾN ĐỘ GIAO HÀNG [ORD-260918-8401]:\n➔ Bước 4/4: Đã hoàn tất lắp đặt & bàn giao hướng dẫn sử dụng",
+        "timestamp": "07:29"
+      }
+    ]
+  },
+  "cust_1789784697006": {
+    "id": "cust_1789784697006",
+    "customer_name": "Bác Minh",
+    "phone": "0905123456",
+    "status": "bot",
+    "alert_type": null,
+    "created_at": "2026-09-19 09:24:57",
+    "last_activity": "2026-09-19 09:24:57",
+    "unread_for_seller": true,
+    "messages": [
+      {
+        "id": "msg_welcome_1789784697",
+        "sender": "bot",
+        "text": "Xin chào! Tôi là Trợ lý Sức Khỏe AI của Sauna Alpaca 🌿. Tôi có thể hỗ trợ giải đáp gì cho bạn?",
+        "timestamp": "09:24"
+      },
+      {
+        "id": "msg_user_1789784697010",
+        "sender": "user",
+        "text": "🌿 TIẾP NHẬN ĐĂNG KÝ TƯ VẤN [VỐN 0Đ]\n• Họ tên: Bác Minh\n• Số điện thoại: 0905123456\n• Nhu cầu hỗ trợ: Thải độc suy thận\n• Trạng thái: Đã kết nối chuyên viên trực tiếp",
+        "timestamp": "09:24"
+      }
+    ],
+    "health_concern": "Thải độc suy thận"
+  },
+  "test_auth_sess": {
+    "id": "test_auth_sess",
+    "customer_name": "Bác Minh",
+    "phone": "0905123456",
+    "status": "bot",
+    "alert_type": null,
+    "created_at": "2026-09-19 09:25:16",
+    "last_activity": "2026-09-19 09:25:16",
+    "unread_for_seller": true,
+    "messages": [
+      {
+        "id": "msg_welcome_1789784716",
+        "sender": "bot",
+        "text": "Xin chào! Tôi là Trợ lý Sức Khỏe AI của Sauna Alpaca 🌿. Tôi có thể hỗ trợ giải đáp gì cho bạn?",
+        "timestamp": "09:25"
+      },
+      {
+        "id": "msg_user_1789784716729",
+        "sender": "user",
+        "text": "🌿 TIẾP NHẬN ĐĂNG KÝ TƯ VẤN [VỐN 0Đ]\n• Họ tên: Bác Minh\n• Số điện thoại: 0905123456\n• Nhu cầu hỗ trợ: Thải độc suy thận\n• Trạng thái: Đã kết nối chuyên viên trực tiếp",
+        "timestamp": "09:25"
+      }
+    ],
+    "health_concern": "Thải độc suy thận"
+  },
+  "nextjs_proxy_test": {
+    "id": "nextjs_proxy_test",
+    "customer_name": "Bác Hoàng",
+    "phone": "0905123456",
+    "status": "bot",
+    "alert_type": null,
+    "created_at": "2026-09-19 09:27:43",
+    "last_activity": "2026-09-19 09:27:43",
+    "unread_for_seller": true,
+    "messages": [
+      {
+        "id": "msg_welcome_1789784863",
+        "sender": "bot",
+        "text": "Xin chào! Tôi là Trợ lý Sức Khỏe AI của Sauna Alpaca 🌿. Tôi có thể hỗ trợ giải đáp gì cho bạn?",
+        "timestamp": "09:27"
+      },
+      {
+        "id": "msg_user_1789784863852",
+        "sender": "user",
+        "text": "🌿 TIẾP NHẬN ĐĂNG KÝ TƯ VẤN [VỐN 0Đ]\n• Họ tên: Bác Hoàng\n• Số điện thoại: 0905123456\n• Nhu cầu hỗ trợ: Thải độc suy thận\n• Trạng thái: Đã kết nối chuyên viên trực tiếp",
+        "timestamp": "09:27"
+      }
+    ],
+    "health_concern": "Thải độc suy thận"
+  },
+  "test_auth_sess_py": {
+    "id": "test_auth_sess_py",
+    "customer_name": "Bác Minh (Test Captcha)",
+    "phone": "0905123456",
+    "status": "bot",
+    "alert_type": null,
+    "created_at": "2026-09-20 11:35:54",
+    "last_activity": "2026-09-21 03:03:23",
+    "unread_for_seller": true,
+    "messages": [
+      {
+        "id": "msg_welcome_1789878954",
+        "sender": "bot",
+        "text": "Xin chào! Tôi là Trợ lý Sức Khỏe AI của Sauna Alpaca 🌿. Tôi có thể hỗ trợ giải đáp gì cho bạn?",
+        "timestamp": "11:35"
+      },
+      {
+        "id": "msg_user_1789878954209",
+        "sender": "user",
+        "text": "🌿 TIẾP NHẬN ĐĂNG KÝ TƯ VẤN [VỐN 0Đ]\n• Họ tên: Bác Minh (Test Captcha)\n• Số điện thoại: 0905123456\n• Nhu cầu hỗ trợ: Thải độc suy thận & vi tuần hoàn\n• Trạng thái: Đã kết nối chuyên viên trực tiếp (Đã xác thực Captcha: 7K9P)",
+        "timestamp": "11:35"
+      },
+      {
+        "id": "msg_user_1789934603043",
+        "sender": "user",
+        "text": "🌿 TIẾP NHẬN ĐĂNG KÝ TƯ VẤN [VỐN 0Đ]\n• Họ tên: Bác Minh (Test Captcha)\n• Số điện thoại: 0905123456\n• Nhu cầu hỗ trợ: Thải độc suy thận & vi tuần hoàn\n• Trạng thái: Đã kết nối chuyên viên trực tiếp (Đã xác thực Captcha: 7K9P)",
+        "timestamp": "03:03"
+      }
+    ],
+    "health_concern": "Thải độc suy thận & vi tuần hoàn"
+  },
+  "test_auth_sess_next": {
+    "id": "test_auth_sess_next",
+    "customer_name": "Cô Lan (Test Next.js Proxy)",
+    "phone": "0905654321",
+    "status": "bot",
+    "alert_type": null,
+    "created_at": "2026-09-20 11:35:54",
+    "last_activity": "2026-09-21 03:03:23",
+    "unread_for_seller": true,
+    "messages": [
+      {
+        "id": "msg_welcome_1789878954",
+        "sender": "bot",
+        "text": "Xin chào! Tôi là Trợ lý Sức Khỏe AI của Sauna Alpaca 🌿. Tôi có thể hỗ trợ giải đáp gì cho bạn?",
+        "timestamp": "11:35"
+      },
+      {
+        "id": "msg_user_1789878954334",
+        "sender": "user",
+        "text": "🌿 TIẾP NHẬN ĐĂNG KÝ TƯ VẤN [VỐN 0Đ]\n• Họ tên: Cô Lan (Test Next.js Proxy)\n• Số điện thoại: 0905654321\n• Nhu cầu hỗ trợ: Đau nhức xương khớp\n• Trạng thái: Đã kết nối chuyên viên trực tiếp (Đã xác thực Captcha: 8H2M)",
+        "timestamp": "11:35"
+      },
+      {
+        "id": "msg_user_1789934603141",
+        "sender": "user",
+        "text": "🌿 TIẾP NHẬN ĐĂNG KÝ TƯ VẤN [VỐN 0Đ]\n• Họ tên: Cô Lan (Test Next.js Proxy)\n• Số điện thoại: 0905654321\n• Nhu cầu hỗ trợ: Đau nhức xương khớp\n• Trạng thái: Đã kết nối chuyên viên trực tiếp (Đã xác thực Captcha: 8H2M)",
+        "timestamp": "03:03"
+      }
+    ],
+    "health_concern": "Đau nhức xương khớp"
+  }
+}
