@@ -101,6 +101,14 @@
   text-transform: uppercase;
 }
 
+.modelBadgeTextDesktop {
+  display: inline;
+}
+
+.modelBadgeTextMobile {
+  display: none;
+}
+
 @keyframes dotPulse {
   0%, 100% { transform: scale(1); opacity: 0.85; }
   50% { transform: scale(1.35); opacity: 1; }
@@ -1077,19 +1085,134 @@
 }
 
 /* ──── RESPONSIVE ──── */
+@media (max-width: 960px) {
+  .viewerContainer {
+    height: clamp(420px, 50vw, 560px);
+    min-height: 420px;
+    border-radius: 26px;
+  }
+}
+
+@media (max-width: 768px) {
+  .viewerContainer {
+    height: clamp(340px, 86vw, 440px);
+    min-height: unset;
+    border-radius: 22px;
+  }
+
+  .photoStage {
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    transform: none !important;
+  }
+
+  .chairPhoto {
+    object-position: center 46%;
+  }
+
+  .ambientBacklightGlow {
+    inset: -12px;
+    filter: blur(22px);
+  }
+}
+
 @media (max-width: 640px) {
   .viewerContainer {
-    height: 520px;
+    height: clamp(320px, 85vw, 390px);
+    min-height: unset;
+    border-radius: 20px;
   }
 
   .topBar {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 8px;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    flex-direction: row;
+    justify-content: flex-start;
   }
 
-  .modelBadgeText {
-    font-size: 0.68rem;
+  .modelBadge {
+    padding: 4px 10px;
+    gap: 6px;
+    border-radius: 999px;
+  }
+
+  .modelBadgeDot {
+    width: 7px;
+    height: 7px;
+  }
+
+  .modelBadgeTextDesktop {
+    display: none;
+  }
+
+  .modelBadgeTextMobile {
+    display: inline;
+    font-size: 0.65rem;
+    white-space: nowrap;
+  }
+
+  /* Nút bấm trên tay vịn ghế nhỏ gọn, tinh tế */
+  .chairConsoleHotspot {
+    transform: translate(-50%, -50%) scale(0.85);
+  }
+
+  .consoleMarkerBtn {
+    padding: 4px 10px;
+    font-size: 0.7rem;
+    gap: 5px;
+  }
+
+  .spotBtn {
+    width: 22px;
+    height: 22px;
+  }
+
+  .spotDot {
+    width: 6px;
+    height: 6px;
+  }
+
+  .spotCard {
+    width: min(220px, 80vw);
+    padding: 10px 12px;
+  }
+
+  .bottomCenterCluster {
+    bottom: 10px;
+    gap: 4px;
+    max-width: 96%;
+  }
+
+  .quickOpenConsoleBtn {
+    padding: 5px 12px;
+    gap: 8px;
+    border-radius: 12px;
+  }
+
+  .quickDockTemp {
+    font-size: 1.05rem;
+  }
+
+  .quickDockLabel {
+    font-size: 0.52rem;
+  }
+
+  .quickDockTherapy {
+    font-size: 0.62rem;
+  }
+
+  .quickDockActionBadge {
+    font-size: 0.62rem;
+    padding: 3px 7px;
+  }
+
+  .interactionHint {
+    font-size: 0.62rem;
+    padding: 3px 8px;
+    white-space: normal;
+    text-align: center;
   }
 
   .zonesGrid,
@@ -1100,40 +1223,72 @@
   .oledBigNumber {
     font-size: 2.4rem;
   }
+}
+
+@media (max-width: 480px) {
+  .viewerContainer {
+    height: clamp(300px, 82vw, 350px);
+    border-radius: 18px;
+  }
+
+  .topBar {
+    top: 8px;
+    left: 8px;
+    right: 8px;
+  }
+
+  .modelBadge {
+    padding: 3px 8px;
+    gap: 5px;
+  }
+
+  .modelBadgeDot {
+    width: 6px;
+    height: 6px;
+  }
+
+  .modelBadgeTextMobile {
+    font-size: 0.6rem;
+  }
+
+  .chairConsoleHotspot {
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+
+  .consoleMarkerBtn {
+    padding: 3px 8px;
+    font-size: 0.65rem;
+  }
 
   .bottomCenterCluster {
-    bottom: 12px;
-    gap: 6px;
-    max-width: 96%;
+    bottom: 8px;
+    gap: 3px;
   }
 
   .quickOpenConsoleBtn {
-    padding: 6px 12px;
-    gap: 8px;
-    border-radius: 14px;
+    padding: 4px 10px;
+    gap: 6px;
   }
 
   .quickDockTemp {
-    font-size: 1.15rem;
+    font-size: 0.95rem;
   }
 
   .quickDockLabel {
-    font-size: 0.56rem;
+    font-size: 0.5rem;
   }
 
   .quickDockTherapy {
-    font-size: 0.64rem;
+    font-size: 0.58rem;
   }
 
   .quickDockActionBadge {
-    font-size: 0.65rem;
-    padding: 4px 8px;
+    font-size: 0.58rem;
+    padding: 2px 5px;
   }
 
   .interactionHint {
-    font-size: 0.65rem;
-    padding: 4px 10px;
-    white-space: normal;
-    text-align: center;
+    font-size: 0.58rem;
+    padding: 2px 6px;
   }
 }

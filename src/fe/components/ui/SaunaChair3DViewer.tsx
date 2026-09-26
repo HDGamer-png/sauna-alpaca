@@ -266,9 +266,16 @@ export function SaunaChair3DViewer() {
               className={`${styles.modelBadgeDot} ${isHeatingOn ? styles.modelBadgeDotHeating : ''}`}
             />
             <span className={styles.modelBadgeText}>
-              {isHeatingOn
-                ? `ALPACA-FIR-01 • ${activePresetData.name.toUpperCase()} (${tempSetting}°C)`
-                : 'ALPACA-FIR-01 • CHẾ ĐỘ CHỜ (STANDBY)'}
+              <span className={styles.modelBadgeTextDesktop}>
+                {isHeatingOn
+                  ? `ALPACA-FIR-01 • ${activePresetData.name.toUpperCase()} (${tempSetting}°C)`
+                  : 'ALPACA-FIR-01 • CHẾ ĐỘ CHỜ (STANDBY)'}
+              </span>
+              <span className={styles.modelBadgeTextMobile}>
+                {isHeatingOn
+                  ? `ALPACA-FIR • ${tempSetting}°C`
+                  : 'ALPACA-FIR • CHẾ ĐỘ CHỜ'}
+              </span>
             </span>
           </div>
         </div>
