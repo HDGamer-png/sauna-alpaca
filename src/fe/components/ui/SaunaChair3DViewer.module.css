@@ -1,0 +1,1139 @@
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   SAUNA CHAIR 4K INTERACTIVE VIEWER (CHÍNH THỨC ANH_TK3D.JPG)
+   - Hình ảnh ghế xông hơi 3D 4K thực tế
+   - Tương tác trực tiếp khi ấn vào Bảng điều khiển trên ghế
+   - Điều khiển 4 vùng nhiệt độc lập & 4 phác đồ Cố Đô
+   - Hiệu ứng Khúc xạ thủy tinh (Liquid Prism Refraction)
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.viewerWrapper {
+  position: relative;
+  width: 100%;
+}
+
+/* 🌟 HÀO QUANG NHIỆT / KHÚC XẠ HẮT SÁNG RA NGOÀI HERO */
+.ambientBacklightGlow {
+  position: absolute;
+  inset: -28px;
+  border-radius: 46px;
+  filter: blur(38px);
+  pointer-events: none;
+  z-index: 0;
+  animation: ambientBreathe 3.4s ease-in-out infinite alternate;
+}
+
+@keyframes ambientBreathe {
+  0% { opacity: 0.65; transform: scale(0.98); }
+  100% { opacity: 1; transform: scale(1.02); }
+}
+
+/* ──── KHUNG CHỨA 3D (HIỆU ỨNG KHÚC XẠ THỦY TINH ĐỘC BẢN) ──── */
+.viewerContainer {
+  position: relative;
+  width: 100%;
+  height: clamp(530px, 56vw, 690px);
+  min-height: 500px;
+  border-radius: 30px;
+  overflow: hidden;
+  user-select: none;
+  perspective: 1200px;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 1;
+  background: radial-gradient(ellipse at 50% 45%, rgba(56, 189, 248, 0.16) 0%, rgba(15, 36, 29, 0.98) 60%, #0A1914 100%);
+  border: 1.8px solid #7DD3FC;
+  box-shadow: 
+    0 0 45px rgba(56, 189, 248, 0.35),
+    0 35px 80px -15px rgba(0, 0, 0, 0.8),
+    inset 0 1px 2px rgba(224, 242, 254, 0.45);
+}
+
+/* ──── THANH TRÊN CÙNG (TOP BAR) ──── */
+.topBar {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  right: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  z-index: 30;
+  pointer-events: none;
+}
+
+.topBar > * {
+  pointer-events: auto;
+}
+
+.modelBadge {
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(212, 135, 44, 0.38);
+  padding: 6px 14px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+}
+
+.modelBadgeDot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #10B981;
+  box-shadow: 0 0 8px #10B981;
+  animation: dotPulse 2s ease-in-out infinite;
+}
+
+.modelBadgeDotHeating {
+  background: #EF4444 !important;
+  box-shadow: 0 0 10px #EF4444, 0 0 20px #F59E0B !important;
+}
+
+.modelBadgeText {
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  color: #1F2937;
+  text-transform: uppercase;
+}
+
+@keyframes dotPulse {
+  0%, 100% { transform: scale(1); opacity: 0.85; }
+  50% { transform: scale(1.35); opacity: 1; }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   KHUNG HÌNH 4K (PHOTO STAGE - ANH_TK3D.JPG)
+   ═══════════════════════════════════════════════════════════════════════════ */
+.photoStage {
+  position: absolute;
+  inset: -3%;
+  width: 106%;
+  height: 106%;
+  overflow: hidden;
+  transition: transform 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+  transform-style: preserve-3d;
+}
+
+.photoImageWrapper {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.chairPhoto {
+  object-fit: cover;
+  object-position: center;
+  user-select: none;
+  pointer-events: none;
+}
+
+/* ──── LỚP PHỦ HÀO QUANG NHIỆT FIR TRÊN CÁC TẤM NHIỆT THỰC TẾ ──── */
+.thermalAura {
+  position: absolute;
+  border-radius: 50%;
+  mix-blend-mode: screen;
+  pointer-events: none;
+  animation: thermalAuraPulse 3s ease-in-out infinite alternate;
+}
+
+.thermalOverhead {
+  left: 41%;
+  top: 11%;
+  width: 130px;
+  height: 90px;
+  background: radial-gradient(ellipse at center, rgba(239, 68, 68, 0.55) 0%, rgba(245, 158, 11, 0.3) 45%, transparent 70%);
+}
+
+.thermalBackrest {
+  left: 60%;
+  top: 26%;
+  width: 150px;
+  height: 140px;
+  background: radial-gradient(ellipse at center, rgba(239, 68, 68, 0.6) 0%, rgba(245, 158, 11, 0.35) 50%, transparent 72%);
+}
+
+.thermalLegs {
+  left: 30%;
+  top: 48%;
+  width: 120px;
+  height: 90px;
+  background: radial-gradient(ellipse at center, rgba(239, 68, 68, 0.5) 0%, rgba(245, 158, 11, 0.28) 45%, transparent 70%);
+}
+
+.globalFirBreathe {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at 55% 42%, rgba(245, 158, 11, 0.14) 0%, rgba(239, 68, 68, 0.08) 45%, transparent 70%);
+  mix-blend-mode: screen;
+  animation: thermalAuraPulse 3.5s 0.5s ease-in-out infinite alternate;
+}
+
+@keyframes thermalAuraPulse {
+  0% { opacity: 0.5; transform: scale(0.95); }
+  100% { opacity: 0.95; transform: scale(1.06); }
+}
+
+/* ──── HIỆU ỨNG KHÚC XẠ THỦY TINH & LĂN TĂN HƠI NƯỚC (LIQUID PRISM REFRACTION) ──── */
+.liquidRefractionWrapper {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 13;
+  overflow: hidden;
+}
+
+.liquidCausticsOverlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  transition: opacity 0.2s ease;
+}
+
+.liquidGlassLens {
+  position: absolute;
+  width: 175px;
+  height: 175px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  border: 2px solid rgba(186, 230, 253, 0.75);
+  box-shadow: 
+    0 0 25px rgba(56, 189, 248, 0.5),
+    0 20px 40px rgba(0, 0, 0, 0.45),
+    inset 0 0 30px rgba(186, 230, 253, 0.35);
+  animation: liquidLensPop 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+}
+
+@keyframes liquidLensPop {
+  from { opacity: 0; transform: translate(-50%, -50%) scale(0.85); }
+  to { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+}
+
+.liquidWave1,
+.liquidWave2,
+.liquidWave3 {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1.5px solid rgba(125, 211, 252, 0.6);
+  pointer-events: none;
+}
+
+.liquidWave1 {
+  animation: liquidWaveRipple 2.4s ease-out infinite;
+}
+
+.liquidWave2 {
+  animation: liquidWaveRipple 2.4s 0.8s ease-out infinite;
+}
+
+.liquidWave3 {
+  animation: liquidWaveRipple 2.4s 1.6s ease-out infinite;
+}
+
+@keyframes liquidWaveRipple {
+  0% { transform: scale(0.65); opacity: 0.95; }
+  100% { transform: scale(1.6); opacity: 0; }
+}
+
+.liquidSpecularGloss {
+  position: absolute;
+  top: 14px;
+  left: 20px;
+  width: 58px;
+  height: 30px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0.05) 100%);
+  transform: rotate(-25deg);
+  pointer-events: none;
+  filter: blur(1.5px);
+}
+
+.liquidPrismDispersion {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  box-shadow: inset 0 0 15px rgba(56, 189, 248, 0.4), inset 0 0 8px rgba(244, 114, 182, 0.3);
+  pointer-events: none;
+}
+
+.liquidLensBadge {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(3, 19, 32, 0.92);
+  border: 1px solid #38BDF8;
+  border-radius: 999px;
+  padding: 2px 9px;
+  font-size: 0.62rem;
+  font-weight: 800;
+  color: #BAE6FD;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* 🎯 ĐIỂM CHẠM VÀO BẢNG ĐIỀU KHIỂN TRÊN GHẾ (ARMREST CONSOLE) */
+.chairConsoleHotspot {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  z-index: 25;
+  cursor: pointer;
+  pointer-events: auto;
+  transition: transform 0.22s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.chairConsoleHotspot:hover {
+  transform: translate(-50%, -50%) scale(1.15);
+}
+
+.consolePulseRing {
+  position: absolute;
+  inset: -10px;
+  border-radius: 999px;
+  border: 2px solid #F59E0B;
+  animation: pulseRingAnim 2.2s infinite;
+  pointer-events: none;
+}
+
+@keyframes pulseRingAnim {
+  0% { transform: scale(0.92); opacity: 0.95; }
+  100% { transform: scale(1.7); opacity: 0; }
+}
+
+.consoleMarkerBtn {
+  background: linear-gradient(135deg, #DC2626 0%, #D97706 100%);
+  border: 2.5px solid #FFFFFF;
+  border-radius: 999px;
+  padding: 6px 15px;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  box-shadow: 0 0 0 4px rgba(220, 38, 38, 0.4), 0 8px 26px rgba(0, 0, 0, 0.5);
+  font-weight: 800;
+  font-size: 0.78rem;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+.consoleMarkerIcon {
+  font-size: 1rem;
+}
+
+/* ──── CÁC ĐIỂM GHIM HOTSPOTS THÔNG MINH ──── */
+.spotWrapper {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  z-index: 22;
+  pointer-events: auto;
+}
+
+.spotBtn {
+  position: relative;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 2px solid #F59E0B;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  padding: 0;
+}
+
+.spotBtn:hover,
+.spotBtnActive {
+  transform: scale(1.25);
+  border-color: #EF4444;
+  background: #EF4444;
+}
+
+.spotDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #FEF08A;
+}
+
+.spotPing {
+  position: absolute;
+  inset: -5px;
+  border-radius: 50%;
+  border: 1.5px solid #F59E0B;
+  animation: pulseRingAnim 2.5s infinite;
+  pointer-events: none;
+}
+
+.spotWrapperActive {
+  z-index: 42 !important;
+}
+
+.spotCard {
+  position: absolute;
+  bottom: calc(100% + 12px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: 240px;
+  background: rgba(15, 23, 42, 0.94);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1.5px solid rgba(245, 158, 11, 0.55);
+  border-radius: 16px;
+  padding: 12px 14px;
+  color: #FFFFFF;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6);
+  z-index: 35;
+  animation: cardFadeIn 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.spotCard::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 6px;
+  border-style: solid;
+  border-color: rgba(15, 23, 42, 0.94) transparent transparent transparent;
+}
+
+/* Khi hotspot ở nửa trên (như vòm đỉnh), thẻ bung xuống dưới để không bị cắt mép */
+.spotCardDown {
+  bottom: auto !important;
+  top: calc(100% + 14px) !important;
+}
+
+.spotCardDown::after {
+  top: auto !important;
+  bottom: 100% !important;
+  border-color: transparent transparent rgba(15, 23, 42, 0.94) transparent !important;
+}
+
+@keyframes cardFadeIn {
+  from { opacity: 0; transform: translate(-50%, 8px) scale(0.95); }
+  to { opacity: 1; transform: translate(-50%, 0) scale(1); }
+}
+
+.spotCardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.spotCardTitle {
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: #FEF08A;
+}
+
+.spotCloseBtn {
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 0.9rem;
+  cursor: pointer;
+  padding: 0 4px;
+}
+
+.spotCloseBtn:hover {
+  color: #FFFFFF;
+}
+
+.spotCardDesc {
+  font-size: 0.72rem;
+  line-height: 1.45;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0 0 6px 0;
+}
+
+.spotCardTag {
+  display: inline-block;
+  background: rgba(245, 158, 11, 0.22);
+  border: 1px solid rgba(245, 158, 11, 0.45);
+  color: #FEF3C7;
+  padding: 2px 8px;
+  border-radius: 6px;
+  font-size: 0.66rem;
+  font-weight: 700;
+}
+
+/* ──── CỤM CĂN GIỮA DƯỚI ĐÁY: THÔNG BÁO BẢNG ĐIỀU KHIỂN & CHỈ DẪN ──── */
+.bottomCenterCluster {
+  position: absolute;
+  bottom: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  z-index: 28;
+  pointer-events: none;
+  width: max-content;
+  max-width: 94%;
+}
+
+.bottomCenterCluster > * {
+  pointer-events: auto;
+}
+
+.quickOpenConsoleBtn {
+  border: 1.5px solid rgba(245, 158, 11, 0.55);
+  background: rgba(15, 23, 42, 0.94);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 18px;
+  padding: 8px 18px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  cursor: pointer;
+  color: #FFFFFF;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.45), 0 0 16px rgba(245, 158, 11, 0.18);
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.quickOpenConsoleBtn:hover {
+  transform: translateY(-2px);
+  border-color: #FEF08A;
+  box-shadow: 0 14px 34px rgba(245, 158, 11, 0.28), 0 0 24px rgba(245, 158, 11, 0.22);
+}
+
+/* ──── CHỈ DẪN TƯƠNG TÁC (NẰM DƯỚI NÚT ĐIỀU KHIỂN) ──── */
+.interactionHint {
+  background: rgba(15, 23, 42, 0.82);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: rgba(255, 255, 255, 0.95);
+  padding: 5px 16px;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  pointer-events: none;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  white-space: nowrap;
+}
+
+.quickDockScreen {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.quickDockLabel {
+  font-size: 0.62rem;
+  color: #94A3B8;
+  font-weight: 750;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.quickDockDigits {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.quickDockTemp {
+  font-family: var(--font-heading, monospace);
+  font-size: 1.35rem;
+  font-weight: 850;
+  color: #FEF08A;
+  line-height: 1.1;
+  text-shadow: 0 0 12px rgba(245, 158, 11, 0.6);
+}
+
+.quickDockTherapy {
+  font-size: 0.72rem;
+  color: #86EFAC;
+  font-weight: 650;
+}
+
+.quickDockActionBadge {
+  background: linear-gradient(135deg, #DC2626 0%, #D97706 100%);
+  color: #FFFFFF;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 750;
+  white-space: nowrap;
+  box-shadow: 0 2px 10px rgba(220, 38, 38, 0.4);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   BẢNG ĐIỀU KHIỂN CẢM ỨNG 4K TRỰC TIẾP TRÊN GHẾ (MODAL / CONSOLE WINDOW)
+   ═══════════════════════════════════════════════════════════════════════════ */
+.consoleModalBackdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 15, 29, 0.72);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  animation: modalFadeIn 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes modalFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.consoleModalWindow {
+  background: linear-gradient(165deg, #0F172A 0%, #0A0F1D 100%);
+  border: 1.5px solid rgba(245, 158, 11, 0.65);
+  border-radius: 24px;
+  width: 100%;
+  max-width: 530px;
+  max-height: 94%;
+  overflow-y: auto;
+  padding: 18px 22px;
+  color: #FFFFFF;
+  box-shadow: 
+    0 30px 70px rgba(0, 0, 0, 0.8),
+    0 0 40px rgba(245, 158, 11, 0.2),
+    inset 0 1px 1px rgba(255, 255, 255, 0.2);
+  animation: modalScaleUp 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes modalScaleUp {
+  from { opacity: 0; transform: scale(0.92) translateY(12px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.consoleModalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.consoleModalHeaderLeft {
+  display: flex;
+  flex-direction: column;
+}
+
+.consoleHeaderBrand {
+  font-size: 0.66rem;
+  font-weight: 750;
+  color: #F59E0B;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.consoleHeaderTitle {
+  font-size: 1.05rem;
+  font-weight: 850;
+  color: #FFFFFF;
+  margin: 2px 0 0 0;
+}
+
+.consoleCloseBtn {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.85);
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 0.74rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.consoleCloseBtn:hover {
+  background: rgba(239, 68, 68, 0.35);
+  border-color: #EF4444;
+  color: #FFFFFF;
+}
+
+/* ──── MÀN HÌNH OLED TRUNG TÂM ──── */
+.oledMainDisplayCard {
+  background: radial-gradient(ellipse at 50% 30%, #152238 0%, #06090E 100%);
+  border: 2px solid rgba(217, 119, 6, 0.55);
+  border-radius: 18px;
+  padding: 12px 16px;
+  margin-bottom: 12px;
+  box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.8), 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.oledDisplayStatusRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.oledSignalBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.68rem;
+  color: #94A3B8;
+  font-weight: 750;
+  letter-spacing: 0.04em;
+}
+
+.signalLed {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #64748B;
+}
+
+.signalLedActive {
+  background: #10B981 !important;
+  box-shadow: 0 0 8px #10B981 !important;
+}
+
+.oledTimerBadge {
+  font-size: 0.72rem;
+  color: #FCD34D;
+  font-weight: 750;
+  background: rgba(245, 158, 11, 0.16);
+  padding: 2px 8px;
+  border-radius: 6px;
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.oledDisplayCenterRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 10px;
+}
+
+.oledTempContainer {
+  display: flex;
+  align-items: baseline;
+}
+
+.oledBigNumber {
+  font-family: var(--font-heading, monospace);
+  font-size: 3rem;
+  font-weight: 900;
+  color: #FEF08A;
+  line-height: 1;
+  text-shadow: 0 0 20px rgba(245, 158, 11, 0.7);
+}
+
+.oledDegreeUnit {
+  font-size: 1.5rem;
+  color: #F59E0B;
+  font-weight: 750;
+  margin-left: 2px;
+}
+
+.oledStatusCluster {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  flex: 1;
+}
+
+.activeTherapyIndicator {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.06);
+  padding: 5px 9px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.indicatorIcon {
+  font-size: 1.2rem;
+}
+
+.indicatorInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.indicatorTitle {
+  font-size: 0.76rem;
+  font-weight: 750;
+  color: #FFFFFF;
+}
+
+.indicatorBadge {
+  font-size: 0.64rem;
+  color: #34D399;
+  font-weight: 600;
+}
+
+.firPowerMeter {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.powerMeterLabel {
+  font-size: 0.65rem;
+  color: #94A3B8;
+  font-weight: 650;
+}
+
+.powerMeterBars {
+  display: flex;
+  gap: 4px;
+}
+
+.meterBar {
+  flex: 1;
+  height: 5px;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.15);
+  transition: all 0.2s ease;
+}
+
+.meterBarActive {
+  background: linear-gradient(90deg, #F59E0B 0%, #EF4444 100%) !important;
+  box-shadow: 0 0 8px rgba(239, 68, 68, 0.6);
+}
+
+/* ──── NÚT TĂNG GIẢM NHIỆT ĐỘ ──── */
+.tempButtonControls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.tempAdjustBtn {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1.5px solid rgba(245, 158, 11, 0.5);
+  color: #FFFFFF;
+  font-size: 1.35rem;
+  font-weight: 850;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.tempAdjustBtn:hover:not(:disabled) {
+  background: rgba(245, 158, 11, 0.45);
+  border-color: #FEF08A;
+  transform: scale(1.1);
+}
+
+.tempAdjustBtn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.tempQuickPills {
+  display: flex;
+  gap: 4px;
+  flex: 1;
+  justify-content: center;
+}
+
+.tempPill {
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.85);
+  padding: 5px 8px;
+  border-radius: 8px;
+  font-size: 0.7rem;
+  font-weight: 750;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.tempPill:hover {
+  background: rgba(255, 255, 255, 0.18);
+  color: #FFFFFF;
+}
+
+.tempPillActive {
+  background: linear-gradient(135deg, #D97706 0%, #B45309 100%) !important;
+  color: #FFFFFF !important;
+  border-color: #FEF08A !important;
+  box-shadow: 0 0 10px rgba(217, 119, 6, 0.55);
+}
+
+/* ──── ĐIỀU KHIỂN 4 VÙNG NHIỆT ĐỘC LẬP ──── */
+.zonesSection {
+  margin-bottom: 12px;
+}
+
+.sectionHeading {
+  display: block;
+  font-size: 0.68rem;
+  font-weight: 800;
+  color: #94A3B8;
+  letter-spacing: 0.06em;
+  margin-bottom: 6px;
+}
+
+.zonesGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 6px;
+}
+
+.zoneBtn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1.5px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+  padding: 6px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.72rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.zoneBtn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(245, 158, 11, 0.4);
+}
+
+.zoneBtnActive {
+  background: rgba(245, 158, 11, 0.18) !important;
+  border-color: #F59E0B !important;
+  color: #FEF08A !important;
+}
+
+.zoneStateText {
+  font-size: 0.64rem;
+  font-weight: 800;
+  opacity: 0.85;
+}
+
+/* ──── PHẦN CHỌN PHÁC ĐỒ TRỊ LIỆU ──── */
+.presetSection {
+  margin-bottom: 12px;
+}
+
+.presetGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 6px;
+}
+
+.presetCard {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1.5px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  padding: 7px 9px;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  color: #FFFFFF;
+}
+
+.presetCard:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(245, 158, 11, 0.4);
+  transform: translateY(-1.5px);
+}
+
+.presetCardActive {
+  background: rgba(245, 158, 11, 0.15) !important;
+  border-color: #F59E0B !important;
+  box-shadow: 0 0 14px rgba(245, 158, 11, 0.35);
+}
+
+.presetCardTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2px;
+}
+
+.presetCardIcon {
+  font-size: 1.05rem;
+}
+
+.presetCardTemp {
+  font-size: 0.66rem;
+  color: #FEF08A;
+  font-weight: 750;
+}
+
+.presetCardName {
+  display: block;
+  font-size: 0.74rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  margin-bottom: 2px;
+}
+
+.presetCardDesc {
+  font-size: 0.63rem;
+  line-height: 1.35;
+  color: #94A3B8;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* ──── FOOTER MODAL ──── */
+.consoleModalFooter {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.timerPickerCluster {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.timerPickerLabel {
+  font-size: 0.68rem;
+  color: #94A3B8;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.timerPill {
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.07);
+  color: rgba(255, 255, 255, 0.85);
+  padding: 4px 9px;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.timerPill:hover {
+  background: rgba(255, 255, 255, 0.16);
+  color: #FFFFFF;
+}
+
+.timerPillActive {
+  background: #10B981 !important;
+  color: #FFFFFF !important;
+  border-color: #34D399 !important;
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+}
+
+.mainPowerBtn {
+  width: 100%;
+  background: linear-gradient(135deg, #DC2626 0%, #B45309 100%);
+  border: 1.5px solid #FEF08A;
+  color: #FFFFFF;
+  padding: 10px 16px;
+  border-radius: 12px;
+  font-size: 0.82rem;
+  font-weight: 850;
+  cursor: pointer;
+  box-shadow: 0 4px 18px rgba(220, 38, 38, 0.5);
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  letter-spacing: 0.02em;
+}
+
+.mainPowerBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(220, 38, 38, 0.65);
+}
+
+.mainPowerBtnOff {
+  background: rgba(255, 255, 255, 0.12) !important;
+  color: rgba(255, 255, 255, 0.75) !important;
+  border-color: rgba(255, 255, 255, 0.22) !important;
+  box-shadow: none !important;
+}
+
+/* ──── RESPONSIVE ──── */
+@media (max-width: 640px) {
+  .viewerContainer {
+    height: 520px;
+  }
+
+  .topBar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+
+  .modelBadgeText {
+    font-size: 0.68rem;
+  }
+
+  .zonesGrid,
+  .presetGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .oledBigNumber {
+    font-size: 2.4rem;
+  }
+
+  .bottomCenterCluster {
+    bottom: 12px;
+    gap: 6px;
+    max-width: 96%;
+  }
+
+  .quickOpenConsoleBtn {
+    padding: 6px 12px;
+    gap: 8px;
+    border-radius: 14px;
+  }
+
+  .quickDockTemp {
+    font-size: 1.15rem;
+  }
+
+  .quickDockLabel {
+    font-size: 0.56rem;
+  }
+
+  .quickDockTherapy {
+    font-size: 0.64rem;
+  }
+
+  .quickDockActionBadge {
+    font-size: 0.65rem;
+    padding: 4px 8px;
+  }
+
+  .interactionHint {
+    font-size: 0.65rem;
+    padding: 4px 10px;
+    white-space: normal;
+    text-align: center;
+  }
+}

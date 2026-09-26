@@ -2,6 +2,7 @@
 
 import { useState, useEffect, Suspense } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useSearchParams } from 'next/navigation';
 import { SpecialistChatDesk, Order, DeliveryStep } from '@/fe/components/admin/SpecialistChatDesk';
 import { StaffShiftLoginForm } from '@/fe/components/admin/StaffShiftLoginForm';
@@ -337,7 +338,15 @@ function StaffPortalContent() {
       {/* ──── THANH ĐIỀU HƯỚNG TRÊN CÙNG (TOP NAV CHUYÊN VIÊN) ──── */}
       <header className={styles.topNav}>
         <div className={styles.brand} onClick={() => setActiveTab('chat')}>
-          <span className={styles.brandIcon}>🌿</span>
+          <span className={styles.brandIcon}>
+            <Image
+              src="/images/logo-emblem.png"
+              alt="Sauna Alpaca Logo"
+              width={28}
+              height={28}
+              className={styles.brandLogoImg}
+            />
+          </span>
           <div className={styles.brandInfo}>
             <span className={styles.brandName}>ALPACA SAUNA</span>
             <span className={styles.brandRole}>Nhân viên trực ca TP. Huế</span>
@@ -367,15 +376,22 @@ function StaffPortalContent() {
         {/* Nút hành động phải (Huy hiệu ca trực + Đổi ca + Kết thúc ca) */}
         <div className={styles.navActions}>
           {currentUser && (
-            <div className={styles.userBadge}>
-              <span className={styles.userAvatar}>{currentUser.avatar || '👨‍⚕️'}</span>
-              <span className={styles.userName}>{currentUser.display_name}</span>
+            <div
+              className={`${styles.userBadge} ${currentUser.role === 'owner' ? styles.userBadgeOwner : ''}`}
+              title={currentUser.role === 'owner' ? 'Tài khoản Chủ Cửa Hàng (Admin Tổng)' : `Nhân viên trực ca: ${currentUser.display_name}`}
+            >
+              <span className={styles.userAvatar}>
+                {currentUser.avatar || (currentUser.role === 'owner' ? '👑' : '👨‍⚕️')}
+              </span>
+              <span className={styles.userName}>
+                {currentUser.role === 'owner' ? 'Chủ Shop' : currentUser.display_name}
+              </span>
               {currentShift && (
                 <span
                   className={styles.userShiftTime}
                   title={`Check-in lúc: ${currentShift.check_in_time}`}
                 >
-                  Ca từ: {currentShift.check_in_time.split(' ')[1]?.substring(0, 5)}
+                  Ca: {currentShift.check_in_time.split(' ')[1]?.substring(0, 5)}
                 </span>
               )}
             </div>
@@ -397,8 +413,13 @@ function StaffPortalContent() {
             className={styles.btnSwitchShift}
             onClick={handleSwitchShift}
             title="Đổi nhân viên trực ca tiếp theo"
+            aria-label="Đổi ca trực"
           >
-            🔄 Bàn giao ca
+            <span className={styles.btnIcon}>🔄</span>
+            <span className={styles.actionBtnText}>
+              <span className={styles.fullText}>Bàn giao ca</span>
+              <span className={styles.shortText}>Đổi ca</span>
+            </span>
           </button>
 
           <button
@@ -406,12 +427,26 @@ function StaffPortalContent() {
             className={styles.btnLogout}
             onClick={handleLogout}
             title="Kết thúc ca trực và check-out chấm công"
+            aria-label="Kết thúc ca trực"
           >
-            🚪 Kết thúc ca
+            <span className={styles.btnIcon}>🚪</span>
+            <span className={styles.actionBtnText}>
+              <span className={styles.fullText}>Kết thúc ca</span>
+              <span className={styles.shortText}>Hết ca</span>
+            </span>
           </button>
 
-          <Link href="/" className={styles.btnWebsite} title="Xem website khách hàng">
-            🌐 Website
+          <Link
+            href="/"
+            className={styles.btnWebsite}
+            title="Xem website khách hàng"
+            aria-label="Website Khách Hàng"
+          >
+            <span className={styles.btnIcon}>🌐</span>
+            <span className={styles.actionBtnText}>
+              <span className={styles.fullText}>Website</span>
+              <span className={styles.shortText}>Web</span>
+            </span>
           </Link>
         </div>
       </header>
@@ -922,9 +957,9 @@ function StaffPortalContent() {
       {activeTab !== 'chat' && (
         <footer className={styles.portalFooter}>
           <div className={styles.portalFooterInner}>
-            <span>© 2026 Sauna Alpaca Huế — Cổng Nghiệp Vụ Nhân Viên Trực Ca</span>
+            <span className={styles.portalCopyright}>© 2026 Sauna Alpaca Huế — Cổng Nghiệp Vụ Nhân Viên Trực Ca</span>
             <span className={styles.footerDivider}>•</span>
-            <span>Hotline Kỹ Thuật: <strong>0385.927.274</strong></span>
+            <span className={styles.portalHotline}>Hotline Kỹ Thuật: <strong>0385.927.274</strong></span>
           </div>
         </footer>
       )}

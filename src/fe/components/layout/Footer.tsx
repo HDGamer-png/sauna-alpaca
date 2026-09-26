@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import {
   SITE_CONFIG,
   CONTACT_INFO,
@@ -39,7 +40,15 @@ export function Footer() {
           {/* Brand */}
           <div className={styles.footerBrand}>
             <div className={styles.footerLogo}>
-              <div className={styles.footerLogoIcon}>🌿</div>
+              <div className={styles.footerLogoIcon}>
+                <Image
+                  src="/images/logo-emblem.png"
+                  alt="Sauna Alpaca Logo"
+                  width={32}
+                  height={32}
+                  className={styles.footerLogoImg}
+                />
+              </div>
               <span className={styles.footerLogoName}>{SITE_CONFIG.name}</span>
             </div>
             <p className={styles.footerDescription}>
@@ -122,7 +131,7 @@ export function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className={styles.footerBottom}>
+        <div className={styles.footerBottom} id="footer-bottom">
           <p className={styles.copyright}>
             © {currentYear} {SITE_CONFIG.name}. Mọi quyền được bảo lưu.
           </p>
@@ -133,13 +142,21 @@ export function Footer() {
             <Link href="/dieu-khoan" className={styles.footerBottomLink}>
               Điều khoản
             </Link>
-            <Link href="/nhanvien" className={styles.footerBottomLink} title="Cổng Nhân Viên Trực Ca Sauna Alpaca">
+            <Link
+              href="/nhanvien"
+              className={styles.footerBottomLink}
+              title="Cổng Nhân Viên Trực Ca Sauna Alpaca"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               🌿 Nhân Viên
             </Link>
             <Link
               href="/admin"
               className={styles.footerBottomLink}
               title={adminLabel === '👑 Điều Hành' ? 'Trang Điều Hành (Dành cho Chủ Cửa Hàng)' : 'Trang Admin (Dành cho Chủ Cửa Hàng)'}
+              target="_blank"
+              rel="noopener noreferrer"
             >
               {adminLabel}
             </Link>

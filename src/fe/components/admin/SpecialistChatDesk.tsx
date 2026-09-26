@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
+import Image from 'next/image';
 import styles from '@/app/admin/chat/adminChat.module.css';
 
 export interface Message {
@@ -87,6 +88,19 @@ const PACKAGE_OPTIONS = [
 ];
 
 import { AdminUser } from '@/shared/lib/adminStaff';
+
+/**
+ * Làm sạch nội dung tin nhắn hiển thị cho chuyên viên tư vấn:
+ * Loại bỏ chữ '[VỐN 0Đ]', '[Chính sách 0Đ]' và 'mã xác thực Captcha'
+ */
+export function cleanSpecialistMessageText(text: string): string {
+  if (!text) return text;
+  return text
+    .replace(/\s*\[VỐN\s*0Đ\]/gi, '')
+    .replace(/\s*\[Chính\s*sách\s*0Đ\]/gi, '')
+    .replace(/\s*\(Đã xác thực Captcha:[^)]*\)/gi, '')
+    .replace(/Tư vấn phác đồ và trải nghiệm\s*0Đ/gi, 'Tư vấn phác đồ và trải nghiệm');
+}
 
 interface SpecialistChatDeskProps {
   onOpenCreateOrder?: (customerInfo: { customerName: string; phone: string; address?: string }) => void;
@@ -334,7 +348,15 @@ export function SpecialistChatDesk({ onOpenCreateOrder, hideHeader = true, curre
       {!hideHeader && (
         <header className={styles.topNavbar}>
           <div className={styles.brandGroup}>
-            <span className={styles.brandLogo}>🌿</span>
+            <span className={styles.brandLogo}>
+              <Image
+                src="/images/logo-emblem.png"
+                alt="Sauna Alpaca Logo"
+                width={28}
+                height={28}
+                className={styles.brandLogoImg}
+              />
+            </span>
             <div>
               <div className={styles.brandTitle}>Sauna Alpaca — Bàn Làm Việc Chuyên Viên</div>
               <div className={styles.brandSubtitle}>Hệ thống tiếp quản Chatbot AI & Tiếp nhận khách hàng (TP. Huế)</div>
@@ -434,7 +456,7 @@ export function SpecialistChatDesk({ onOpenCreateOrder, hideHeader = true, curre
                     )}
 
                     <div className={styles.cardSnippet}>
-                      {lastMsg ? `${lastMsg.sender === 'user' ? 'Khách: ' : lastMsg.sender === 'seller' ? 'Bạn: ' : 'Bot: '}${lastMsg.text}` : 'Chưa có tin nhắn'}
+                      {lastMsg ? `${lastMsg.sender === 'user' ? 'Khách: ' : lastMsg.sender === 'seller' ? 'Bạn: ' : 'Bot: '}${cleanSpecialistMessageText(lastMsg.text)}` : 'Chưa có tin nhắn'}
                     </div>
 
                     <div>
@@ -596,7 +618,7 @@ export function SpecialistChatDesk({ onOpenCreateOrder, hideHeader = true, curre
                           : styles.bubbleBot
                       }`}
                     >
-                      {m.text}
+                      {cleanSpecialistMessageText(m.text)}
                       <div className={styles.msgTime}>{m.timestamp}</div>
                     </div>
                   </div>

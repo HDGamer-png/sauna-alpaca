@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import styles from './StaffShiftLoginForm.module.css';
 import { AdminUser, AdminShift, saveStoredAdminSession } from '@/shared/lib/adminStaff';
 
@@ -72,12 +73,37 @@ export function StaffShiftLoginForm({ onLoginSuccess }: StaffShiftLoginFormProps
     return () => clearInterval(interval);
   }, []);
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  // Đồng bộ thông tin khi trình duyệt tự động điền (Autofill)
+  useEffect(() => {
+    const syncAutofill = () => {
+      const userEl = document.getElementById('staff-username') as HTMLInputElement | null;
+      const passEl = document.getElementById('staff-password') as HTMLInputElement | null;
+      if (userEl && userEl.value && userEl.value !== username) {
+        setUsername(userEl.value);
+      }
+      if (passEl && passEl.value && passEl.value !== password) {
+        setPassword(passEl.value);
+      }
+    };
+    const t1 = setTimeout(syncAutofill, 100);
+    const t2 = setTimeout(syncAutofill, 400);
+    return () => {
+      clearTimeout(t1);
+      clearTimeout(t2);
+    };
+  }, []);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setErrorMsg(null);
 
-    const cleanUser = username.trim();
-    const cleanPass = password.trim();
+    // Đọc trực tiếp từ form DOM element để không bị lỡ dữ liệu do trình duyệt tự động điền (autofill)
+    const form = e.currentTarget;
+    const userInput = form.elements.namedItem('username') as HTMLInputElement | null;
+    const passInput = form.elements.namedItem('password') as HTMLInputElement | null;
+
+    const cleanUser = (userInput?.value ?? username).trim();
+    const cleanPass = (passInput?.value ?? password).trim();
 
     if (!cleanUser) {
       setErrorMsg('Vui lòng nhập tên đăng nhập nhân viên!');
@@ -126,7 +152,13 @@ export function StaffShiftLoginForm({ onLoginSuccess }: StaffShiftLoginFormProps
       <div className={styles.leftHero}>
         <div className={styles.heroTop}>
           <div className={styles.brandBadge}>
-            <span>🌿</span>
+            <Image
+              src="/images/logo-emblem.png"
+              alt="Sauna Alpaca"
+              width={20}
+              height={20}
+              className={styles.badgeLogoImg}
+            />
             <span>SAUNA ALPACA HUẾ • NHÂN VIÊN</span>
           </div>
         </div>
@@ -206,8 +238,37 @@ export function StaffShiftLoginForm({ onLoginSuccess }: StaffShiftLoginFormProps
 
           <div className={styles.formCard}>
             <div className={styles.cardHeader}>
-            <div className={styles.alpacaIconBox}>🌿</div>
-            <h2 className={styles.cardTitle}>{greetingTitle}</h2>
+              <div className={styles.mobileBadge}>
+                <Image
+                  src="/images/logo-emblem.png"
+                  alt="Sauna Alpaca"
+                  width={16}
+                  height={16}
+                  className={styles.badgeLogoImg}
+                />
+                <span>SAUNA ALPACA HUẾ • NHÂN VIÊN</span>
+              </div>
+              <div className={styles.alpacaIconBox}>
+                <Image
+                  src="/images/logo-emblem.png"
+                  alt="Sauna Alpaca Logo"
+                  width={40}
+                  height={40}
+                  className={styles.alpacaLogoImg}
+                  priority
+                />
+              </div>
+
+              {/* Đồng hồ đếm thời gian thực tại Huế trong khung đăng nhập (Mobile) */}
+              <div className={styles.cardLiveClock}>
+                <div className={styles.cardLiveTime}>{timeStr}</div>
+                <div className={styles.cardLiveDate}>
+                  <span>📅 {dateStr}</span>
+                  <span>• TP. Huế</span>
+                </div>
+              </div>
+
+              <h2 className={styles.cardTitle}>{greetingTitle}</h2>
             <p className={styles.cardSubtitle}>
               Nhập tài khoản nhân viên của bạn để bắt đầu ca làm việc và tự động check-in
             </p>
@@ -229,10 +290,13 @@ export function StaffShiftLoginForm({ onLoginSuccess }: StaffShiftLoginFormProps
               <div className={styles.inputWrapper}>
                 <span className={styles.inputIcon}>👤</span>
                 <input
+                  id="staff-username"
+                  name="username"
                   type="text"
                   className={styles.input}
                   placeholder="Tên đăng nhập"
                   value={username}
+                  autoComplete="username"
                   onChange={(e) => {
                     setUsername(e.target.value);
                     setErrorMsg(null);
@@ -245,16 +309,19 @@ export function StaffShiftLoginForm({ onLoginSuccess }: StaffShiftLoginFormProps
 
             {/* Trường Mật khẩu */}
             <div className={styles.formGroup}>
-              <label className={styles.label}>
+              <label className={styles.label} htmlFor="staff-password">
                 <span>Mật khẩu:</span>
               </label>
               <div className={styles.inputWrapper}>
                 <span className={styles.inputIcon}>🔒</span>
                 <input
+                  id="staff-password"
+                  name="password"
                   type={showPassword ? 'text' : 'password'}
                   className={styles.input}
                   placeholder="Mật khẩu"
                   value={password}
+                  autoComplete="current-password"
                   onChange={(e) => {
                     setPassword(e.target.value);
                     setErrorMsg(null);
@@ -291,7 +358,9 @@ export function StaffShiftLoginForm({ onLoginSuccess }: StaffShiftLoginFormProps
           <div className={styles.cardFooter}>
             <div className={styles.linkOwner}>
               <span>Bạn là chủ cửa hàng?</span>
-              <Link href="/admin">Đăng nhập tại {ownerPortalLabel}</Link>
+              <Link href="/admin" target="_blank" rel="noopener noreferrer">
+                Đăng nhập tại {ownerPortalLabel}
+              </Link>
             </div>
             <p className={styles.helperText}>
               Gặp sự cố tài khoản hoặc quên mật khẩu? Vui lòng liên hệ trực tiếp chủ cửa hàng để được cấp lại.

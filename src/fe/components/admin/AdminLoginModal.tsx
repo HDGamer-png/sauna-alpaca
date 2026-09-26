@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import styles from './AdminLoginModal.module.css';
 import { AdminUser, AdminShift, saveStoredAdminSession } from '@/shared/lib/adminStaff';
 
@@ -35,13 +36,14 @@ export function AdminLoginModal({ onLoginSuccess, isOpen = true }: AdminLoginMod
 
   // Đồng hồ số chạy thời gian thực tại Huế
   const [timeStr, setTimeStr] = useState('14:30:00');
+  const [dateStr, setDateStr] = useState('Đang cập nhật...');
 
   useEffect(() => {
     // Chọn ngẫu nhiên 1 câu chúc khi component mount
     const randomIndex = Math.floor(Math.random() * ADMIN_RANDOM_GREETINGS.length);
     setGreeting(ADMIN_RANDOM_GREETINGS[randomIndex]);
 
-    // Cập nhật đồng hồ thời gian thực
+    // Cập nhật đồng hồ thời gian thực tại Huế
     const updateClock = () => {
       const now = new Date();
       setTimeStr(
@@ -52,20 +54,57 @@ export function AdminLoginModal({ onLoginSuccess, isOpen = true }: AdminLoginMod
           hour12: false,
         })
       );
+      const rawDate = now.toLocaleDateString('vi-VN', {
+        weekday: 'long',
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric',
+      });
+      if (rawDate.includes(',')) {
+        const parts = rawDate.split(',');
+        setDateStr(`${parts[0].trim().toUpperCase()}, ${parts.slice(1).join(',').trim()}`);
+      } else {
+        setDateStr(rawDate.toUpperCase());
+      }
     };
     updateClock();
     const timer = setInterval(updateClock, 1000);
     return () => clearInterval(timer);
   }, []);
 
+  // Đồng bộ autofill khi trình duyệt tự động điền mật khẩu đã lưu
+  useEffect(() => {
+    if (!isOpen) return;
+    const syncAutofill = () => {
+      const userEl = document.getElementById('admin-username') as HTMLInputElement | null;
+      const passEl = document.getElementById('admin-password') as HTMLInputElement | null;
+      if (userEl && userEl.value && userEl.value !== username) {
+        setUsername(userEl.value);
+      }
+      if (passEl && passEl.value && passEl.value !== password) {
+        setPassword(passEl.value);
+      }
+    };
+    const t1 = setTimeout(syncAutofill, 100);
+    const t2 = setTimeout(syncAutofill, 400);
+    return () => {
+      clearTimeout(t1);
+      clearTimeout(t2);
+    };
+  }, [isOpen]);
+
   if (!isOpen) return null;
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setErrorMsg(null);
 
-    const cleanUser = username.trim();
-    const cleanPass = password.trim();
+    const form = e.currentTarget;
+    const userInput = form.elements.namedItem('username') as HTMLInputElement | null;
+    const passInput = form.elements.namedItem('password') as HTMLInputElement | null;
+
+    const cleanUser = (userInput?.value ?? username).trim();
+    const cleanPass = (passInput?.value ?? password).trim();
 
     if (!cleanUser) {
       setErrorMsg('Vui lòng nhập tên đăng nhập quản trị!');
@@ -118,7 +157,13 @@ export function AdminLoginModal({ onLoginSuccess, isOpen = true }: AdminLoginMod
         {/* Badge kính mờ trên cùng */}
         <div className={styles.leftHeader}>
           <div className={styles.glassPillBadge}>
-            <span className={styles.badgeDot}>●</span>
+            <Image
+              src="/images/logo-emblem.png"
+              alt="Sauna Alpaca"
+              width={18}
+              height={18}
+              className={styles.pillLogoImg}
+            />
             <span>SAUNA ALPACA HUẾ • ĐIỀU HÀNH</span>
           </div>
         </div>
@@ -210,23 +255,42 @@ export function AdminLoginModal({ onLoginSuccess, isOpen = true }: AdminLoginMod
 
           {/* ──── THẺ CARD ĐĂNG NHẬP GỖ TUYẾT TÙNG DÁT VÀNG 24K (MẪU 9) ──── */}
           <div className={styles.loginCard}>
-            {/* Biểu tượng lá thảo mộc & làn hơi nước xông thanh thoát với ánh kim vàng */}
+            {/* Biểu tượng logo thương hiệu chính thức */}
             <div className={styles.cardHeader}>
+              {/* Badge di động (hiển thị khi ở mobile) */}
+              <div className={styles.mobileBadge}>
+                <Image
+                  src="/images/logo-emblem.png"
+                  alt="Sauna Alpaca"
+                  width={16}
+                  height={16}
+                  className={styles.badgeLogoImg}
+                />
+                <span>SAUNA ALPACA HUẾ • ĐIỀU HÀNH</span>
+              </div>
+
               <div className={styles.leafIconBox}>
-                <svg width="44" height="44" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  {/* 3 làn hơi xông ấm áp ánh vàng */}
-                  <path d="M19 10C18 12.5 20.5 14 19.5 16.5" stroke="#E4B56C" strokeWidth="2" strokeLinecap="round" opacity="0.85" />
-                  <path d="M24 7.5C23 10.5 25.5 12.5 24.5 16.5" stroke="#FFD8A8" strokeWidth="2" strokeLinecap="round" />
-                  <path d="M29 10C28 12.5 30.5 14 29.5 16.5" stroke="#E4B56C" strokeWidth="2" strokeLinecap="round" opacity="0.85" />
-                  {/* 2 chiếc lá thảo dược tự nhiên hòa sắc ngọc lục bảo & viền vàng hoàng gia */}
-                  <path d="M24 32C24 32 13 30.5 12 20C22.5 19 24 29.5 24 32Z" fill="#3D7A54" stroke="#D4872C" strokeWidth="1.6" strokeLinejoin="round" />
-                  <path d="M24 32C24 32 35 30.5 36 20C25.5 19 24 29.5 24 32Z" fill="#589B72" stroke="#D4872C" strokeWidth="1.6" strokeLinejoin="round" />
-                  <path d="M24 32V36" stroke="#D4872C" strokeWidth="2" strokeLinecap="round" />
-                </svg>
+                <Image
+                  src="/images/logo-emblem.png"
+                  alt="Sauna Alpaca Logo"
+                  width={44}
+                  height={44}
+                  className={styles.leafLogoImg}
+                  priority
+                />
               </div>
 
               <div className={styles.managementBadge}>
                 BAN ĐIỀU HÀNH
+              </div>
+
+              {/* Đồng hồ đếm thời gian thực tại Huế trong khung đăng nhập (Mobile) */}
+              <div className={styles.cardLiveClock}>
+                <div className={styles.cardLiveTime}>{timeStr}</div>
+                <div className={styles.cardLiveDate}>
+                  <span>📅 {dateStr}</span>
+                  <span>• TP. Huế</span>
+                </div>
               </div>
 
               {/* Câu chúc ngẫu nhiên màu vàng ngà kim quang */}
@@ -254,9 +318,12 @@ export function AdminLoginModal({ onLoginSuccess, isOpen = true }: AdminLoginMod
                     </svg>
                   </span>
                   <input
+                    id="admin-username"
+                    name="username"
                     type="text"
                     className={styles.pillInput}
                     value={username}
+                    autoComplete="username"
                     onChange={(e) => {
                       setUsername(e.target.value);
                       setErrorMsg(null);
@@ -278,9 +345,12 @@ export function AdminLoginModal({ onLoginSuccess, isOpen = true }: AdminLoginMod
                     </svg>
                   </span>
                   <input
+                    id="admin-password"
+                    name="password"
                     type={showPassword ? 'text' : 'password'}
                     className={styles.pillInput}
                     value={password}
+                    autoComplete="current-password"
                     onChange={(e) => {
                       setPassword(e.target.value);
                       setErrorMsg(null);
@@ -329,7 +399,7 @@ export function AdminLoginModal({ onLoginSuccess, isOpen = true }: AdminLoginMod
             {/* Dẫn link chuyển cổng nhân viên */}
             <div className={styles.cardFooter}>
               <span className={styles.footerText}>Bạn là nhân viên trực ca?</span>
-              <Link href="/nhanvien" className={styles.footerLink}>
+              <Link href="/nhanvien" className={styles.footerLink} target="_blank" rel="noopener noreferrer">
                 Đến Cổng Nhân Viên
               </Link>
             </div>

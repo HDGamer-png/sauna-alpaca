@@ -73,6 +73,13 @@
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
 }
 
+.pillLogoImg {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
 .badgeDot {
   color: #4ade80;
   font-size: 0.75rem;
@@ -372,18 +379,40 @@
   z-index: 2;
 }
 
+.mobileBadge {
+  display: none;
+}
+
+.badgeLogoImg {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.cardLiveClock {
+  display: none;
+}
+
 .leafIconBox {
-  margin-bottom: 0.35rem;
+  width: 54px;
+  height: 54px;
+  border-radius: 16px;
+  background: rgba(234, 88, 12, 0.16);
+  border: 1.5px solid rgba(245, 158, 11, 0.45);
+  box-shadow: 0 4px 18px rgba(212, 135, 44, 0.3), inset 0 1px 0 rgba(255, 230, 180, 0.25);
   display: flex;
   align-items: center;
   justify-content: center;
-  background: transparent;
-  filter: drop-shadow(0 4px 10px rgba(212, 135, 44, 0.3));
+  padding: 4px;
+  margin-bottom: clamp(0.45rem, 1vh, 0.75rem);
 }
 
-.leafIconBox svg {
-  width: clamp(38px, 5vh, 46px);
-  height: clamp(38px, 5vh, 46px);
+.leafLogoImg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.45));
 }
 
 .managementBadge {
@@ -506,6 +535,32 @@
   font-size: 0.92rem;
 }
 
+/* ──── KHỬ VỆT TRẮNG CỦA TRÌNH DUYỆT KHI LƯU / AUTOFILL MẬT KHẨU ADMIN ──── */
+.pillInput:-webkit-autofill,
+.pillInput:-webkit-autofill:hover,
+.pillInput:-webkit-autofill:focus,
+.pillInput:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 1000px #1c0f08 inset !important;
+  box-shadow: 0 0 0 1000px #1c0f08 inset !important;
+  -webkit-text-fill-color: #ffffff !important;
+  color: #ffffff !important;
+  caret-color: #e6af65 !important;
+  transition: background-color 5000s ease-in-out 0s;
+  font-family: inherit !important;
+  font-size: 16px !important;
+}
+
+.pillInput:autofill {
+  background-color: #1c0f08 !important;
+  color: #ffffff !important;
+}
+
+.pillInputWrapper:has(.pillInput:-webkit-autofill),
+.pillInputWrapper:has(.pillInput:autofill) {
+  background: #1c0f08;
+  border-color: rgba(230, 175, 95, 0.7);
+}
+
 .eyeBtn {
   background: none;
   border: none;
@@ -605,6 +660,10 @@
 
 /* ──────────────────────────────────────────────────────────────────────────
    RESPONSIVE DESIGN (TABLET & MOBILE)
+   ĐỒNG BỘ HOÀN TOÀN VỚI FORM ĐĂNG NHẬP NHÂN VIÊN:
+   - ẨN LEFT PANE (ĐƯA ĐỒNG HỒ & HUY HIỆU VÀO TRONG THẺ FORM)
+   - FORM DỜI LÊN TRÊN, CĂN GIỮA MÀN HÌNH KHÔNG CẦN CUỘN
+   - TINH GỌN KÍCH THƯỚC TRÊN MÀN HÌNH NHỎ (≤ 600px & ≤ 380px)
    ────────────────────────────────────────────────────────────────────────── */
 @media (max-width: 960px) {
   .splitPage {
@@ -615,43 +674,92 @@
     min-height: 100vh;
     min-height: 100dvh;
     max-height: none;
+    box-sizing: border-box;
   }
 
+  /* ──── ẨN LEFT PANE TRÊN MOBILE VÌ ĐỒNG HỒ & HUY HIỆU ĐÃ NẰM TRỌN TRONG KHUNG ĐĂNG NHẬP ──── */
   .leftPane {
-    flex: 0 0 auto;
-    width: 100%;
-    max-width: 100%;
-    min-height: 240px;
-    padding: 3.5rem 1.25rem 1.5rem;
-    gap: 1.25rem;
+    display: none !important;
   }
 
-  .liveTime {
-    font-size: 1.85rem;
-  }
-
-  .heroQuote {
-    font-size: 0.98rem;
-    line-height: 1.5;
-  }
-
-  .leftFooter {
-    display: none;
-  }
-
+  /* ──── KHUNG ĐĂNG NHẬP CHIẾM TRỌN VÀ CĂN GIỮA MÀN HÌNH MOBILE ──── */
   .rightPane {
-    flex: 1 0 auto;
+    flex: 1 1 100%;
     width: 100%;
     max-width: 100%;
-    height: auto;
-    padding: 2.25rem 1.25rem 2.5rem;
+    min-height: 100vh;
+    min-height: 100dvh;
+    padding: 1.25rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+  }
+
+  .mobileBadge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    padding: 0.35rem 0.85rem;
+    border-radius: 999px;
+    font-size: 0.72rem;
+    font-weight: 750;
+    color: #fef08a;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.35rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+  }
+
+  /* ──── ĐỒNG HỒ ĐẾM THỜI GIAN THỰC NẰM TRONG KHUNG ĐĂNG NHẬP (MOBILE) ──── */
+  .cardLiveClock {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.45);
+    border: 1.2px solid rgba(230, 175, 95, 0.42);
+    border-radius: 14px;
+    padding: 0.45rem 1.1rem;
+    margin: 0.25rem 0 0.5rem;
+    width: 100%;
+    max-width: 290px;
+    box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.6), 0 4px 15px rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-sizing: border-box;
+  }
+
+  .cardLiveTime {
+    font-size: 1.65rem;
+    font-weight: 850;
+    line-height: 1.1;
+    color: #ffd8a8;
+    letter-spacing: -0.01em;
+    font-variant-numeric: tabular-nums;
+    text-shadow: 0 0 16px rgba(212, 135, 44, 0.55), 0 2px 6px rgba(0, 0, 0, 0.8);
+  }
+
+  .cardLiveDate {
+    font-size: 0.74rem;
+    font-weight: 600;
+    color: #e2e8f0;
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    margin-top: 0.15rem;
+    opacity: 0.92;
   }
 
   .loginCard {
     max-width: 440px;
     min-height: auto;
     max-height: none;
-    padding: 2.25rem 1.5rem 1.75rem;
+    padding: 1.75rem 1.5rem 1.5rem;
     border-radius: 22px;
     margin: 0 auto;
     transform: none !important;
@@ -663,7 +771,7 @@
     opacity: 0.5;
   }
 
-  /* Ẩn bớt 1 phần hạt bụi trên mobile để nhẹ máy */
+  /* Ẩn bớt 1 phần hạt bụi trên màn hình nhỏ để tối ưu */
   .stardustParticle5,
   .stardustParticle6,
   .stardustParticle11,
@@ -675,5 +783,176 @@
   .stardustParticle23,
   .stardustParticle25 {
     display: none;
+  }
+}
+
+/* ──── CHẾ ĐỘ MOBILE (≤ 600px): TINH GỌN, TOÀN BỘ NẰM TRONG KHUNG ĐĂNG NHẬP ──── */
+@media (max-width: 600px) {
+  .splitPage {
+    padding: 0;
+  }
+
+  .rightPane {
+    padding: 1rem 0.75rem;
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .cardWrapper {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  /* Tắt hiệu ứng bụi vàng bên ngoài trên mobile để tránh che viền và lag */
+  .effectStardustWrapper {
+    display: none;
+  }
+
+  .loginCard {
+    max-width: 390px;
+    width: 100%;
+    padding: 1.25rem 1.15rem 1.15rem;
+    border-radius: 18px;
+    margin: auto;
+  }
+
+  .cardHeader {
+    margin-bottom: 0.5rem;
+    gap: 0.2rem;
+  }
+
+  .leafIconBox {
+    width: 36px;
+    height: 36px;
+    border-radius: 11px;
+    margin-bottom: 0.15rem;
+    padding: 3px;
+  }
+
+  .managementBadge {
+    padding: 0.2rem 0.75rem;
+    font-size: 0.68rem;
+    margin-bottom: 0.25rem;
+  }
+
+  /* Đồng hồ trong thẻ trên mobile nhỏ */
+  .cardLiveClock {
+    padding: 0.35rem 0.85rem;
+    margin: 0.15rem 0 0.45rem;
+    border-radius: 12px;
+    max-width: 270px;
+  }
+
+  .cardLiveTime {
+    font-size: 1.5rem;
+  }
+
+  .cardLiveDate {
+    font-size: 0.72rem;
+  }
+
+  .greetingTitle {
+    font-size: 1.18rem;
+  }
+
+  .greetingSubtitle {
+    font-size: 0.78rem;
+    line-height: 1.35;
+    max-width: 290px;
+  }
+
+  .errorBanner {
+    padding: 0.45rem 0.75rem;
+    font-size: 0.78rem;
+    margin-bottom: 0.6rem;
+    border-radius: 10px;
+  }
+
+  .form {
+    gap: 0.65rem;
+  }
+
+  .formGroup {
+    gap: 0.2rem;
+  }
+
+  .pillInputWrapper {
+    height: 40px;
+    border-radius: 10px;
+    padding: 0 0.85rem;
+  }
+
+  .inputIcon {
+    font-size: 0.9rem;
+    margin-right: 0.5rem;
+  }
+
+  .pillInput {
+    font-size: 0.85rem;
+  }
+
+  .eyeBtn {
+    font-size: 1rem;
+  }
+
+  .btnSubmit {
+    height: 42px;
+    font-size: 0.88rem;
+    margin-top: 0.25rem;
+    border-radius: 10px;
+    gap: 0.45rem;
+  }
+
+  .cardFooter {
+    margin-top: 0.65rem;
+    padding-top: 0.55rem;
+    gap: 0.25rem;
+  }
+
+  .footerText,
+  .footerLink {
+    font-size: 0.76rem;
+  }
+}
+
+/* ──── MÀN HÌNH SIÊU NHỎ (≤ 380px) ──── */
+@media (max-width: 380px) {
+  .rightPane {
+    padding: 0.75rem 0.5rem;
+  }
+
+  .loginCard {
+    padding: 1rem 0.85rem 0.95rem;
+    border-radius: 16px;
+  }
+
+  .cardLiveClock {
+    padding: 0.3rem 0.65rem;
+    margin: 0.1rem 0 0.35rem;
+  }
+
+  .cardLiveTime {
+    font-size: 1.35rem;
+  }
+
+  .cardLiveDate {
+    font-size: 0.68rem;
+  }
+
+  .greetingTitle {
+    font-size: 1.1rem;
+  }
+
+  .pillInputWrapper {
+    height: 38px;
+    padding: 0 0.75rem;
+  }
+
+  .btnSubmit {
+    height: 40px;
+    font-size: 0.84rem;
   }
 }

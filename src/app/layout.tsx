@@ -58,6 +58,10 @@ export const metadata: Metadata = {
     description: SITE_CONFIG.description,
     images: ['/og-image.jpg'],
   },
+  icons: {
+    icon: '/images/logo-emblem.png',
+    apple: '/images/logo-emblem.png',
+  },
   metadataBase: new URL(SITE_CONFIG.url),
 };
 

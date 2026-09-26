@@ -301,15 +301,15 @@ class AIChatHandler(BaseHTTPRequestHandler):
                 sess["health_concern"] = concern
             session_manager._save_sessions()
 
-            lead_desc = f"Khách hàng {name or 'mới'} ({phone}) đăng ký tư vấn [Chính sách 0Đ]. Nhu cầu: {concern or 'Tìm hiểu xông hơi hồng ngoại xa'}"
+            lead_desc = f"Khách hàng {name or 'mới'} ({phone}) đăng ký tư vấn. Nhu cầu: {concern or 'Tìm hiểu xông hơi hồng ngoại xa'}"
 
             # Ghi nhận thông điệp tiếp nhận vào lịch sử chat
             system_chat_msg = (
-                f"🌿 TIẾP NHẬN ĐĂNG KÝ TƯ VẤN [VỐN 0Đ]\n"
+                f"🌿 TIẾP NHẬN ĐĂNG KÝ TƯ VẤN\n"
                 f"• Họ tên: {name or 'Chưa cung cấp'}\n"
                 f"• Số điện thoại: {phone}\n"
-                f"• Nhu cầu hỗ trợ: {concern or 'Tư vấn phác đồ và trải nghiệm 0Đ'}\n"
-                f"• Trạng thái: Đã kết nối chuyên viên trực tiếp (Đã xác thực Captcha: {captcha or 'Hợp lệ'})"
+                f"• Nhu cầu hỗ trợ: {concern or 'Tư vấn phác đồ và trải nghiệm'}\n"
+                f"• Trạng thái: Đã kết nối chuyên viên trực tiếp"
             )
             session_manager.record_user_message(session_id, system_chat_msg)
 
@@ -319,13 +319,13 @@ class AIChatHandler(BaseHTTPRequestHandler):
                 priority="urgent",
                 message=lead_desc,
                 phone=phone,
-                metadata={"name": name, "concern": concern, "session_id": session_id, "captcha": captcha}
+                metadata={"name": name, "concern": concern, "session_id": session_id}
             )
 
             # Tra cứu xem SĐT này đã có đơn hàng nào trước đây chưa
             existing_order = order_manager.lookup_order(phone)
 
-            print(f"🌿 [ĐĂNG KÝ SĐT THÀNH CÔNG (Captcha: {captcha or 'OK'})]: {phone} - {name} ({concern})")
+            print(f"🌿 [ĐĂNG KÝ SĐT THÀNH CÔNG]: {phone} - {name} ({concern})")
 
             self._send_json({
                 "success": True,

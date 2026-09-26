@@ -34,10 +34,23 @@
 }
 
 .brandIcon {
-  font-size: 1.6rem;
+  width: 36px;
+  height: 36px;
+  background: rgba(234, 88, 12, 0.16);
+  border: 1px solid rgba(245, 158, 11, 0.35);
+  border-radius: 9px;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
+  padding: 3px;
+  overflow: hidden;
+}
+
+.brandLogoImg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 .brandInfo {
@@ -147,6 +160,14 @@
 .userName {
   font-weight: 750;
   color: #ffd8a8;
+  white-space: nowrap;
+}
+
+.userBadgeOwner {
+  background: linear-gradient(135deg, rgba(212, 135, 44, 0.22), rgba(180, 83, 9, 0.32));
+  border: 1px solid rgba(245, 158, 11, 0.55);
+  color: #ffd8a8;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
 }
 
 .userShiftTime {
@@ -239,6 +260,25 @@
   color: white;
 }
 
+.actionBtnText {
+  display: inline;
+}
+
+.fullText {
+  display: inline;
+}
+
+.shortText {
+  display: none;
+}
+
+.btnIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
 /* ──── NỘI DUNG CHÍNH (MAIN WORKSPACE) ──── */
 .mainWorkspace {
   flex: 1;
@@ -250,7 +290,7 @@
 .portalFooter {
   background: #09101b;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
-  padding: 0.85rem 1.5rem;
+  padding: 0.85rem 1rem;
   font-size: 0.8rem;
   color: #64748b;
   text-align: center;
@@ -264,6 +304,306 @@
   flex-wrap: wrap;
 }
 
+.portalCopyright {
+  white-space: nowrap;
+  letter-spacing: -0.01em;
+}
+
+.portalHotline {
+  white-space: nowrap;
+}
+
 .footerDivider {
   color: #475569;
 }
+
+/* ──── RESPONSIVE TOP NAV CHO CỔNG NHÂN VIÊN TRÊN MOBILE ──── */
+@media (max-width: 768px) {
+  .topNav {
+    padding: 10px 12px 8px;
+    height: auto;
+    min-height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+  }
+
+  .brand {
+    order: 1;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    flex-shrink: 0;
+    text-align: center;
+    cursor: pointer;
+  }
+
+  .brandIcon {
+    width: 28px;
+    height: 28px;
+    border-radius: 7px;
+    padding: 2px;
+  }
+
+  .brandName {
+    font-size: 0.96rem;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+  }
+
+  .brandRole {
+    display: none;
+  }
+
+  .navActions {
+    order: 2;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-left: 0;
+  }
+
+  .userBadge {
+    padding: 4px 10px;
+    font-size: 0.74rem;
+    gap: 4px;
+    border-radius: 999px;
+  }
+
+  .userAvatar {
+    font-size: 0.90rem;
+  }
+
+  .userName {
+    font-size: 0.74rem;
+    font-weight: 700;
+  }
+
+  .userShiftTime {
+    font-size: 0.68rem;
+    padding: 1px 4px;
+  }
+
+  .alarmBtn {
+    padding: 4px 8px;
+    font-size: 0.72rem;
+    gap: 4px;
+    border-radius: 6px;
+  }
+
+  .btnSwitchShift,
+  .btnLogout,
+  .btnWebsite {
+    padding: 4px 8px;
+    font-size: 0.72rem;
+    border-radius: 7px;
+    gap: 3px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .btnSwitchShift .actionBtnText,
+  .btnWebsite .actionBtnText,
+  .btnLogout .actionBtnText {
+    display: inline-block;
+    font-size: 0.68rem;
+    font-weight: 600;
+    white-space: nowrap;
+    line-height: 1;
+  }
+
+  .fullText {
+    display: none;
+  }
+
+  .shortText {
+    display: inline;
+  }
+
+  .navTabs {
+    order: 3;
+    width: 100%;
+    max-width: 100%;
+    margin: 2px 0 0 0;
+    padding: 3px;
+    background: rgba(0, 0, 0, 0.45);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    box-sizing: border-box;
+    gap: 6px;
+  }
+
+  .navTabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .navTabBtn {
+    padding: 6px 11px;
+    font-size: 0.78rem;
+    border-radius: 7px;
+    flex-shrink: 0;
+    white-space: nowrap;
+    gap: 4px;
+  }
+
+  .portalFooter {
+    padding: 0.75rem 0.5rem;
+  }
+
+  .portalFooterInner {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .footerDivider {
+    display: none;
+  }
+
+  .portalCopyright {
+    font-size: clamp(0.62rem, 2.7vw, 0.78rem);
+    white-space: nowrap;
+    text-align: center;
+    max-width: 100%;
+  }
+
+  .portalHotline {
+    font-size: clamp(0.7rem, 2.8vw, 0.78rem);
+  }
+}
+
+@media (max-width: 420px) {
+  .topNav {
+    padding: 8px 8px 6px;
+    gap: 6px;
+  }
+
+  .brand {
+    gap: 6px;
+  }
+
+  .brandName {
+    font-size: 0.90rem;
+  }
+
+  .brandIcon {
+    width: 24px;
+    height: 24px;
+  }
+
+  .navActions {
+    gap: 4px;
+  }
+
+  .userBadge {
+    padding: 3px 7px;
+    font-size: 0.70rem;
+    gap: 3px;
+  }
+
+  .userAvatar {
+    font-size: 0.85rem;
+  }
+
+  .userName {
+    font-size: 0.70rem;
+    max-width: 80px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .btnSwitchShift,
+  .btnLogout,
+  .btnWebsite {
+    padding: 3px 6px;
+    font-size: 0.68rem;
+    gap: 2px;
+    border-radius: 6px;
+  }
+
+  .btnIcon {
+    font-size: 0.74rem;
+  }
+
+  .btnSwitchShift .actionBtnText,
+  .btnLogout .actionBtnText,
+  .btnWebsite .actionBtnText {
+    display: inline-block;
+    font-size: 0.65rem;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  .navTabBtn {
+    padding: 5px 8px;
+    font-size: 0.74rem;
+  }
+
+  .portalCopyright {
+    font-size: clamp(0.56rem, 2.5vw, 0.68rem);
+    letter-spacing: -0.02em;
+  }
+}
+
+@media (max-width: 375px) {
+  .topNav {
+    padding: 6px 6px 5px;
+    gap: 5px;
+  }
+
+  .brandName {
+    font-size: 0.84rem;
+    letter-spacing: 0.2px;
+  }
+
+  .brandIcon {
+    width: 22px;
+    height: 22px;
+  }
+
+  .userBadge {
+    padding: 2.5px 5px;
+    font-size: 0.66rem;
+  }
+
+  .userName {
+    max-width: 65px;
+  }
+
+  .navActions {
+    gap: 3px;
+  }
+
+  .btnSwitchShift,
+  .btnLogout,
+  .btnWebsite {
+    padding: 2.5px 5px;
+    font-size: 0.64rem;
+    gap: 2px;
+  }
+
+  .btnSwitchShift .actionBtnText,
+  .btnLogout .actionBtnText,
+  .btnWebsite .actionBtnText {
+    font-size: 0.62rem;
+  }
+}
+

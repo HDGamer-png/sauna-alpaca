@@ -2,6 +2,7 @@
 
 import { useState, useEffect, Suspense } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useSearchParams } from 'next/navigation';
 import { SpecialistChatDesk, Order, DeliveryStep } from '@/fe/components/admin/SpecialistChatDesk';
 import { AdminLoginModal } from '@/fe/components/admin/AdminLoginModal';
@@ -336,10 +337,20 @@ function AdminPortalContent() {
       {/* ──── THANH ĐIỀU HƯỚNG TRÊN CÙNG (TOP NAV) ──── */}
       <header className={styles.topNav}>
         <div className={styles.brand} onClick={() => setActiveTab('portal')}>
-          <span className={styles.brandIcon}>🌿</span>
+          <span className={styles.brandIcon}>
+            <Image
+              src="/images/logo-emblem.png"
+              alt="Sauna Alpaca Logo"
+              width={28}
+              height={28}
+              className={styles.brandLogoImg}
+            />
+          </span>
           <div className={styles.brandInfo}>
             <span className={styles.brandName}>ALPACA SAUNA</span>
-            <span className={styles.brandRole}>Nhân viên tư vấn & quản lý đơn</span>
+            <span className={styles.brandRole}>
+              {currentUser?.role === 'owner' ? 'Hệ thống Quản trị' : 'Tư vấn & Quản lý đơn'}
+            </span>
           </div>
         </div>
 
@@ -367,7 +378,7 @@ function AdminPortalContent() {
             className={`${styles.navTabBtn} ${activeTab === 'orders' ? styles.navTabBtnActive : ''}`}
             onClick={() => setActiveTab('orders')}
           >
-            📦 Tạo đơn hàng ({orders.length})
+            📦 Đơn hàng ({orders.length})
           </button>
 
           {/* Tab Dành Riêng Cho Chủ Cửa Hàng */}
@@ -377,7 +388,7 @@ function AdminPortalContent() {
               className={`${styles.navTabBtn} ${activeTab === 'staff' ? styles.navTabBtnActive : ''}`}
               onClick={() => setActiveTab('staff')}
             >
-              👥 Quản lý Nhân sự & Ca trực
+              👥 Quản lý Nhân sự
             </button>
           )}
         </nav>
@@ -386,11 +397,19 @@ function AdminPortalContent() {
         <div className={styles.navActions}>
           {/* Huy hiệu định danh người trực hoặc Chủ */}
           {currentUser && (
-            <div className={`${styles.userBadge} ${currentUser.role === 'owner' ? styles.userBadgeOwner : ''}`}>
+            <div
+              className={`${styles.userBadge} ${currentUser.role === 'owner' ? styles.userBadgeOwner : ''}`}
+              title={currentUser.role === 'owner' ? 'Tài khoản Chủ Cửa Hàng (Admin Tổng)' : `Nhân viên trực ca: ${currentUser.display_name}`}
+            >
               <span className={styles.userAvatar}>
                 {currentUser.avatar || (currentUser.role === 'owner' ? '👑' : '👨‍⚕️')}
               </span>
-              <span className={styles.userName}>{currentUser.display_name}</span>
+              <span className={styles.userName}>
+                {currentUser.role === 'owner' ? 'Chủ Shop' : currentUser.display_name}
+              </span>
+              {currentUser.role === 'owner' && (
+                <span className={styles.ownerPill}>Admin Tổng</span>
+              )}
               {currentUser.role === 'staff' && currentShift && (
                 <span
                   className={styles.userShiftTime}
@@ -398,9 +417,6 @@ function AdminPortalContent() {
                 >
                   Ca: {currentShift.check_in_time.split(' ')[1]?.substring(0, 5)}
                 </span>
-              )}
-              {currentUser.role === 'owner' && (
-                <span style={{ fontSize: '0.7rem', color: '#ffd8a8', fontWeight: 700 }}>Chủ Shop</span>
               )}
             </div>
           )}
@@ -423,7 +439,8 @@ function AdminPortalContent() {
               onClick={handleLogout}
               title="Đổi nhân viên trực ca khác"
             >
-              🔄 Đổi ca
+              <span className={styles.btnIcon}>🔄</span>
+              <span className={styles.actionBtnText}>Đổi ca</span>
             </button>
           )}
 
@@ -431,21 +448,42 @@ function AdminPortalContent() {
             type="button"
             className={styles.btnLogout}
             onClick={handleLogout}
-            title={currentUser?.role === 'staff' ? 'Kết thúc ca trực và đăng xuất an toàn' : 'Đăng xuất quản trị'}
+            title={currentUser?.role === 'staff' ? 'Kết thúc ca trực và đăng xuất an toàn' : 'Đăng xuất khỏi hệ thống quản trị'}
+            aria-label={currentUser?.role === 'staff' ? 'Kết thúc ca trực' : 'Đăng xuất quản trị'}
           >
-            🚪 {currentUser?.role === 'staff' ? 'Kết thúc ca' : 'Đăng xuất'}
+            <span className={styles.btnIcon}>🚪</span>
+            <span className={styles.actionBtnText}>
+              <span className={styles.fullText}>{currentUser?.role === 'staff' ? 'Kết thúc ca' : 'Đăng xuất'}</span>
+              <span className={styles.shortText}>{currentUser?.role === 'staff' ? 'Hết ca' : 'Đăng xuất'}</span>
+            </span>
           </button>
 
           <Link
             href="/nhanvien"
             className={styles.btnSwitchShift}
             title="Mở Cổng Nghiệp Vụ Nhân Viên Trực Ca (/nhanvien)"
+            aria-label="Cổng Nhân Viên"
+            target="_blank"
+            rel="noopener noreferrer"
           >
-            🌿 Cổng Nhân Viên
+            <span className={styles.btnIcon}>🌿</span>
+            <span className={styles.actionBtnText}>
+              <span className={styles.fullText}>Cổng Nhân Viên</span>
+              <span className={styles.shortText}>Cổng NV</span>
+            </span>
           </Link>
 
-          <Link href="/" className={styles.btnWebsite} title="Quay lại giao diện website khách hàng">
-            🌐 Website
+          <Link
+            href="/"
+            className={styles.btnWebsite}
+            title="Quay lại giao diện website khách hàng"
+            aria-label="Website Khách Hàng"
+          >
+            <span className={styles.btnIcon}>🌐</span>
+            <span className={styles.actionBtnText}>
+              <span className={styles.fullText}>Website</span>
+              <span className={styles.shortText}>Web</span>
+            </span>
           </Link>
         </div>
       </header>
@@ -1152,9 +1190,9 @@ function AdminPortalContent() {
       {activeTab !== 'chat' && (
         <footer className={styles.portalFooter}>
           <div className={styles.portalFooterInner}>
-            <span>© 2026 Sauna Alpaca Huế — Cổng Nhân Viên Quản Lý & Điều Phối</span>
+            <span className={styles.portalCopyright}>© 2026 Sauna Alpaca Huế — Cổng Nhân Viên Quản Lý & Điều Phối</span>
             <span className={styles.footerDivider}>•</span>
-            <span>Hotline Kỹ Thuật: <strong>0385.927.274</strong></span>
+            <span className={styles.portalHotline}>Hotline Kỹ Thuật: <strong>0385.927.274</strong></span>
           </div>
         </footer>
       )}

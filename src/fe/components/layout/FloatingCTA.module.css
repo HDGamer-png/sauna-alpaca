@@ -7,6 +7,19 @@
   flex-direction: column;
   align-items: flex-end;
   gap: var(--space-sm);
+  transition: opacity 0.25s ease, transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+
+/* Khi cuộn xuống sát chân trang, xích 3 nút lên cao để người dùng bấm được Admin & Nhân Viên */
+.floatingCtaShifted {
+  transform: translateY(-80px);
+}
+
+:global(body.mobile-menu-open) .floatingCta {
+  display: none !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
 }
 
 .buttonWrapper {
@@ -127,6 +140,8 @@
   background: #10b981;
   border: 2px solid #ffffff;
   border-radius: 50%;
+}
+
 /* ──── 3. Nút Tra cứu đơn hàng tròn ──── */
 .circleBtnOrder {
   display: flex;
@@ -150,12 +165,23 @@
   border-color: #d4872c;
 }
 
+/* Tablet & Mobile nhỏ — xích lên cao hơn để thoáng chân trang */
+@media (max-width: 600px) {
+  .floatingCtaShifted {
+    transform: translateY(-88px);
+  }
+}
+
 /* Mobile — điều chỉnh kích thước gọn gàng */
 @media (max-width: 480px) {
   .floatingCta {
     bottom: var(--space-sm);
     right: var(--space-sm);
     gap: var(--space-xs);
+  }
+
+  .floatingCtaShifted {
+    transform: translateY(-94px);
   }
 
   .circleBtnZalo,
@@ -173,3 +199,4 @@
     display: none;
   }
 }
+

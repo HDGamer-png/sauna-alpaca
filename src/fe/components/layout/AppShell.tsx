@@ -5,6 +5,7 @@ import { Header } from './Header';
 import { Footer } from './Footer';
 import { FloatingCTA } from './FloatingCTA';
 import { TawkChat } from './TawkChat';
+import { ScrollElevationEffect } from './ScrollElevationEffect';
 
 export function AppShell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
@@ -22,6 +23,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
       <Footer />
       <FloatingCTA />
       <TawkChat />
+      <ScrollElevationEffect />
     </>
   );
 }

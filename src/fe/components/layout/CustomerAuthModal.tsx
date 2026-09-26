@@ -21,14 +21,6 @@ interface CustomerAuthModalProps {
   onOpenOrders?: () => void;
 }
 
-const HEALTH_CONCERNS = [
-  { id: 'kidney', label: '💧 Thải độc thận', value: 'Thải độc suy thận & vi tuần hoàn' },
-  { id: 'joints', label: '🦴 Đau xương khớp', value: 'Đau nhức xương khớp, tê bì tay chân' },
-  { id: 'sleep', label: '🌙 Ngủ & tuần hoàn', value: 'Mất ngủ, mệt mỏi, tuần hoàn kém' },
-  { id: 'rent_0d', label: '🎋 Thuê trải nghiệm', value: 'Thuê máy trải nghiệm theo tháng' },
-  { id: 'buy', label: '🏠 Mua buồng xông', value: 'Tư vấn mua buồng xông sở hữu trọn đời' },
-];
-
 /** Sinh chuỗi 4 ký tự Captcha ngẫu nhiên (loại bỏ ký tự dễ nhầm lẫn như 0, O, 1, I, l) */
 const generateCaptchaText = (): string => {
   const chars = '23456789ABCDEFGHJKLMNPQRSTUVWXYZ';
@@ -48,7 +40,6 @@ export function CustomerAuthModal({
 }: CustomerAuthModalProps) {
   const [phone, setPhone] = useState('');
   const [name, setName] = useState('');
-  const [selectedConcern, setSelectedConcern] = useState(HEALTH_CONCERNS[0].value);
   const [captchaCode, setCaptchaCode] = useState(() => generateCaptchaText());
   const [captchaInput, setCaptchaInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -81,7 +72,6 @@ export function CustomerAuthModal({
           setCurrentCustomer(parsed);
           setPhone(parsed.phone);
           setName(parsed.name || '');
-          if (parsed.concern) setSelectedConcern(parsed.concern);
         }
       } else {
         setCurrentCustomer(null);
@@ -156,7 +146,7 @@ export function CustomerAuthModal({
         body: JSON.stringify({
           phone: cleanPhone,
           name: name.trim() || 'Quý khách',
-          concern: selectedConcern,
+          concern: '',
           session_id: sessionId,
           captcha: captchaInput.trim().toUpperCase(),
         }),
@@ -168,7 +158,7 @@ export function CustomerAuthModal({
         const newCustomer: CustomerProfile = {
           phone: cleanPhone,
           name: name.trim() || 'Quý khách',
-          concern: selectedConcern,
+          concern: '',
           loggedInAt: new Date().toISOString(),
         };
 
@@ -279,9 +269,17 @@ export function CustomerAuthModal({
             <div className={styles.leftContent}>
               <div className={styles.leftContentTop}>
                 <div className={styles.brandBadge}>
-                <span className={styles.brandBadgeIcon}>🌿</span>
-                <span>Sauna Alpaca • Huế</span>
-              </div>
+                  <span className={styles.brandBadgeIcon}>
+                    <Image
+                      src="/images/logo-emblem.png"
+                      alt="Sauna Alpaca Logo"
+                      width={16}
+                      height={16}
+                      className={styles.brandBadgeLogoImg}
+                    />
+                  </span>
+                  <span>Sauna Alpaca • Huế</span>
+                </div>
 
               <h2 className={styles.leftTitle}>
                 Trị liệu xông hơi <br />
@@ -359,10 +357,10 @@ export function CustomerAuthModal({
                   <span className={styles.profileInfoLabel}>📞 Số điện thoại:</span>
                   <strong className={styles.profileInfoValue}>{currentCustomer.phone}</strong>
                 </div>
-                {currentCustomer.concern && (
+                {currentCustomer.name && currentCustomer.name !== 'Quý khách' && (
                   <div className={styles.profileInfoRow}>
-                    <span className={styles.profileInfoLabel}>🩺 Nhu cầu quan tâm:</span>
-                    <span className={styles.profileInfoValue}>{currentCustomer.concern}</span>
+                    <span className={styles.profileInfoLabel}>👤 Họ và tên:</span>
+                    <span className={styles.profileInfoValue}>{currentCustomer.name}</span>
                   </div>
                 )}
               </div>
@@ -437,7 +435,10 @@ export function CustomerAuthModal({
                   </label>
                   <div className={styles.phoneInputWrapper}>
                     <div className={styles.phoneCountryBadge}>
-                      <span className={styles.flagIcon}>🇻🇳</span>
+                      <svg className={styles.flagSvg} width="18" height="12" viewBox="0 0 30 20" aria-hidden="true">
+                        <rect width="30" height="20" fill="#DA251D" rx="2" />
+                        <polygon points="15,4.5 16.76,9.93 22.47,9.93 17.85,13.29 19.62,18.72 15,15.36 10.38,18.72 12.15,13.29 7.53,9.93 13.24,9.93" fill="#FFFF00" />
+                      </svg>
                       <span className={styles.countryCode}>+84</span>
                     </div>
                     <input
@@ -472,31 +473,6 @@ export function CustomerAuthModal({
                     onChange={(e) => setName(e.target.value)}
                     disabled={isLoading}
                   />
-                </div>
-
-                {/* Nhu cầu sức khỏe quan tâm */}
-                <div className={styles.fieldGroup}>
-                  <label className={styles.fieldLabel}>
-                    Tình trạng sức khỏe hoặc nhu cầu quan tâm:
-                  </label>
-                  <div className={styles.concernsGrid}>
-                    {HEALTH_CONCERNS.map((item) => {
-                      const isSelected = selectedConcern === item.value;
-                      return (
-                        <button
-                          key={item.id}
-                          type="button"
-                          className={`${styles.concernChip} ${
-                            isSelected ? styles.concernChipSelected : ''
-                          }`}
-                          onClick={() => setSelectedConcern(item.value)}
-                          disabled={isLoading}
-                        >
-                          {item.label}
-                        </button>
-                      );
-                    })}
-                  </div>
                 </div>
 
                 {/* Mã xác thực bảo mật CAPTCHA (Phương án A) */}
@@ -550,7 +526,20 @@ export function CustomerAuthModal({
                       disabled={isLoading}
                       aria-label="Đổi mã bảo mật"
                     >
-                      🔄
+                      <svg
+                        className={styles.refreshIcon}
+                        width="18"
+                        height="18"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        aria-hidden="true"
+                      >
+                        <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67" />
+                      </svg>
                     </button>
                   </div>
                 </div>

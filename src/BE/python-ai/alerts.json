@@ -1,15 +1,54 @@
 [
   {
+    "id": "alert_1790443424203",
+    "type": "UNRESOLVED_QUERY",
+    "priority": "medium",
+    "message": "xin chào, tôi cần tư vấn về sản phẩm này",
+    "phone": null,
+    "metadata": {
+      "confidence": 0.0
+    },
+    "timestamp": "2026-09-27 00:23:44",
+    "status": "pending"
+  },
+  {
+    "id": "alert_1790278750345",
+    "type": "LEAD_PHONE",
+    "priority": "urgent",
+    "message": "Khách hàng Bac Test (0905999888) đăng ký tư vấn. Nhu cầu: Tìm hiểu xông hơi hồng ngoại xa",
+    "phone": "0905999888",
+    "metadata": {
+      "name": "Bac Test",
+      "concern": "",
+      "session_id": "test_simplification"
+    },
+    "timestamp": "2026-09-25 02:39:10",
+    "status": "pending"
+  },
+  {
+    "id": "alert_1790100253575",
+    "type": "LEAD_PHONE",
+    "priority": "urgent",
+    "message": "Khách hàng HD (0888123456) đăng ký tư vấn. Nhu cầu: Đau nhức xương khớp, tê bì tay chân",
+    "phone": "0888123456",
+    "metadata": {
+      "name": "HD",
+      "concern": "Đau nhức xương khớp, tê bì tay chân",
+      "session_id": "sess_1790100237378"
+    },
+    "timestamp": "2026-09-23 01:04:13",
+    "status": "pending"
+  },
+  {
     "id": "alert_1789934603142",
     "type": "LEAD_PHONE",
     "priority": "urgent",
-    "message": "Khách hàng Cô Lan (Test Next.js Proxy) (0905654321) đăng ký tư vấn [Chính sách 0Đ]. Nhu cầu: Đau nhức xương khớp",
+    "message": "Khách hàng Cô Lan (Test Next.js Proxy) (0905654321) đăng ký tư vấn. Nhu cầu: Đau nhức xương khớp",
     "phone": "0905654321",
     "metadata": {
       "name": "Cô Lan (Test Next.js Proxy)",
       "concern": "Đau nhức xương khớp",
-      "session_id": "test_auth_sess_next",
-      "captcha": "8H2M"
+      "session_id": "test_auth_sess_next"
     },
     "timestamp": "2026-09-21 03:03:23",
     "status": "pending"
@@ -18,13 +57,12 @@
     "id": "alert_1789934603045",
     "type": "LEAD_PHONE",
     "priority": "urgent",
-    "message": "Khách hàng Bác Minh (Test Captcha) (0905123456) đăng ký tư vấn [Chính sách 0Đ]. Nhu cầu: Thải độc suy thận & vi tuần hoàn",
+    "message": "Khách hàng Bác Minh (Test Captcha) (0905123456) đăng ký tư vấn. Nhu cầu: Thải độc suy thận & vi tuần hoàn",
     "phone": "0905123456",
     "metadata": {
       "name": "Bác Minh (Test Captcha)",
       "concern": "Thải độc suy thận & vi tuần hoàn",
-      "session_id": "test_auth_sess_py",
-      "captcha": "7K9P"
+      "session_id": "test_auth_sess_py"
     },
     "timestamp": "2026-09-21 03:03:23",
     "status": "pending"
@@ -33,13 +71,12 @@
     "id": "alert_1789878954334",
     "type": "LEAD_PHONE",
     "priority": "urgent",
-    "message": "Khách hàng Cô Lan (Test Next.js Proxy) (0905654321) đăng ký tư vấn [Chính sách 0Đ]. Nhu cầu: Đau nhức xương khớp",
+    "message": "Khách hàng Cô Lan (Test Next.js Proxy) (0905654321) đăng ký tư vấn. Nhu cầu: Đau nhức xương khớp",
     "phone": "0905654321",
     "metadata": {
       "name": "Cô Lan (Test Next.js Proxy)",
       "concern": "Đau nhức xương khớp",
-      "session_id": "test_auth_sess_next",
-      "captcha": "8H2M"
+      "session_id": "test_auth_sess_next"
     },
     "timestamp": "2026-09-20 11:35:54",
     "status": "pending"
@@ -48,13 +85,12 @@
     "id": "alert_1789878954209",
     "type": "LEAD_PHONE",
     "priority": "urgent",
-    "message": "Khách hàng Bác Minh (Test Captcha) (0905123456) đăng ký tư vấn [Chính sách 0Đ]. Nhu cầu: Thải độc suy thận & vi tuần hoàn",
+    "message": "Khách hàng Bác Minh (Test Captcha) (0905123456) đăng ký tư vấn. Nhu cầu: Thải độc suy thận & vi tuần hoàn",
     "phone": "0905123456",
     "metadata": {
       "name": "Bác Minh (Test Captcha)",
       "concern": "Thải độc suy thận & vi tuần hoàn",
-      "session_id": "test_auth_sess_py",
-      "captcha": "7K9P"
+      "session_id": "test_auth_sess_py"
     },
     "timestamp": "2026-09-20 11:35:54",
     "status": "pending"
@@ -63,7 +99,7 @@
     "id": "alert_1789784863854",
     "type": "LEAD_PHONE",
     "priority": "urgent",
-    "message": "Khách hàng Bác Hoàng (0905123456) đăng ký tư vấn [Chính sách 0Đ]. Nhu cầu: Thải độc suy thận",
+    "message": "Khách hàng Bác Hoàng (0905123456) đăng ký tư vấn. Nhu cầu: Thải độc suy thận",
     "phone": "0905123456",
     "metadata": {
       "name": "Bác Hoàng",
@@ -77,7 +113,7 @@
     "id": "alert_1789784716730",
     "type": "LEAD_PHONE",
     "priority": "urgent",
-    "message": "Khách hàng Bác Minh (0905123456) đăng ký tư vấn [Chính sách 0Đ]. Nhu cầu: Thải độc suy thận",
+    "message": "Khách hàng Bác Minh (0905123456) đăng ký tư vấn. Nhu cầu: Thải độc suy thận",
     "phone": "0905123456",
     "metadata": {
       "name": "Bác Minh",
@@ -91,7 +127,7 @@
     "id": "alert_1789784697012",
     "type": "LEAD_PHONE",
     "priority": "urgent",
-    "message": "Khách hàng Bác Minh (0905123456) đăng ký tư vấn [Chính sách 0Đ]. Nhu cầu: Thải độc suy thận",
+    "message": "Khách hàng Bác Minh (0905123456) đăng ký tư vấn. Nhu cầu: Thải độc suy thận",
     "phone": "0905123456",
     "metadata": {
       "name": "Bác Minh",

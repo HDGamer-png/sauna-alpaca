@@ -148,7 +148,7 @@
       {
         "id": "msg_user_1789784697010",
         "sender": "user",
-        "text": "🌿 TIẾP NHẬN ĐĂNG KÝ TƯ VẤN [VỐN 0Đ]\n• Họ tên: Bác Minh\n• Số điện thoại: 0905123456\n• Nhu cầu hỗ trợ: Thải độc suy thận\n• Trạng thái: Đã kết nối chuyên viên trực tiếp",
+        "text": "🌿 TIẾP NHẬN ĐĂNG KÝ TƯ VẤN\n• Họ tên: Bác Minh\n• Số điện thoại: 0905123456\n• Nhu cầu hỗ trợ: Thải độc suy thận\n• Trạng thái: Đã kết nối chuyên viên trực tiếp",
         "timestamp": "09:24"
       }
     ],
@@ -173,7 +173,7 @@
       {
         "id": "msg_user_1789784716729",
         "sender": "user",
-        "text": "🌿 TIẾP NHẬN ĐĂNG KÝ TƯ VẤN [VỐN 0Đ]\n• Họ tên: Bác Minh\n• Số điện thoại: 0905123456\n• Nhu cầu hỗ trợ: Thải độc suy thận\n• Trạng thái: Đã kết nối chuyên viên trực tiếp",
+        "text": "🌿 TIẾP NHẬN ĐĂNG KÝ TƯ VẤN\n• Họ tên: Bác Minh\n• Số điện thoại: 0905123456\n• Nhu cầu hỗ trợ: Thải độc suy thận\n• Trạng thái: Đã kết nối chuyên viên trực tiếp",
         "timestamp": "09:25"
       }
     ],
@@ -198,7 +198,7 @@
       {
         "id": "msg_user_1789784863852",
         "sender": "user",
-        "text": "🌿 TIẾP NHẬN ĐĂNG KÝ TƯ VẤN [VỐN 0Đ]\n• Họ tên: Bác Hoàng\n• Số điện thoại: 0905123456\n• Nhu cầu hỗ trợ: Thải độc suy thận\n• Trạng thái: Đã kết nối chuyên viên trực tiếp",
+        "text": "🌿 TIẾP NHẬN ĐĂNG KÝ TƯ VẤN\n• Họ tên: Bác Hoàng\n• Số điện thoại: 0905123456\n• Nhu cầu hỗ trợ: Thải độc suy thận\n• Trạng thái: Đã kết nối chuyên viên trực tiếp",
         "timestamp": "09:27"
       }
     ],
@@ -212,7 +212,7 @@
     "alert_type": null,
     "created_at": "2026-09-20 11:35:54",
     "last_activity": "2026-09-21 03:03:23",
-    "unread_for_seller": true,
+    "unread_for_seller": false,
     "messages": [
       {
         "id": "msg_welcome_1789878954",
@@ -223,13 +223,13 @@
       {
         "id": "msg_user_1789878954209",
         "sender": "user",
-        "text": "🌿 TIẾP NHẬN ĐĂNG KÝ TƯ VẤN [VỐN 0Đ]\n• Họ tên: Bác Minh (Test Captcha)\n• Số điện thoại: 0905123456\n• Nhu cầu hỗ trợ: Thải độc suy thận & vi tuần hoàn\n• Trạng thái: Đã kết nối chuyên viên trực tiếp (Đã xác thực Captcha: 7K9P)",
+        "text": "🌿 TIẾP NHẬN ĐĂNG KÝ TƯ VẤN\n• Họ tên: Bác Minh (Test Captcha)\n• Số điện thoại: 0905123456\n• Nhu cầu hỗ trợ: Thải độc suy thận & vi tuần hoàn\n• Trạng thái: Đã kết nối chuyên viên trực tiếp",
         "timestamp": "11:35"
       },
       {
         "id": "msg_user_1789934603043",
         "sender": "user",
-        "text": "🌿 TIẾP NHẬN ĐĂNG KÝ TƯ VẤN [VỐN 0Đ]\n• Họ tên: Bác Minh (Test Captcha)\n• Số điện thoại: 0905123456\n• Nhu cầu hỗ trợ: Thải độc suy thận & vi tuần hoàn\n• Trạng thái: Đã kết nối chuyên viên trực tiếp (Đã xác thực Captcha: 7K9P)",
+        "text": "🌿 TIẾP NHẬN ĐĂNG KÝ TƯ VẤN\n• Họ tên: Bác Minh (Test Captcha)\n• Số điện thoại: 0905123456\n• Nhu cầu hỗ trợ: Thải độc suy thận & vi tuần hoàn\n• Trạng thái: Đã kết nối chuyên viên trực tiếp",
         "timestamp": "03:03"
       }
     ],
@@ -243,7 +243,7 @@
     "alert_type": null,
     "created_at": "2026-09-20 11:35:54",
     "last_activity": "2026-09-21 03:03:23",
-    "unread_for_seller": true,
+    "unread_for_seller": false,
     "messages": [
       {
         "id": "msg_welcome_1789878954",
@@ -254,16 +254,175 @@
       {
         "id": "msg_user_1789878954334",
         "sender": "user",
-        "text": "🌿 TIẾP NHẬN ĐĂNG KÝ TƯ VẤN [VỐN 0Đ]\n• Họ tên: Cô Lan (Test Next.js Proxy)\n• Số điện thoại: 0905654321\n• Nhu cầu hỗ trợ: Đau nhức xương khớp\n• Trạng thái: Đã kết nối chuyên viên trực tiếp (Đã xác thực Captcha: 8H2M)",
+        "text": "🌿 TIẾP NHẬN ĐĂNG KÝ TƯ VẤN\n• Họ tên: Cô Lan (Test Next.js Proxy)\n• Số điện thoại: 0905654321\n• Nhu cầu hỗ trợ: Đau nhức xương khớp\n• Trạng thái: Đã kết nối chuyên viên trực tiếp",
         "timestamp": "11:35"
       },
       {
         "id": "msg_user_1789934603141",
         "sender": "user",
-        "text": "🌿 TIẾP NHẬN ĐĂNG KÝ TƯ VẤN [VỐN 0Đ]\n• Họ tên: Cô Lan (Test Next.js Proxy)\n• Số điện thoại: 0905654321\n• Nhu cầu hỗ trợ: Đau nhức xương khớp\n• Trạng thái: Đã kết nối chuyên viên trực tiếp (Đã xác thực Captcha: 8H2M)",
+        "text": "🌿 TIẾP NHẬN ĐĂNG KÝ TƯ VẤN\n• Họ tên: Cô Lan (Test Next.js Proxy)\n• Số điện thoại: 0905654321\n• Nhu cầu hỗ trợ: Đau nhức xương khớp\n• Trạng thái: Đã kết nối chuyên viên trực tiếp",
         "timestamp": "03:03"
       }
     ],
     "health_concern": "Đau nhức xương khớp"
+  },
+  "sess_1790100237378": {
+    "id": "sess_1790100237378",
+    "customer_name": "HD",
+    "phone": "0888123456",
+    "status": "bot",
+    "alert_type": null,
+    "created_at": "2026-09-23 01:04:13",
+    "last_activity": "2026-09-23 01:04:13",
+    "unread_for_seller": false,
+    "messages": [
+      {
+        "id": "msg_welcome_1790100253",
+        "sender": "bot",
+        "text": "Xin chào! Tôi là Trợ lý Sức Khỏe AI của Sauna Alpaca 🌿. Tôi có thể hỗ trợ giải đáp gì cho bạn?",
+        "timestamp": "01:04"
+      },
+      {
+        "id": "msg_user_1790100253572",
+        "sender": "user",
+        "text": "🌿 TIẾP NHẬN ĐĂNG KÝ TƯ VẤN\n• Họ tên: HD\n• Số điện thoại: 0888123456\n• Nhu cầu hỗ trợ: Đau nhức xương khớp, tê bì tay chân\n• Trạng thái: Đã kết nối chuyên viên trực tiếp",
+        "timestamp": "01:04"
+      }
+    ],
+    "health_concern": "Đau nhức xương khớp, tê bì tay chân"
+  },
+  "test_clean_format": {
+    "id": "test_clean_format",
+    "customer_name": "Kh�ch Th? Nghi?m",
+    "phone": "0911223344",
+    "status": "bot",
+    "alert_type": null,
+    "created_at": "2026-09-23 01:11:19",
+    "last_activity": "2026-09-23 01:11:19",
+    "unread_for_seller": false,
+    "messages": [
+      {
+        "id": "msg_welcome_1790100679",
+        "sender": "bot",
+        "text": "Xin chào! Tôi là Trợ lý Sức Khỏe AI của Sauna Alpaca 🌿. Tôi có thể hỗ trợ giải đáp gì cho bạn?",
+        "timestamp": "01:11"
+      },
+      {
+        "id": "msg_user_1790100679799",
+        "sender": "user",
+        "text": "🌿 TIẾP NHẬN ĐĂNG KÝ TƯ VẤN\n• Họ tên: Kh�ch Th? Nghi?m\n• Số điện thoại: 0911223344\n• Nhu cầu hỗ trợ: Dau m?i vai g�y\n• Trạng thái: Đã kết nối chuyên viên trực tiếp",
+        "timestamp": "01:11"
+      }
+    ],
+    "health_concern": "Dau m?i vai g�y"
+  },
+  "test_simplification": {
+    "id": "test_simplification",
+    "customer_name": "Bac Test",
+    "phone": "0905999888",
+    "status": "bot",
+    "alert_type": null,
+    "created_at": "2026-09-25 02:39:10",
+    "last_activity": "2026-09-25 02:39:10",
+    "unread_for_seller": false,
+    "messages": [
+      {
+        "id": "msg_welcome_1790278750",
+        "sender": "bot",
+        "text": "Xin chào! Tôi là Trợ lý Sức Khỏe AI của Sauna Alpaca 🌿. Tôi có thể hỗ trợ giải đáp gì cho bạn?",
+        "timestamp": "02:39"
+      },
+      {
+        "id": "msg_user_1790278750344",
+        "sender": "user",
+        "text": "🌿 TIẾP NHẬN ĐĂNG KÝ TƯ VẤN\n• Họ tên: Bac Test\n• Số điện thoại: 0905999888\n• Nhu cầu hỗ trợ: Tư vấn phác đồ và trải nghiệm\n• Trạng thái: Đã kết nối chuyên viên trực tiếp",
+        "timestamp": "02:39"
+      }
+    ]
+  },
+  "sess_1790387015376": {
+    "id": "sess_1790387015376",
+    "customer_name": "Khách hàng #5376",
+    "phone": "",
+    "status": "human_taken",
+    "alert_type": null,
+    "created_at": "2026-09-26 08:44:27",
+    "last_activity": "2026-09-26 08:47:31",
+    "unread_for_seller": false,
+    "messages": [
+      {
+        "id": "msg_welcome_1790387067",
+        "sender": "bot",
+        "text": "Xin chào! Tôi là Trợ lý Sức Khỏe AI của Sauna Alpaca 🌿. Tôi có thể hỗ trợ giải đáp gì cho bạn?",
+        "timestamp": "08:44"
+      },
+      {
+        "id": "msg_user_1790387067690",
+        "sender": "user",
+        "text": "hi",
+        "timestamp": "08:44"
+      },
+      {
+        "id": "msg_bot_1790387067692",
+        "sender": "bot",
+        "text": "Xin chào! Tôi là Trợ lý Sức Khỏe AI của Sauna Alpaca 🌿.\n\nTôi có thể hỗ trợ giải đáp nhanh cho bạn về:\n1. 🩺 Cơ chế hồng ngoại xa FIR hỗ trợ bệnh nhân suy thận & bảo tồn đường mổ AVF\n2. 📦 Bảng giá và 3 gói thuê theo tháng linh hoạt tại TP. Huế\n3. 👴 Mức nhiệt và thời gian an toàn cho người lớn tuổi\n4. 🏠 Diện tích đặt máy (chỉ 1m²) và tiêu chuẩn lắp đặt tại nhà\n\nBạn đang quan tâm đến nội dung nào để tôi tư vấn chi tiết nhé?",
+        "timestamp": "08:44",
+        "escalated": false,
+        "alert_type": null
+      },
+      {
+        "id": "msg_user_1790387118631",
+        "sender": "user",
+        "text": "chào",
+        "timestamp": "08:45"
+      },
+      {
+        "id": "msg_bot_1790387118632",
+        "sender": "bot",
+        "text": "Xin chào! Tôi là Trợ lý Sức Khỏe AI của Sauna Alpaca 🌿.\n\nTôi có thể hỗ trợ giải đáp nhanh cho bạn về:\n1. 🩺 Cơ chế hồng ngoại xa FIR hỗ trợ bệnh nhân suy thận & bảo tồn đường mổ AVF\n2. 📦 Bảng giá và 3 gói thuê theo tháng linh hoạt tại TP. Huế\n3. 👴 Mức nhiệt và thời gian an toàn cho người lớn tuổi\n4. 🏠 Diện tích đặt máy (chỉ 1m²) và tiêu chuẩn lắp đặt tại nhà\n\nBạn đang quan tâm đến nội dung nào để tôi tư vấn chi tiết nhé?",
+        "timestamp": "08:45",
+        "escalated": false,
+        "alert_type": null
+      },
+      {
+        "id": "msg_seller_1790387251237",
+        "sender": "seller",
+        "seller_name": "Chủ Quản Lý Hệ Thống Sauna Alpaca Huế",
+        "text": "chào anh/chị ạ. Anh chị quan tâm đến vấn đề nào của sản phẩm ạ",
+        "timestamp": "08:47"
+      }
+    ]
+  },
+  "sess_1790443287215": {
+    "id": "sess_1790443287215",
+    "customer_name": "Khách hàng #7215",
+    "phone": "",
+    "status": "needs_human",
+    "alert_type": "UNRESOLVED_QUERY",
+    "created_at": "2026-09-27 00:23:44",
+    "last_activity": "2026-09-27 00:23:44",
+    "unread_for_seller": true,
+    "messages": [
+      {
+        "id": "msg_welcome_1790443424",
+        "sender": "bot",
+        "text": "Xin chào! Tôi là Trợ lý Sức Khỏe AI của Sauna Alpaca 🌿. Tôi có thể hỗ trợ giải đáp gì cho bạn?",
+        "timestamp": "00:23"
+      },
+      {
+        "id": "msg_user_1790443424210",
+        "sender": "user",
+        "text": "xin chào, tôi cần tư vấn về sản phẩm này",
+        "timestamp": "00:23"
+      },
+      {
+        "id": "msg_bot_1790443424212",
+        "sender": "bot",
+        "text": "Cảm ơn câu hỏi của bạn về: \"xin chào, tôi cần tư vấn về sản phẩm này\". 🌿\n\nHiện tại câu hỏi này cần thêm thông tin chuyên môn cụ thể. Bạn có thể để lại **Số điện thoại** tại đây hoặc gọi trực tiếp Hotline **0385.927.274** (Hỗ trợ kỹ thuật & y tế 24/7 tại Huế) để đội ngũ chuyên viên giải đáp cặn kẽ nhất cho bạn nhé!",
+        "timestamp": "00:23",
+        "escalated": true,
+        "alert_type": "UNRESOLVED_QUERY"
+      }
+    ]
   }
 }

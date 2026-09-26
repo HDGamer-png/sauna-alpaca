@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { NAV_LINKS, CONTACT_INFO, SITE_CONFIG } from '@/shared/lib/constants';
 import { OrderTrackingModal } from './OrderTrackingModal';
@@ -26,6 +27,8 @@ export function Header() {
   const closeTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const pathname = usePathname();
 
+
+
   const toggleMobile = () => setIsMobileOpen(!isMobileOpen);
   const closeMobile = () => setIsMobileOpen(false);
 
@@ -49,6 +52,26 @@ export function Header() {
       setIsUserDropdownOpen(false);
     }, 200);
   };
+
+  // Đồng bộ trạng thái mở menu mobile với document.body và phát tín hiệu ẩn FloatingCTA
+  useEffect(() => {
+    if (typeof document !== 'undefined') {
+      document.body.classList.toggle('mobile-menu-open', isMobileOpen);
+      window.dispatchEvent(
+        new CustomEvent('sauna_mobile_nav_toggle', { detail: { isOpen: isMobileOpen } })
+      );
+    }
+    return () => {
+      if (typeof document !== 'undefined') {
+        document.body.classList.remove('mobile-menu-open');
+      }
+    };
+  }, [isMobileOpen]);
+
+  // Tự động đóng menu mobile khi chuyển trang
+  useEffect(() => {
+    setIsMobileOpen(false);
+  }, [pathname]);
 
   // Dọn dẹp timeout khi unmount
   useEffect(() => {
@@ -117,7 +140,16 @@ export function Header() {
       <div className={styles.headerInner}>
         {/* Logo */}
         <Link href="/" className={styles.logo} onClick={closeMobile} aria-label="Trang chủ">
-          <div className={styles.logoIcon}>🌿</div>
+          <div className={styles.logoIcon}>
+            <Image
+              src="/images/logo-emblem.png"
+              alt="Sauna Alpaca Logo"
+              width={34}
+              height={34}
+              priority
+              className={styles.logoImg}
+            />
+          </div>
           <div className={styles.logoText}>
             <span className={styles.logoName}>{SITE_CONFIG.name}</span>
             <span className={styles.logoTagline}>Máy xông hơi hồng ngoại xa</span>
@@ -369,11 +401,12 @@ export function Header() {
         aria-hidden="true"
       />
 
-      {/* Mobile Nav Drawer trượt từ phải sang với độ rộng 25% */}
+      {/* Mobile Nav Drawer trượt từ phải sang (Phong cách Tre Tự Nhiên & Kem Sữa) */}
       <nav
         className={`${styles.mobileNav} ${isMobileOpen ? styles.mobileNavOpen : ''}`}
         aria-label="Menu di động"
       >
+
         <div className={styles.mobileNavList}>
           {NAV_LINKS.map((link) => {
             const hasChildren = 'children' in link && link.children && link.children.length > 0;

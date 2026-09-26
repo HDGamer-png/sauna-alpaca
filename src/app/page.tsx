@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/fe/components/ui/Button';
 import { Card } from '@/fe/components/ui/Card';
+import { SaunaChair3DViewer } from '@/fe/components/ui/SaunaChair3DViewer';
 import { CONTACT_INFO } from '@/shared/lib/constants';
 import { PROCESS_STEPS, TESTIMONIALS_DATA } from '@/fe/data/testimonials';
 import heroImage from '@/fe/assets/anh_khong_gian_phong.jpg';
@@ -24,8 +25,14 @@ export default function HomePage() {
     <>
       {/* ═══ 1. HERO SECTION ═══ */}
       <section className={styles.hero} id="hero">
-        <div className={`container ${styles.heroInner}`}>
-          <div className={styles.heroContent}>
+        <div className={`container ${styles.heroContainer}`}>
+          {/* DIV RIÊNG DÀNH CHO BẢN DEMO SẢN PHẨM Ở NGAY ĐẦU TRANG */}
+          <div className={styles.heroDemoWrapper}>
+            <SaunaChair3DViewer />
+          </div>
+
+          {/* CÂU NỘI DUNG TRONG ẢNH NGAY DƯỚI DEMO SẢN PHẨM */}
+          <div className={styles.heroContentBelow}>
             <div className={styles.heroBadge}>
               <span className={styles.heroBadgeDot}></span>
               Thí điểm tại Huế — Khảo sát & Lắp đặt tận nhà
@@ -76,19 +83,6 @@ export default function HomePage() {
                 <span className={styles.heroTrustNumber}>1 m²</span>
                 <span className={styles.heroTrustLabel}>Gọn gàng trong nhà</span>
               </div>
-            </div>
-          </div>
-
-          <div className={styles.heroVisual}>
-            <div className={styles.heroImageWrapper}>
-              <Image
-                src={heroImage}
-                alt="Máy xông hơi hồng ngoại xa Sauna Alpaca trong không gian gia đình hiện đại"
-                fill
-                priority
-                sizes="(max-width: 960px) 350px, 500px"
-                className={styles.heroImage}
-              />
             </div>
           </div>
         </div>
