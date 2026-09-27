@@ -32,6 +32,15 @@ export function Header() {
   const toggleMobile = () => setIsMobileOpen(!isMobileOpen);
   const closeMobile = () => setIsMobileOpen(false);
 
+  // Cuộn mượt mà lên đầu trang khi bấm vào Logo hoặc Trang chủ
+  const handleHomeOrLogoClick = (e: React.MouseEvent) => {
+    closeMobile();
+    if (pathname === '/') {
+      e.preventDefault();
+      window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+    }
+  };
+
   const toggleSubMenu = (href: string) => {
     setExpandedMenus((prev) => ({ ...prev, [href]: !prev[href] }));
   };
@@ -139,7 +148,7 @@ export function Header() {
       <header className={styles.header} id="header">
       <div className={styles.headerInner}>
         {/* Logo */}
-        <Link href="/" className={styles.logo} onClick={closeMobile} aria-label="Trang chủ">
+        <Link href="/" className={styles.logo} onClick={handleHomeOrLogoClick} aria-label="Trang chủ">
           <div className={styles.logoIcon}>
             <Image
               src="/images/logo-emblem.png"
@@ -195,6 +204,11 @@ export function Header() {
                 className={`${styles.navLink} ${
                   pathname === link.href ? styles.navLinkActive : ''
                 }`}
+                onClick={(e) => {
+                  if (link.href === '/') {
+                    handleHomeOrLogoClick(e);
+                  }
+                }}
               >
                 {link.label}
               </Link>
@@ -439,7 +453,13 @@ export function Header() {
                     className={`${styles.mobileNavLink} ${
                       pathname === link.href ? styles.mobileNavLinkActive : ''
                     }`}
-                    onClick={closeMobile}
+                    onClick={(e) => {
+                      if (link.href === '/') {
+                        handleHomeOrLogoClick(e);
+                      } else {
+                        closeMobile();
+                      }
+                    }}
                   >
                     {link.label}
                   </Link>

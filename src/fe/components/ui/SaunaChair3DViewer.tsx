@@ -1,8 +1,18 @@
 'use client';
 
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
 import styles from './SaunaChair3DViewer.module.css';
+
+// Hàm định dạng số giây còn lại thành chuỗi mm:ss cho đồng hồ đếm ngược
+const formatCountdown = (totalSeconds: number) => {
+  const safeSec = Math.max(0, totalSeconds);
+  const m = Math.floor(safeSec / 60);
+  const s = safeSec % 60;
+  const mStr = String(m).padStart(2, '0');
+  const sStr = String(s).padStart(2, '0');
+  return `${mStr}:${sStr}`;
+};
 
 // 4 Phác đồ xông chuyên biệt Cố Đô
 interface TherapyPreset {
@@ -143,8 +153,28 @@ export function SaunaChair3DViewer() {
   const [isHeatingOn, setIsHeatingOn] = useState(true);
   const [tempSetting, setTempSetting] = useState(43);
   const [timerSetting, setTimerSetting] = useState(30);
+  const [remainingSeconds, setRemainingSeconds] = useState(30 * 60);
   const [activeTherapy, setActiveTherapy] = useState<string>('spine');
   const [firLevel, setFirLevel] = useState(3);
+
+  // Hiệu ứng đếm ngược thời gian thực (Countdown Timer) khi máy đang xông
+  useEffect(() => {
+    if (!isHeatingOn || remainingSeconds <= 0) return;
+
+    const timer = setInterval(() => {
+      setRemainingSeconds((prev) => {
+        if (prev <= 1) {
+          // Khi hết thời gian: tự động ngắt nhiệt an toàn theo tiêu chuẩn y khoa
+          setIsHeatingOn(false);
+          playCapacitiveBeep(1200, 0.3);
+          return 0;
+        }
+        return prev - 1;
+      });
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, [isHeatingOn, remainingSeconds]);
 
   // Trạng thái bật/tắt từng vùng nhiệt độc lập
   const [activeZones, setActiveZones] = useState({
@@ -217,20 +247,36 @@ export function SaunaChair3DViewer() {
     setTempSetting((t) => Math.max(38, t - 1));
   };
 
-  // Chọn phác đồ xông
+  // Chọn phác đồ xông — Tự động cập nhật thời gian đếm ngược theo từng chế độ
   const handleSelectTherapy = (preset: TherapyPreset) => {
     playCapacitiveBeep(920);
     setActiveTherapy(preset.id);
     setTempSetting(preset.temp);
     setTimerSetting(preset.timer);
+    setRemainingSeconds(preset.timer * 60);
     setFirLevel(preset.firLevel);
     setIsHeatingOn(true);
+  };
+
+  // Chọn thời gian hẹn giờ thủ công
+  const handleSelectTimer = (mins: number) => {
+    playCapacitiveBeep(850);
+    setTimerSetting(mins);
+    setRemainingSeconds(mins * 60);
+    if (!isHeatingOn) setIsHeatingOn(true);
   };
 
   // Bật/tắt nguồn xông
   const handleTogglePower = () => {
     playCapacitiveBeep(isHeatingOn ? 440 : 880, 0.1);
-    setIsHeatingOn(!isHeatingOn);
+    if (!isHeatingOn) {
+      if (remainingSeconds <= 0) {
+        setRemainingSeconds(timerSetting * 60);
+      }
+      setIsHeatingOn(true);
+    } else {
+      setIsHeatingOn(false);
+    }
   };
 
   // Bật/tắt từng vùng nhiệt
@@ -268,12 +314,12 @@ export function SaunaChair3DViewer() {
             <span className={styles.modelBadgeText}>
               <span className={styles.modelBadgeTextDesktop}>
                 {isHeatingOn
-                  ? `ALPACA-FIR-01 • ${activePresetData.name.toUpperCase()} (${tempSetting}°C)`
+                  ? `ALPACA-FIR-01 • ${activePresetData.name.toUpperCase()} (${tempSetting}°C • ⏳ ${formatCountdown(remainingSeconds)})`
                   : 'ALPACA-FIR-01 • CHẾ ĐỘ CHỜ (STANDBY)'}
               </span>
               <span className={styles.modelBadgeTextMobile}>
                 {isHeatingOn
-                  ? `ALPACA-FIR • ${tempSetting}°C`
+                  ? `ALPACA-FIR • ${tempSetting}°C • ⏳ ${formatCountdown(remainingSeconds)}`
                   : 'ALPACA-FIR • CHẾ ĐỘ CHỜ'}
               </span>
             </span>
@@ -409,7 +455,7 @@ export function SaunaChair3DViewer() {
             <span className={styles.quickDockLabel}>BẢNG ĐIỀU KHIỂN TRÊN GHẾ</span>
             <div className={styles.quickDockDigits}>
               <span className={styles.quickDockTemp}>
-                {isHeatingOn ? `${tempSetting}°C` : 'OFF'}
+                {isHeatingOn ? `${tempSetting}°C • ⏳ ${formatCountdown(remainingSeconds)}` : 'OFF'}
               </span>
               <span className={styles.quickDockTherapy}>
                 {isHeatingOn ? `🔥 ${activePresetData.name}` : '💤 Chế độ chờ'}
@@ -466,8 +512,18 @@ export function SaunaChair3DViewer() {
                   <span className={`${styles.signalLed} ${isHeatingOn ? styles.signalLedActive : ''}`} />
                   {isHeatingOn ? 'SÓNG FIR 5.6-15µm ĐANG PHÁT XẠ' : 'CHẾ ĐỘ NGHỈ (STANDBY)'}
                 </span>
-                <span className={styles.oledTimerBadge}>
-                  ⏳ {timerSetting}:00 phút
+                <span
+                  className={`${styles.oledTimerBadge} ${remainingSeconds === 0 ? styles.oledTimerBadgeEnded : ''}`}
+                >
+                  {isHeatingOn ? (
+                    remainingSeconds > 0 ? (
+                      <>⏳ {formatCountdown(remainingSeconds)} phút</>
+                    ) : (
+                      <>🔔 00:00 (Hết giờ)</>
+                    )
+                  ) : (
+                    <>⏸️ {formatCountdown(remainingSeconds)} phút</>
+                  )}
                 </span>
               </div>
 
@@ -614,10 +670,7 @@ export function SaunaChair3DViewer() {
                     key={mins}
                     type="button"
                     className={`${styles.timerPill} ${timerSetting === mins ? styles.timerPillActive : ''}`}
-                    onClick={() => {
-                      playCapacitiveBeep(850);
-                      setTimerSetting(mins);
-                    }}
+                    onClick={() => handleSelectTimer(mins)}
                   >
                     {mins}p
                   </button>

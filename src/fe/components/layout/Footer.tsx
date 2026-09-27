@@ -33,13 +33,25 @@ export function Footer() {
     return () => clearInterval(interval);
   }, []);
 
+  const handleScrollToTop = (e: React.MouseEvent) => {
+    if (typeof window !== 'undefined' && window.location.pathname === '/') {
+      e.preventDefault();
+      window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+    }
+  };
+
   return (
     <footer className={styles.footer} id="footer">
       <div className="container">
         <div className={styles.footerGrid}>
           {/* Brand */}
           <div className={styles.footerBrand}>
-            <div className={styles.footerLogo}>
+            <Link
+              href="/"
+              className={styles.footerLogo}
+              onClick={handleScrollToTop}
+              aria-label="Sauna Alpaca - Về đầu trang"
+            >
               <div className={styles.footerLogoIcon}>
                 <Image
                   src="/images/logo-emblem.png"
@@ -50,7 +62,7 @@ export function Footer() {
                 />
               </div>
               <span className={styles.footerLogoName}>{SITE_CONFIG.name}</span>
-            </div>
+            </Link>
             <p className={styles.footerDescription}>
               Máy xông hơi hồng ngoại xa gia dụng thông minh — Thiết kế tre tự nhiên, mang công nghệ
               chăm sóc sức khỏe hiện đại đến mọi gia đình tại Huế.
@@ -61,7 +73,7 @@ export function Footer() {
           <div className={styles.footerColumn}>
             <h4>Liên kết nhanh</h4>
             <div className={styles.footerLinks}>
-              <Link href="/" className={styles.footerLink}>
+              <Link href="/" className={styles.footerLink} onClick={handleScrollToTop}>
                 Trang chủ
               </Link>
               <Link href="/san-pham" className={styles.footerLink}>

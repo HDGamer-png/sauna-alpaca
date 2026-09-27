@@ -254,11 +254,22 @@ input, textarea, select {
   border: 0;
 }
 
-/* ──── Animations ──── */
+/* ──── Animations & Smooth Transitions System ──── */
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(24px);
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-24px);
   }
   to {
     opacity: 1;
@@ -274,7 +285,18 @@ input, textarea, select {
 @keyframes slideInLeft {
   from {
     opacity: 0;
-    transform: translateX(-24px);
+    transform: translateX(-32px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(32px);
   }
   to {
     opacity: 1;
@@ -284,15 +306,41 @@ input, textarea, select {
 
 @keyframes pulse {
   0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.05); }
+  50% { transform: scale(1.04); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 4px 16px rgba(212, 135, 44, 0.3), 0 0 0 0 rgba(212, 135, 44, 0.5);
+  }
+  50% {
+    box-shadow: 0 8px 30px rgba(212, 135, 44, 0.5), 0 0 25px 6px rgba(212, 135, 44, 0.3);
+  }
+}
+
+@keyframes floatAmbient {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
 }
 
 .animate-fade-in-up {
-  animation: fadeInUp 0.6s ease-out both;
+  animation: fadeInUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 .animate-fade-in {
-  animation: fadeIn 0.5s ease-out both;
+  animation: fadeIn 0.6s ease-out both;
+}
+
+.animate-float {
+  animation: floatAmbient 5s ease-in-out infinite;
+}
+
+.pulse-glow {
+  animation: pulseGlow 2.8s infinite;
 }
 
 /* Staggered animation delays */
@@ -301,7 +349,6 @@ input, textarea, select {
 .delay-3 { animation-delay: 0.3s; }
 .delay-4 { animation-delay: 0.4s; }
 .delay-5 { animation-delay: 0.5s; }
-
 /* ──── Responsive ──── */
 @media (max-width: 768px) {
   :root {
@@ -355,3 +402,22 @@ input, textarea, select {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--color-text-muted);
 }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+ *  HIỆU ỨNG CHUYỂN NỀN BACKGROUND CHÍNH THỨC — TIA NHIỆT HỒNG NGOẠI XA (FIR)
+ * ═══════════════════════════════════════════════════════════════════════════ */
+
+/* Far Infrared Warmth Glow — Thao tác làm ấm dịu nhẹ */
+#benefits,
+#product-preview,
+#process,
+#research {
+  transition: filter 0.6s ease;
+}
+
+/* Đảm bảo tuyệt đối: Toàn bộ nội dung chữ, thẻ card, icon, nút bấm luôn luôn hiển thị 100% */
+#hero, #benefits, #product-preview, #process, #research, #testimonials, #cta {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+

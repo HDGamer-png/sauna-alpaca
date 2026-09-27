@@ -214,13 +214,66 @@
 /* ═══ Benefits Section ═══ */
 
 .benefits {
-    background-color: var(--color-bg);
+    position: relative;
+    background-image: linear-gradient(
+        to bottom,
+        #FAF8F5 0%,
+        rgba(11, 27, 24, 0.72) 8%,
+        rgba(11, 27, 24, 0.32) 25%,
+        rgba(11, 27, 24, 0.20) 50%,
+        rgba(11, 27, 24, 0.38) 80%,
+        #0B1B1E 100%
+    ), url('/images/research-bg-opt4-thermal.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: background-position 0.6s ease;
+}
+
+@media (min-width: 769px) {
+    .benefits {
+        background-attachment: fixed;
+    }
+}
+
+.benefitsTitle {
+    color: #FFFFFF !important;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8), 0 1px 3px rgba(0, 0, 0, 0.95);
+}
+
+.benefitsSubtitle {
+    color: #FFFFFF !important;
+    opacity: 0.95;
+    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.8), 0 1px 2px rgba(0, 0, 0, 0.95);
+    font-weight: 500;
 }
 
 .benefitsGrid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: var(--space-md);
+}
+
+.benefitCardItem {
+    background: rgba(255, 255, 255, 0.85) !important;
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.8) !important;
+    border-radius: var(--radius-xl) !important;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.14) !important;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), background 0.3s ease;
+    animation: fadeInUp 0.75s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.benefitCardItem:nth-child(1) { animation-delay: 0.1s; }
+.benefitCardItem:nth-child(2) { animation-delay: 0.2s; }
+.benefitCardItem:nth-child(3) { animation-delay: 0.3s; }
+.benefitCardItem:nth-child(4) { animation-delay: 0.4s; }
+
+.benefitCardItem:hover {
+    transform: translateY(-8px) scale(1.02);
+    background: rgba(255, 255, 255, 0.95) !important;
+    box-shadow: 0 20px 48px rgba(0, 0, 0, 0.22) !important;
 }
 
 .benefitCard {
@@ -252,24 +305,79 @@
 /* ═══ Product Preview Section ═══ */
 
 .productPreview {
-    background-color: var(--color-surface);
+    position: relative;
+    background-image: linear-gradient(
+        to bottom,
+        #0B1B1E 0%,
+        rgba(11, 27, 30, 0.48) 15%,
+        rgba(11, 27, 30, 0.20) 42%,
+        rgba(11, 27, 30, 0.24) 75%,
+        #0B1B1E 100%
+    ), url('/images/plan-buy.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: background-position 0.6s ease;
+}
+
+@media (min-width: 769px) {
+    .productPreview {
+        background-attachment: fixed;
+    }
+}
+
+.productPreviewTitle {
+    color: #FFFFFF !important;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.75), 0 1px 3px rgba(0, 0, 0, 0.9);
+}
+
+.productPreviewSubtitle {
+    color: #FFFFFF !important;
+    opacity: 0.95;
+    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.75), 0 1px 2px rgba(0, 0, 0, 0.9);
+    font-weight: 500;
 }
 
 .productGrid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-xl);
+    grid-template-columns: repeat(2, 1fr);
+    gap: clamp(1.5rem, 3.5vw, 2.5rem);
     align-items: stretch;
+    max-width: 960px;
+    margin: 0 auto;
 }
 
 .productCardItem {
     height: 100%;
     display: flex;
     flex-direction: column;
+    background: rgba(255, 255, 255, 0.88) !important;
+    backdrop-filter: blur(18px) saturate(180%);
+    -webkit-backdrop-filter: blur(18px) saturate(180%);
+    border: 1.5px solid rgba(255, 255, 255, 0.85) !important;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.14) !important;
+    border-radius: var(--radius-xl) !important;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), background 0.3s ease;
+    animation: fadeInUp 0.75s cubic-bezier(0.16, 1, 0.3, 1) both;
+    position: relative;
+    overflow: hidden;
+}
+
+.productCardItem::before {
+    display: none !important;
+}
+
+.productCardItem:nth-child(1) { animation-delay: 0.15s; }
+.productCardItem:nth-child(2) { animation-delay: 0.3s; }
+
+.productCardItem:hover {
+    transform: translateY(-8px) scale(1.015);
+    background: rgba(255, 255, 255, 0.96) !important;
+    box-shadow: 0 24px 54px rgba(0, 0, 0, 0.22), 0 0 25px rgba(212, 135, 44, 0.18) !important;
 }
 
 .productCard {
-    padding: var(--space-md) var(--space-xs);
+    padding: var(--space-xl) clamp(1.2rem, 2.5vw, 2rem);
     text-align: center;
     position: relative;
     display: flex;
@@ -282,72 +390,104 @@
     position: absolute;
     top: var(--space-md);
     right: var(--space-md);
-    padding: var(--space-2xs) var(--space-sm);
-    background: var(--color-accent);
+    padding: 5px 14px;
+    background: linear-gradient(135deg, #D97706 0%, #B45309 100%);
     color: white;
-    font-size: var(--fs-caption);
-    font-weight: var(--fw-semibold);
+    font-size: 0.75rem;
+    font-weight: 700;
     border-radius: var(--radius-full);
+    box-shadow: 0 4px 12px rgba(180, 83, 9, 0.3);
+    letter-spacing: 0.3px;
+}
+
+.productCardBadgeBuy {
+    position: absolute;
+    top: var(--space-md);
+    right: var(--space-md);
+    padding: 5px 14px;
+    background: linear-gradient(135deg, #1B4332 0%, #2D6A4F 100%);
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 700;
+    border-radius: var(--radius-full);
+    box-shadow: 0 4px 12px rgba(27, 67, 50, 0.3);
+    letter-spacing: 0.3px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
 }
 
 .productCardIcon {
-    font-size: 3.5rem;
-    margin-bottom: var(--space-md);
-    display: block;
+    font-size: 3.2rem;
+    margin-top: var(--space-xs);
+    margin-bottom: var(--space-sm);
+    display: inline-block;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.12));
+    transition: transform 0.3s ease;
+}
+
+.productCardItem:hover .productCardIcon {
+    transform: scale(1.1) rotate(-3deg);
 }
 
 .productCardTitle {
     font-family: var(--font-heading);
-    font-size: var(--fs-h3);
-    font-weight: var(--fw-bold);
+    font-size: clamp(1.3rem, 2.2vw, 1.55rem);
+    font-weight: 800;
     color: var(--color-primary-dark);
     margin-bottom: var(--space-xs);
     min-height: 3.6rem;
     display: flex;
     align-items: center;
     justify-content: center;
+    line-height: 1.25;
 }
 
 .productCardPrice {
     font-family: var(--font-heading);
-    font-size: var(--fs-h4);
-    font-weight: var(--fw-semibold);
+    font-size: 1.15rem;
+    font-weight: 700;
     color: var(--color-accent);
-    margin-bottom: var(--space-md);
+    margin-bottom: var(--space-lg);
     padding-bottom: var(--space-sm);
-    border-bottom: 1px dashed var(--color-border);
+    border-bottom: 1.5px dashed rgba(217, 209, 199, 0.8);
     width: 100%;
 }
 
 .productCardFeatures {
     text-align: left;
-    margin-bottom: var(--space-lg);
+    margin-bottom: var(--space-xl);
     display: flex;
     flex-direction: column;
-    gap: var(--space-xs);
+    gap: 10px;
     flex-grow: 1;
 }
 
 .productCardFeature {
     display: flex;
-    align-items: flex-start;
-    gap: var(--space-xs);
-    padding: 3px 0;
-    font-size: var(--fs-small);
-    color: var(--color-text-secondary);
-    line-height: 1.5;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.95rem;
+    color: #374151;
+    line-height: 1.45;
 }
 
 .featureCheck {
     color: var(--color-primary);
+    font-weight: 800;
+    font-size: 1rem;
+    background: rgba(45, 106, 79, 0.12);
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     flex-shrink: 0;
-    font-weight: bold;
 }
 
 .productCardAction {
     margin-top: auto;
     width: 100%;
-    padding-top: var(--space-sm);
+    padding-top: var(--space-xs);
 }
 
 /* ──── Gallery Overview Link ──── */
@@ -366,8 +506,10 @@
     justify-content: center;
     gap: 8px;
     padding: 12px 28px;
-    background: var(--color-bg-alt);
-    border: 1.5px solid var(--color-primary-light);
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1.5px solid rgba(255, 255, 255, 0.9);
     border-radius: var(--radius-full);
     color: var(--color-primary-dark);
     font-family: var(--font-heading);
@@ -406,50 +548,224 @@
 }
 
 
+/* ═══ Process Section (Quy trình phục vụ) ═══ */
+.processSection {
+    position: relative;
+    background-image: linear-gradient(
+        to bottom,
+        #0B1B1E 0%,
+        rgba(11, 27, 24, 0.48) 18%,
+        rgba(11, 27, 24, 0.22) 45%,
+        rgba(11, 27, 24, 0.32) 78%,
+        #0B1B1E 100%
+    ), url('/images/process-bg-hue.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: background-position 0.6s ease;
+}
+
+@media (min-width: 769px) {
+    .processSection {
+        background-attachment: fixed;
+    }
+}
+
+.processSectionTitle {
+    color: #FFFFFF !important;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8), 0 1px 3px rgba(0, 0, 0, 0.95);
+}
+
+.processSectionSubtitle {
+    color: #FFFFFF !important;
+    opacity: 0.95;
+    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.8), 0 1px 2px rgba(0, 0, 0, 0.95);
+    font-weight: 500;
+}
+
 /* ═══ Research Section ═══ */
 
 .research {
-    background-color: var(--color-bg);
+    position: relative;
+    background-image: linear-gradient(
+        to bottom,
+        #0B1B1E 0%,
+        rgba(11, 27, 30, 0.24) 15%,
+        rgba(11, 27, 30, 0.08) 45%,
+        rgba(11, 27, 30, 0.16) 75%,
+        rgba(250, 248, 245, 0.75) 95%,
+        #FAF8F5 100%
+    ), url('/images/research-bg-opt3-vascular.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: background-position 0.6s ease;
+}
+
+@media (min-width: 769px) {
+    .research {
+        background-attachment: fixed;
+    }
 }
 
 .researchContent {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: var(--space-2xl);
-    align-items: center;
+    align-items: stretch;
 }
 
+/* ──── CẢ 2 FORM ĐỀU DÙNG HIỆU ỨNG MỜ ĐỤC FROSTED GLASS & HIỆU ỨNG HIỂN THỊ CỐ ĐỊNH ──── */
 .researchVisual {
-    background: linear-gradient(135deg, var(--color-trust), var(--color-trust-light));
+    background: rgba(255, 255, 255, 0.78);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.85);
     border-radius: var(--radius-xl);
-    padding: var(--space-2xl);
-    color: white;
-    text-align: center;
+    padding: var(--space-xl);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.10);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    animation: slideInLeft 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
-.researchVisualIcon {
-    font-size: 4rem;
-    margin-bottom: var(--space-md);
-    display: block;
+.researchText {
+    background: rgba(255, 255, 255, 0.78);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.85);
+    border-radius: var(--radius-xl);
+    padding: var(--space-xl);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.10);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    animation: slideInRight 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* Thẻ trái: Cơ sở khoa học vững chắc */
+.researchVisualBadge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 14px;
+    background: rgba(42, 157, 143, 0.15);
+    border: 1px solid rgba(42, 157, 143, 0.35);
+    color: #0F766E;
+    font-size: var(--fs-caption);
+    font-weight: var(--fw-bold);
+    border-radius: var(--radius-full);
+    width: fit-content;
+    margin-bottom: var(--space-sm);
 }
 
 .researchVisualTitle {
     font-family: var(--font-heading);
-    font-size: var(--fs-h3);
+    font-size: var(--fs-h2);
     font-weight: var(--fw-bold);
-    margin-bottom: var(--space-sm);
-    color: white;
+    margin-bottom: var(--space-xs);
+    color: var(--color-trust-900);
+    text-align: left;
 }
 
 .researchVisualText {
-    font-size: var(--fs-small);
-    opacity: 0.85;
+    font-size: var(--fs-body);
+    color: var(--color-text-secondary);
     line-height: 1.6;
+    margin-bottom: var(--space-md);
+    text-align: left;
+}
+
+.scienceMetricsGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-lg);
+}
+
+.metricCard {
+    background: rgba(255, 255, 255, 0.75);
+    border: 1px solid rgba(42, 157, 143, 0.25);
+    border-radius: var(--radius-md);
+    padding: 10px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.metricValue {
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: #0F766E;
+}
+
+.metricLabel {
+    font-size: 0.75rem;
+    color: var(--color-text-secondary);
+    font-weight: 500;
+}
+
+.scienceMechanisms {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+.mechanismItem {
+    display: flex;
+    gap: var(--space-sm);
+    align-items: flex-start;
+}
+
+.mechanismIcon {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    background: rgba(42, 157, 143, 0.12);
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+}
+
+.mechanismContent h4 {
+    font-size: var(--fs-body);
+    font-weight: var(--fw-semibold);
+    color: var(--color-text);
+    margin-bottom: 2px;
+}
+
+.mechanismContent p {
+    font-size: var(--fs-small);
+    color: var(--color-text-secondary);
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* Thẻ phải: Nghiên cứu lâm sàng quốc tế */
+.researchTextBadge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 14px;
+    background: rgba(2, 132, 199, 0.12);
+    border: 1px solid rgba(2, 132, 199, 0.35);
+    color: #0284C7;
+    font-size: var(--fs-caption);
+    font-weight: var(--fw-bold);
+    border-radius: var(--radius-full);
+    width: fit-content;
+    margin-bottom: var(--space-sm);
 }
 
 .researchText h2 {
     text-align: left;
     margin-bottom: var(--space-sm);
+    color: var(--color-trust-900);
 }
 
 .researchList {

@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { Button } from '@/fe/components/ui/Button';
 import { Card } from '@/fe/components/ui/Card';
 import { SaunaChair3DViewer } from '@/fe/components/ui/SaunaChair3DViewer';
+import { SectionTransitionDivider } from '@/fe/components/ui/SectionTransitionDivider';
 import { CONTACT_INFO } from '@/shared/lib/constants';
 import { PROCESS_STEPS, TESTIMONIALS_DATA } from '@/fe/data/testimonials';
 import heroImage from '@/fe/assets/anh_khong_gian_phong.jpg';
@@ -88,17 +89,22 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ─── RANH GIỚI NỀN: HERO ➔ LỢI ÍCH ─── */}
+      <SectionTransitionDivider id="seam-hero-benefits" variant="green-to-dark" fillColor="#0B1B1E" />
+
       {/* ═══ 2. BENEFITS SECTION ═══ */}
       <section className={`section ${styles.benefits}`} id="benefits">
         <div className="container">
-          <h2 className="section__title">Vì sao chọn xông hồng ngoại xa tại nhà?</h2>
-          <p className="section__subtitle">
+          <h2 className={`section__title ${styles.benefitsTitle}`}>
+            Vì sao chọn xông hồng ngoại xa tại nhà?
+          </h2>
+          <p className={`section__subtitle ${styles.benefitsSubtitle}`}>
             Khác biệt với xông hơi nước truyền thống gây khó thở và gánh nặng tim mạch, nhiệt hồng ngoại xa thẩm thấu sâu, êm dịu và an toàn cho người lớn tuổi.
           </p>
 
           <div className={styles.benefitsGrid}>
             {BENEFITS.map((benefit, index) => (
-              <Card key={index} variant="elevated">
+              <Card key={index} variant="elevated" className={styles.benefitCardItem}>
                 <div className={styles.benefitCard}>
                   <span className={styles.benefitIcon}>{benefit.icon}</span>
                   <h3 className={styles.benefitTitle}>{benefit.title}</h3>
@@ -110,17 +116,22 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ─── RANH GIỚI NỀN: LỢI ÍCH ➔ SẢN PHẨM ─── */}
+      <SectionTransitionDivider id="seam-benefits-product" variant="dark-to-dark" fillColor="#0B1B1E" />
+
       {/* ═══ 3. PRODUCT PREVIEW SECTION ═══ */}
       <section className={`section ${styles.productPreview}`} id="product-preview">
         <div className="container">
-          <h2 className="section__title">Giải pháp linh hoạt theo nhu cầu</h2>
-          <p className="section__subtitle">
+          <h2 className={`section__title ${styles.productPreviewTitle}`}>
+            Giải pháp linh hoạt theo nhu cầu
+          </h2>
+          <p className={`section__subtitle ${styles.productPreviewSubtitle}`}>
             Hai cách tiếp cận linh hoạt — Thuê theo tháng không cần vốn lớn hoặc Mua sở hữu trọn đời
           </p>
 
           <div className={styles.productGrid}>
             {/* Thuê */}
-            <Card variant="featured" className={styles.productCardItem}>
+            <Card variant="elevated" className={styles.productCardItem}>
               <div className={styles.productCard}>
                 <span className={styles.productCardBadge}>Phổ biến nhất ⭐</span>
                 <span className={styles.productCardIcon}>📋</span>
@@ -145,7 +156,8 @@ export default function HomePage() {
             {/* Mua */}
             <Card variant="elevated" className={styles.productCardItem}>
               <div className={styles.productCard}>
-                <span className={styles.productCardIcon}>🏠</span>
+                <span className={styles.productCardBadgeBuy}>Sở hữu trọn đời ⭐</span>
+                <span className={styles.productCardIcon}>🎋</span>
                 <h3 className={styles.productCardTitle}>Mua thiết bị sở hữu trọn đời</h3>
                 <p className={styles.productCardPrice}>Liên hệ báo giá ưu đãi</p>
                 <div className={styles.productCardFeatures}>
@@ -175,11 +187,16 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ─── RANH GIỚI NỀN: SẢN PHẨM ➔ QUY TRÌNH ─── */}
+      <SectionTransitionDivider id="seam-product-process" variant="dark-to-dark" fillColor="#0B1B1E" />
+
       {/* ═══ 4. PROCESS SECTION (Quy trình 4 bước) ═══ */}
-      <section className="section section--alt" id="process">
+      <section className={`section ${styles.processSection}`} id="process">
         <div className="container">
-          <h2 className="section__title">Quy trình phục vụ tận nhà tại Huế</h2>
-          <p className="section__subtitle">
+          <h2 className={`section__title ${styles.processSectionTitle}`}>
+            Quy trình phục vụ tận nhà tại Huế
+          </h2>
+          <p className={`section__subtitle ${styles.processSectionSubtitle}`}>
             Đơn giản, nhanh chóng và không làm xáo trộn không gian sống của gia đình bạn
           </p>
 
@@ -202,43 +219,79 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ─── RANH GIỚI NỀN: QUY TRÌNH ➔ NGHIÊN CỨU ─── */}
+      <SectionTransitionDivider id="seam-process-research" variant="dark-to-dark" fillColor="#0B1B1E" />
+
       {/* ═══ 5. RESEARCH SECTION ═══ */}
       <section className={`section ${styles.research}`} id="research">
         <div className="container">
           <div className={styles.researchContent}>
+            {/* THẺ TRÁI: CƠ SỞ KHOA HỌC (HIỆU ỨNG MỜ ĐỤC, KHÔNG DÙNG ẢNH) */}
             <div className={styles.researchVisual}>
-              <span className={styles.researchVisualIcon}>🔬</span>
-              <h3 className={styles.researchVisualTitle}>Cơ sở khoa học vững chắc</h3>
-              <p className={styles.researchVisualText}>
-                Công nghệ hồng ngoại xa bước sóng 5.6-15μm đã được ghi nhận trên nhiều tạp chí y khoa quốc tế uy tín (JASN, Pain Medicine Journal, Canadian Journal of Cardiology).
-              </p>
+              <div>
+                <span className={styles.researchVisualBadge}>🔬 BẢO CHỨNG Y HỌC & KHOA HỌC</span>
+                <h2 className={styles.researchVisualTitle}>Cơ sở khoa học vững chắc</h2>
+                <p className={styles.researchVisualText}>
+                  Công nghệ hồng ngoại xa bước sóng 5.6–15μm đã được ghi nhận trên nhiều tạp chí y khoa quốc tế uy tín (JASN, Pain Medicine Journal, Canadian Journal of Cardiology).
+                </p>
+
+                {/* 4 Chỉ số khoa học nổi bật */}
+                <div className={styles.scienceMetricsGrid}>
+                  {SCIENCE_METRICS.map((metric, idx) => (
+                    <div key={idx} className={styles.metricCard}>
+                      <span className={styles.metricValue}>{metric.value}</span>
+                      <span className={styles.metricLabel}>{metric.label}</span>
+                    </div>
+                  ))}
+                </div>
+
+                {/* 3 Cơ chế sinh học tác động */}
+                <div className={styles.scienceMechanisms}>
+                  {SCIENCE_MECHANISMS.map((mech, idx) => (
+                    <div key={idx} className={styles.mechanismItem}>
+                      <div className={styles.mechanismIcon}>{mech.icon}</div>
+                      <div className={styles.mechanismContent}>
+                        <h4>{mech.title}</h4>
+                        <p>{mech.description}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
 
+            {/* THẺ PHẢI: NGHIÊN CỨU LÂM SÀNG QUỐC TẾ (HIỆU ỨNG MỜ ĐỤC) */}
             <div className={styles.researchText}>
-              <h2 className="section__title">Nghiên cứu lâm sàng quốc tế</h2>
-              <p className="section__subtitle" style={{ textAlign: 'left', margin: 0 }}>
-                Hỗ trợ tăng sinh Nitric Oxide (NO), cải thiện lưu thông máu và hỗ trợ chức năng nội mạc mạch máu ở bệnh nhân suy thận mạn.
-              </p>
+              <div>
+                <span className={styles.researchTextBadge}>📑 NGHIÊN CỨU LÂM SÀNG</span>
+                <h2>Nghiên cứu lâm sàng quốc tế</h2>
+                <p className="section__subtitle" style={{ textAlign: 'left', margin: 0 }}>
+                  Hỗ trợ tăng sinh Nitric Oxide (NO), cải thiện lưu thông máu và hỗ trợ chức năng nội mạc mạch máu ở bệnh nhân suy thận mạn.
+                </p>
 
-              <div className={styles.researchList}>
-                {RESEARCH_HIGHLIGHTS.map((item, index) => (
-                  <div key={index} className={styles.researchItem}>
-                    <div className={styles.researchItemIcon}>{item.icon}</div>
-                    <div className={styles.researchItemContent}>
-                      <h4>{item.title}</h4>
-                      <p>{item.description}</p>
+                <div className={styles.researchList}>
+                  {RESEARCH_HIGHLIGHTS.map((item, index) => (
+                    <div key={index} className={styles.researchItem}>
+                      <div className={styles.researchItemIcon}>{item.icon}</div>
+                      <div className={styles.researchItemContent}>
+                        <h4>{item.title}</h4>
+                        <p>{item.description}</p>
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
 
-              <Button variant="outline" href="/nghien-cuu">
+              <Button variant="outline" href="/nghien-cuu" style={{ marginTop: 'var(--space-md)' }}>
                 Đọc các bài nghiên cứu chi tiết →
               </Button>
             </div>
           </div>
         </div>
       </section>
+
+      {/* ─── RANH GIỚI NỀN: NGHIÊN CỨU ➔ LỜI CHỨNG THỰC ─── */}
+      <SectionTransitionDivider id="seam-research-testimonials" variant="dark-to-cream" fillColor="#FAF8F5" />
 
       {/* ═══ 6. TESTIMONIALS SECTION (Khách hàng nói gì) ═══ */}
       <section className="section" id="testimonials">
@@ -272,6 +325,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* ─── RANH GIỚI NỀN: LỜI CHỨNG THỰC ➔ CTA CUỐI TRANG ─── */}
+      <SectionTransitionDivider id="seam-testimonials-cta" variant="cream-to-green" fillColor="#1B4332" />
 
       {/* ═══ 7. CTA SECTION ═══ */}
       <section className={`section ${styles.cta}`} id="cta">
@@ -391,3 +447,29 @@ const RESEARCH_HIGHLIGHTS = [
     description: 'Tia hồng ngoại 5.6-15μm giảm các cytokine gây viêm, làm dịu đau nhức khớp mạn tính mà không cần dùng thuốc.',
   },
 ];
+
+const SCIENCE_METRICS = [
+  { value: '5.6 – 15 µm', label: 'Quang phổ sinh học' },
+  { value: '3 – 5 cm', label: 'Thẩm thấu mô cơ sâu' },
+  { value: '42° – 50°C', label: 'Nhiệt êm dịu, thoáng đầu' },
+  { value: '100% An toàn', label: 'Không tia cực tím UV' },
+];
+
+const SCIENCE_MECHANISMS = [
+  {
+    icon: '🧬',
+    title: 'Cộng hưởng dao động tế bào',
+    description: 'Tần số bước sóng trùng khớp dao động tự nhiên của phân tử nước trong tế bào, kích hoạt chuyển hóa.',
+  },
+  {
+    icon: '🩸',
+    title: 'Kích thích sinh Nitric Oxide (NO)',
+    description: 'Thúc đẩy enzyme eNOS sản sinh NO nội sinh tự nhiên, làm giãn nở vi mạch máu và tăng tuần hoàn.',
+  },
+  {
+    icon: '🌿',
+    title: 'Thư giãn êm dịu, bảo vệ tim mạch',
+    description: 'Nhiệt bao quanh êm ái từ gỗ tre tự nhiên, không gây cảm giác khó thở ngột ngạt như phòng xông ướt.',
+  },
+];
+
