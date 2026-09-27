@@ -5,15 +5,17 @@
   right: 0;
   width: 100%;
   z-index: 1000;
-  background-color: #FAF8F5;
-  border-bottom: 2.5px solid var(--color-primary);
-  box-shadow: 0 4px 14px rgba(45, 106, 79, 0.1);
+  background: rgba(235, 226, 214, 0.94);
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+  border-bottom: 2.5px solid #A16207;
+  box-shadow: 0 4px 20px rgba(120, 80, 40, 0.12);
   height: var(--header-height);
-  transition: box-shadow var(--transition-base);
+  transition: box-shadow var(--transition-base), background-color var(--transition-base);
 }
 
 .header:hover {
-  box-shadow: 0 6px 20px rgba(45, 106, 79, 0.15);
+  box-shadow: 0 6px 24px rgba(120, 80, 40, 0.18);
 }
 
 .headerInner {
@@ -40,13 +42,13 @@
 .logoIcon {
   width: 42px;
   height: 42px;
-  background: #FFF7ED;
-  border: 1px solid rgba(234, 88, 12, 0.22);
+  background: #FEF3C7;
+  border: 1.5px solid #B45309;
   border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 2px 8px rgba(234, 88, 12, 0.12);
+  box-shadow: 0 2px 10px rgba(180, 83, 9, 0.18);
   padding: 3px;
   flex-shrink: 0;
   transition: transform var(--transition-fast), box-shadow var(--transition-fast);
@@ -54,7 +56,7 @@
 
 .logo:hover .logoIcon {
   transform: scale(1.05);
-  box-shadow: 0 4px 12px rgba(234, 88, 12, 0.2);
+  box-shadow: 0 4px 14px rgba(180, 83, 9, 0.28);
 }
 
 .logoImg {
@@ -72,7 +74,7 @@
   font-family: var(--font-heading);
   font-weight: var(--fw-bold);
   font-size: 1.25rem;
-  color: var(--color-primary-dark);
+  color: #451A03;
   line-height: 1.15;
   letter-spacing: -0.01em;
 }
@@ -80,7 +82,7 @@
 .logoTagline {
   font-size: 0.76rem;
   font-weight: var(--fw-medium);
-  color: var(--color-accent);
+  color: #B45309;
   line-height: 1.2;
 }
 
@@ -94,9 +96,9 @@
 
 .navLink {
   font-family: var(--font-heading);
-  font-weight: var(--fw-medium);
+  font-weight: 600;
   font-size: 0.9375rem;
-  color: var(--color-text-secondary);
+  color: #451A03;
   padding: 8px 12px;
   border-radius: var(--radius-md);
   transition: all var(--transition-fast);
@@ -107,13 +109,14 @@
 
 .navLink:hover,
 .navLink:focus-visible {
-  color: var(--color-primary);
-  background-color: var(--color-primary-50);
+  color: #B45309;
+  background-color: rgba(180, 83, 9, 0.12);
 }
 
 .navLinkActive {
-  color: var(--color-primary);
-  font-weight: var(--fw-semibold);
+  color: #B45309;
+  font-weight: 700;
+  background-color: rgba(180, 83, 9, 0.12);
 }
 
 /* ──── Dropdown ──── */
@@ -197,7 +200,7 @@
   font-family: var(--font-heading);
   font-weight: var(--fw-semibold);
   font-size: var(--fs-small);
-  color: #1B4332;
+  color: #451A03;
   background-color: transparent;
   padding: 6px 12px;
   border: none;
@@ -208,8 +211,8 @@
 }
 
 .ctaCustomerBtn:hover {
-  background-color: rgba(27, 67, 50, 0.08);
-  color: #D4872C;
+  background-color: rgba(180, 83, 9, 0.1);
+  color: #B45309;
   transform: translateY(-1px);
 }
 
@@ -460,9 +463,10 @@
   font-family: var(--font-heading);
   font-weight: var(--fw-semibold);
   font-size: var(--fs-small);
-  color: var(--color-accent);
+  color: #451A03;
   padding: var(--space-xs) var(--space-sm);
-  border: 2px solid var(--color-accent);
+  border: 1.5px solid #B45309;
+  background-color: rgba(180, 83, 9, 0.1);
   border-radius: var(--radius-full);
   text-decoration: none;
   transition: all var(--transition-fast);
@@ -470,8 +474,8 @@
 }
 
 .ctaPhone:hover {
-  background-color: var(--color-accent);
-  color: white;
+  background-color: #B45309;
+  color: #FFFFFF;
 }
 
 .ctaPhoneIcon {
@@ -492,7 +496,7 @@
   display: block;
   width: 24px;
   height: 2px;
-  background-color: var(--color-text);
+  background-color: #451A03;
   border-radius: 2px;
   transition: all var(--transition-base);
 }
@@ -967,3 +971,6 @@
     font-size: 0.62rem;
   }
 }
+
+
+
